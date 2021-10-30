@@ -1,0 +1,52 @@
+cyclomatic_complexity: 12
+file_length: 550
+function_body_length: 80
+function_parameter_count: 8
+line_length: 150
+type_body_length: 300
+excluded:
+  - Pods
+identifier_name:
+  min_length:
+    error: 1
+    warning: 1
+
+opt_in_rules:
+  - anyobject_protocol
+  - attributes
+  - closure_body_length
+  - closure_end_indentation
+  - closure_spacing
+  - collection_alignment
+  - contains_over_first_not_nil
+  - convenience_type
+  - empty_count
+  - empty_string
+  - explicit_init
+  - force_unwrapping
+  - fallthrough
+  - file_name
+  - first_where
+  - function_default_parameter_at_end
+  - identical_operands
+  - implicitly_unwrapped_optional
+  - implicit_return
+  - last_where
+  - legacy_random
+  - modifier_order
+  - multiline_arguments
+  - multiline_function_chains
+  - multiline_parameters
+  - nslocalizedstring_key
+  - operator_usage_whitespace
+  - private_action
+  - private_outlet
+  - reduce_into
+  - strong_iboutlet
+  - type_contents_order
+  - unavailable_function
+  - unneeded_parentheses_in_closure_argument
+  - unused_import
+  - vertical_parameter_alignment_on_call
+  - vertical_whitespace_closing_braces
+  - yoda_condition
