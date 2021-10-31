@@ -10,11 +10,13 @@
 		673C553DBCB152CB90E941B5 /* Pods_Mars_Rover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D90B41442A1036C1D6B9ED /* Pods_Mars_Rover.framework */; };
 		A9219396272DD6330006CE85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9219395272DD6330006CE85 /* AppDelegate.swift */; };
 		A9219398272DD6330006CE85 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A9219397272DD6330006CE85 /* art.scnassets */; };
-		A921939A272DD6330006CE85 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9219399272DD6330006CE85 /* GameViewController.swift */; };
+		A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9219399272DD6330006CE85 /* MainMenuViewController.swift */; };
 		A921939D272DD6330006CE85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A921939B272DD6330006CE85 /* Main.storyboard */; };
 		A921939F272DD6370006CE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A921939E272DD6370006CE85 /* Assets.xcassets */; };
 		A92193A2272DD6370006CE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92193A0272DD6370006CE85 /* LaunchScreen.storyboard */; };
 		A92193A9272DD9180006CE85 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A92193A8272DD9180006CE85 /* GoogleService-Info.plist */; };
+		A923D515272E425200E1DCB3 /* LoginFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923D514272E425200E1DCB3 /* LoginFormViewController.swift */; };
+		A923D519272E452C00E1DCB3 /* ImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923D518272E452C00E1DCB3 /* ImageTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,11 +26,13 @@
 		A9219392272DD6330006CE85 /* Mars Rover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mars Rover.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9219395272DD6330006CE85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9219397272DD6330006CE85 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		A9219399272DD6330006CE85 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		A9219399272DD6330006CE85 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		A921939C272DD6330006CE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A921939E272DD6370006CE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92193A1272DD6370006CE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A92193A8272DD9180006CE85 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A923D514272E425200E1DCB3 /* LoginFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormViewController.swift; sourceTree = "<group>"; };
+		A923D518272E452C00E1DCB3 /* ImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,15 +85,33 @@
 		A9219394272DD6330006CE85 /* Mars Rover */ = {
 			isa = PBXGroup;
 			children = (
+				A923D517272E44CB00E1DCB3 /* Views */,
+				A923D516272E426500E1DCB3 /* ViewControllers */,
 				A92193A8272DD9180006CE85 /* GoogleService-Info.plist */,
 				A9219395272DD6330006CE85 /* AppDelegate.swift */,
 				A9219397272DD6330006CE85 /* art.scnassets */,
-				A9219399272DD6330006CE85 /* GameViewController.swift */,
 				A921939B272DD6330006CE85 /* Main.storyboard */,
 				A921939E272DD6370006CE85 /* Assets.xcassets */,
 				A92193A0272DD6370006CE85 /* LaunchScreen.storyboard */,
 			);
 			path = "Mars Rover";
+			sourceTree = "<group>";
+		};
+		A923D516272E426500E1DCB3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A923D514272E425200E1DCB3 /* LoginFormViewController.swift */,
+				A9219399272DD6330006CE85 /* MainMenuViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A923D517272E44CB00E1DCB3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A923D518272E452C00E1DCB3 /* ImageTextField.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,8 +249,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A921939A272DD6330006CE85 /* GameViewController.swift in Sources */,
+				A923D515272E425200E1DCB3 /* LoginFormViewController.swift in Sources */,
+				A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */,
 				A9219396272DD6330006CE85 /* AppDelegate.swift in Sources */,
+				A923D519272E452C00E1DCB3 /* ImageTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
