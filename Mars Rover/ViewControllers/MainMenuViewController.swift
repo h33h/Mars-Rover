@@ -9,7 +9,7 @@ import UIKit
 import QuartzCore
 import SceneKit
 
-class GameViewController: UIViewController {
+class MainMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
