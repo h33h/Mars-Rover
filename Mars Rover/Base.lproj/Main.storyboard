@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login Form View Controller-->
         <scene sceneID="oBX-Xe-c60">
             <objects>
-                <viewController id="8Cy-wc-TdI" sceneMemberID="viewController">
+                <viewController id="8Cy-wc-TdI" customClass="LoginFormViewController" customModule="Mars_Rover" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hWK-dd-8Dy">
                         <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mars Rover" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igw-Js-bDg">
-                                <rect key="frame" x="52" y="100" width="271.33333333333331" height="63"/>
+                                <rect key="frame" x="52" y="99" width="271.33333333333331" height="63"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="52"/>
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
@@ -30,13 +30,13 @@
                                 <size key="shadowOffset" width="3" height="-1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authorization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41d-Ir-kuN">
-                                <rect key="frame" x="52" y="163" width="102" height="21"/>
+                                <rect key="frame" x="52" y="162" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.9598128131" green="0.35242747610000003" blue="0.042860243460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqH-tK-Jzc">
-                                <rect key="frame" x="52" y="310" width="100" height="40"/>
+                                <rect key="frame" x="52" y="309" width="100" height="40"/>
                                 <color key="backgroundColor" red="0.9598128131" green="0.57136141200000001" blue="0.042860243460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Qsi-bR-S4c"/>
@@ -44,15 +44,18 @@
                                 </constraints>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Log in"/>
+                                <state key="normal" title="Sign in"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginButtonActionWithSender:" destination="8Cy-wc-TdI" eventType="touchUpInside" id="rxI-2g-WYJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyD-ub-7d5">
-                                <rect key="frame" x="424" y="254" width="39" height="34"/>
+                                <rect key="frame" x="424" y="253" width="39" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Rmg-nT-LKO"/>
                                 </constraints>
@@ -61,9 +64,12 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <imageReference key="image" image="arrow.clockwise" catalog="system" symbolScale="default"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="passwordResetButtonActionWithSender:" destination="8Cy-wc-TdI" eventType="touchUpInside" id="OHZ-eu-xol"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aOT-Ud-l6y" customClass="ImageTextField" customModule="Mars_Rover" customModuleProvider="target">
-                                <rect key="frame" x="58" y="204" width="360" height="34"/>
+                                <rect key="frame" x="58" y="203" width="360" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="360" id="1PU-ut-jO2"/>
                                 </constraints>
@@ -76,7 +82,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v0w-oP-Quk" customClass="ImageTextField" customModule="Mars_Rover" customModuleProvider="target">
-                                <rect key="frame" x="58" y="254" width="360" height="34"/>
+                                <rect key="frame" x="58" y="253" width="360" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="360" id="6IJ-C7-S8U"/>
                                 </constraints>
@@ -89,7 +95,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9i-8U-uvI">
-                                <rect key="frame" x="170" y="314.66666666666669" width="140" height="31"/>
+                                <rect key="frame" x="170" y="313.66666666666669" width="140" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="1Os-y8-wkm"/>
                                     <constraint firstAttribute="height" constant="31" id="n2r-NV-mEY"/>
@@ -97,6 +103,9 @@
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Create Account"/>
+                                <connections>
+                                    <action selector="registerButtonActionWithSender:" destination="8Cy-wc-TdI" eventType="touchUpInside" id="mCp-H3-pRu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="phs-qr-wtd"/>
@@ -106,10 +115,11 @@
                             <constraint firstItem="Y9i-8U-uvI" firstAttribute="centerY" secondItem="XqH-tK-Jzc" secondAttribute="centerY" id="0Hl-ep-dYO"/>
                             <constraint firstItem="igw-Js-bDg" firstAttribute="leading" secondItem="hWK-dd-8Dy" secondAttribute="leading" constant="52" id="0qc-HZ-xU5"/>
                             <constraint firstItem="phs-qr-wtd" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="41d-Ir-kuN" secondAttribute="trailing" symbolic="YES" id="3Du-Dq-szz"/>
-                            <constraint firstItem="igw-Js-bDg" firstAttribute="top" secondItem="phs-qr-wtd" secondAttribute="top" constant="100" id="5QQ-vl-0WF"/>
+                            <constraint firstItem="igw-Js-bDg" firstAttribute="top" relation="lessThanOrEqual" secondItem="phs-qr-wtd" secondAttribute="top" constant="100" id="5QQ-vl-0WF"/>
                             <constraint firstItem="v0w-oP-Quk" firstAttribute="leading" secondItem="hWK-dd-8Dy" secondAttribute="leading" constant="58" id="67j-3u-j7o"/>
                             <constraint firstItem="phs-qr-wtd" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jyD-ub-7d5" secondAttribute="trailing" symbolic="YES" id="7iu-Zo-HuP"/>
                             <constraint firstItem="aOT-Ud-l6y" firstAttribute="top" secondItem="41d-Ir-kuN" secondAttribute="bottom" constant="20" id="8dg-mw-LLp"/>
+                            <constraint firstItem="phs-qr-wtd" firstAttribute="bottom" secondItem="XqH-tK-Jzc" secondAttribute="bottom" constant="20" id="BnP-YH-mE3"/>
                             <constraint firstItem="phs-qr-wtd" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="igw-Js-bDg" secondAttribute="trailing" symbolic="YES" id="CXD-vI-X0C"/>
                             <constraint firstItem="jyD-ub-7d5" firstAttribute="leading" secondItem="v0w-oP-Quk" secondAttribute="trailing" constant="6" id="HAX-jd-U7K"/>
                             <constraint firstItem="Y9i-8U-uvI" firstAttribute="leading" secondItem="XqH-tK-Jzc" secondAttribute="trailing" constant="18" id="Ome-PH-hbj"/>
@@ -123,10 +133,155 @@
                             <constraint firstItem="41d-Ir-kuN" firstAttribute="top" secondItem="igw-Js-bDg" secondAttribute="bottom" id="zxI-cU-glz"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="mOK-ei-6q6"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="v0w-oP-Quk" id="yRS-zQ-hdJ"/>
+                        <outlet property="usernameTextField" destination="aOT-Ud-l6y" id="D7M-Pf-cOR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pp4-wK-PaT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743.60189573459718" y="44.615384615384613"/>
+            <point key="canvasLocation" x="-736" y="123"/>
+        </scene>
+        <!--Register Form View Controller-->
+        <scene sceneID="UcA-AH-uBh">
+            <objects>
+                <viewController storyboardIdentifier="registerVC" id="HUu-mQ-Oce" customClass="RegisterFormViewController" customModule="Mars_Rover" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" alpha="0.0" contentMode="scaleToFill" id="XoM-F1-aG6">
+                        <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="UsK-Dk-QJ6">
+                                <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9q8-Cf-3e4">
+                                <rect key="frame" x="52" y="309" width="100" height="40"/>
+                                <color key="backgroundColor" red="0.9598128131" green="0.57136141200000001" blue="0.042860243460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="6Pw-yS-nEG"/>
+                                    <constraint firstAttribute="height" constant="40" id="EDQ-Ol-Sxg"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Register"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginButtonActionWithSender:" destination="8Cy-wc-TdI" eventType="touchUpInside" id="Eea-xw-hko"/>
+                                    <action selector="registerButtonAction:" destination="HUu-mQ-Oce" eventType="touchUpInside" id="0Is-vQ-oMD"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-Mf-OnI" customClass="ImageTextField" customModule="Mars_Rover" customModuleProvider="target">
+                                <rect key="frame" x="58" y="153" width="360" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="ej3-Uo-taL"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="360" id="vQz-3a-3oV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="textFieldImage">
+                                        <imageReference key="value" image="person.fill" catalog="system" symbolScale="default"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0bJ-YF-wb4" customClass="ImageTextField" customModule="Mars_Rover" customModuleProvider="target">
+                                <rect key="frame" x="58" y="203" width="360" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Rko-S6-4xY"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="360" id="jPJ-XY-Bwo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="textFieldImage">
+                                        <imageReference key="value" image="lock.fill" catalog="system" symbolScale="default"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g93-bY-B0X" customClass="ImageTextField" customModule="Mars_Rover" customModuleProvider="target">
+                                <rect key="frame" x="58" y="253" width="360" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="GWu-B7-PGf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="360" id="pjB-UX-TCZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="textFieldImage">
+                                        <imageReference key="value" image="lock.fill" catalog="system" symbolScale="default"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcJ-aL-pLA">
+                                <rect key="frame" x="52" y="112" width="119" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.9598128131" green="0.35242747610000003" blue="0.042860243460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mars Rover" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooR-b7-iQ2">
+                                <rect key="frame" x="52" y="49" width="271.33333333333331" height="63"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="52"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" systemColor="systemPinkColor"/>
+                                <size key="shadowOffset" width="3" height="-1"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g0-L2-7eu">
+                                <rect key="frame" x="763.33333333333337" y="32" width="20.666666666666629" height="20"/>
+                                <color key="tintColor" red="0.9598128131" green="0.57136141200000001" blue="0.042860243460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="arrow.backward.circle.fill" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="HUu-mQ-Oce" eventType="touchUpInside" id="wJ8-Qz-WuT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mqu-ih-Od6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9q8-Cf-3e4" firstAttribute="leading" secondItem="XoM-F1-aG6" secondAttribute="leading" constant="52" id="4nY-AM-43h"/>
+                            <constraint firstItem="mqu-ih-Od6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0bJ-YF-wb4" secondAttribute="trailing" symbolic="YES" id="594-iX-oaR"/>
+                            <constraint firstItem="g93-bY-B0X" firstAttribute="leading" secondItem="XoM-F1-aG6" secondAttribute="leading" constant="58" id="6Cw-me-naw"/>
+                            <constraint firstItem="9q8-Cf-3e4" firstAttribute="bottom" secondItem="mqu-ih-Od6" secondAttribute="bottom" constant="-20" id="8ci-gJ-DmY"/>
+                            <constraint firstItem="9q8-Cf-3e4" firstAttribute="top" secondItem="g93-bY-B0X" secondAttribute="bottom" constant="22" id="9WH-Ne-SZ9"/>
+                            <constraint firstItem="yG6-Mf-OnI" firstAttribute="leading" secondItem="XoM-F1-aG6" secondAttribute="leading" constant="58" id="ALz-m2-9C0"/>
+                            <constraint firstItem="hcJ-aL-pLA" firstAttribute="leading" secondItem="XoM-F1-aG6" secondAttribute="leading" constant="52" id="C4f-Ru-Nib"/>
+                            <constraint firstItem="0bJ-YF-wb4" firstAttribute="leading" secondItem="XoM-F1-aG6" secondAttribute="leading" constant="58" id="Cv7-vj-Wyf"/>
+                            <constraint firstItem="yG6-Mf-OnI" firstAttribute="top" secondItem="hcJ-aL-pLA" secondAttribute="bottom" constant="20" id="D87-aW-M9V"/>
+                            <constraint firstItem="mqu-ih-Od6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="g93-bY-B0X" secondAttribute="trailing" symbolic="YES" id="Ega-hn-ZEy"/>
+                            <constraint firstAttribute="trailing" secondItem="UsK-Dk-QJ6" secondAttribute="trailing" id="FgL-qB-FOz"/>
+                            <constraint firstItem="mqu-ih-Od6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hcJ-aL-pLA" secondAttribute="trailing" symbolic="YES" id="GJf-zs-s9R"/>
+                            <constraint firstItem="0bJ-YF-wb4" firstAttribute="top" secondItem="yG6-Mf-OnI" secondAttribute="bottom" constant="16" id="Gap-dc-KDz"/>
+                            <constraint firstItem="hcJ-aL-pLA" firstAttribute="top" secondItem="ooR-b7-iQ2" secondAttribute="bottom" id="RYe-3y-GIv"/>
+                            <constraint firstItem="UsK-Dk-QJ6" firstAttribute="top" secondItem="XoM-F1-aG6" secondAttribute="top" id="Ym0-9T-cHE"/>
+                            <constraint firstItem="g93-bY-B0X" firstAttribute="top" secondItem="0bJ-YF-wb4" secondAttribute="bottom" constant="16" id="Z1d-xb-S2R"/>
+                            <constraint firstItem="UsK-Dk-QJ6" firstAttribute="leading" secondItem="XoM-F1-aG6" secondAttribute="leading" id="ayk-2l-1AD"/>
+                            <constraint firstItem="ooR-b7-iQ2" firstAttribute="leading" secondItem="XoM-F1-aG6" secondAttribute="leading" constant="52" id="bYC-Le-6TU"/>
+                            <constraint firstItem="mqu-ih-Od6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ooR-b7-iQ2" secondAttribute="trailing" symbolic="YES" id="eOZ-t8-VgE"/>
+                            <constraint firstItem="mqu-ih-Od6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yG6-Mf-OnI" secondAttribute="trailing" symbolic="YES" id="fKQ-5G-eka"/>
+                            <constraint firstItem="mqu-ih-Od6" firstAttribute="trailing" secondItem="3g0-L2-7eu" secondAttribute="trailing" constant="16" id="fSU-o9-d1i"/>
+                            <constraint firstItem="ooR-b7-iQ2" firstAttribute="top" relation="lessThanOrEqual" secondItem="mqu-ih-Od6" secondAttribute="top" constant="70" id="fcS-jR-M9q"/>
+                            <constraint firstItem="mqu-ih-Od6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9q8-Cf-3e4" secondAttribute="trailing" symbolic="YES" id="lyA-s9-6ll"/>
+                            <constraint firstItem="3g0-L2-7eu" firstAttribute="top" secondItem="XoM-F1-aG6" secondAttribute="top" constant="32" id="r98-1z-WDq"/>
+                            <constraint firstAttribute="bottom" secondItem="UsK-Dk-QJ6" secondAttribute="bottom" id="sR6-oM-tBe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="yRA-ni-7Cn"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="0bJ-YF-wb4" id="C42-dc-lBd"/>
+                        <outlet property="reEnterPasswordTextField" destination="g93-bY-B0X" id="cpK-nD-2LM"/>
+                        <outlet property="usernameTextField" destination="yG6-Mf-OnI" id="Y87-QZ-gFO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJI-Qo-1Wc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-724.4075829383886" y="1164.6153846153845"/>
         </scene>
         <!--Main Menu View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -140,18 +295,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16" y="46"/>
+            <point key="canvasLocation" x="767.7725118483412" y="44.615384615384613"/>
         </scene>
     </scenes>
     <designables>
+        <designable name="0bJ-YF-wb4">
+            <size key="intrinsicContentSize" width="140.33333333333334" height="34"/>
+        </designable>
         <designable name="aOT-Ud-l6y">
             <size key="intrinsicContentSize" width="144" height="34"/>
+        </designable>
+        <designable name="g93-bY-B0X">
+            <size key="intrinsicContentSize" width="201" height="34"/>
         </designable>
         <designable name="v0w-oP-Quk">
             <size key="intrinsicContentSize" width="140.33333333333334" height="34"/>
         </designable>
+        <designable name="yG6-Mf-OnI">
+            <size key="intrinsicContentSize" width="144" height="34"/>
+        </designable>
     </designables>
     <resources>
+        <image name="arrow.backward.circle.fill" catalog="system" width="128" height="121"/>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="background" width="958" height="539"/>
         <image name="lock.fill" catalog="system" width="128" height="128"/>
