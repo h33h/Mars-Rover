@@ -17,6 +17,8 @@
 		A92193A9272DD9180006CE85 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A92193A8272DD9180006CE85 /* GoogleService-Info.plist */; };
 		A923D515272E425200E1DCB3 /* LoginFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923D514272E425200E1DCB3 /* LoginFormViewController.swift */; };
 		A923D519272E452C00E1DCB3 /* ImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923D518272E452C00E1DCB3 /* ImageTextField.swift */; };
+		A923D51B272E701900E1DCB3 /* RegisterFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923D51A272E701800E1DCB3 /* RegisterFormViewController.swift */; };
+		A923D51D272E891700E1DCB3 /* FadeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923D51C272E891700E1DCB3 /* FadeAnimationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		A92193A8272DD9180006CE85 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A923D514272E425200E1DCB3 /* LoginFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormViewController.swift; sourceTree = "<group>"; };
 		A923D518272E452C00E1DCB3 /* ImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextField.swift; sourceTree = "<group>"; };
+		A923D51A272E701800E1DCB3 /* RegisterFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFormViewController.swift; sourceTree = "<group>"; };
+		A923D51C272E891700E1DCB3 /* FadeAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 				A921939B272DD6330006CE85 /* Main.storyboard */,
 				A921939E272DD6370006CE85 /* Assets.xcassets */,
 				A92193A0272DD6370006CE85 /* LaunchScreen.storyboard */,
+				A923D51C272E891700E1DCB3 /* FadeAnimationController.swift */,
 			);
 			path = "Mars Rover";
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				A923D514272E425200E1DCB3 /* LoginFormViewController.swift */,
+				A923D51A272E701800E1DCB3 /* RegisterFormViewController.swift */,
 				A9219399272DD6330006CE85 /* MainMenuViewController.swift */,
 			);
 			path = ViewControllers;
@@ -249,8 +255,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A923D51D272E891700E1DCB3 /* FadeAnimationController.swift in Sources */,
 				A923D515272E425200E1DCB3 /* LoginFormViewController.swift in Sources */,
 				A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */,
+				A923D51B272E701900E1DCB3 /* RegisterFormViewController.swift in Sources */,
 				A9219396272DD6330006CE85 /* AppDelegate.swift in Sources */,
 				A923D519272E452C00E1DCB3 /* ImageTextField.swift in Sources */,
 			);
