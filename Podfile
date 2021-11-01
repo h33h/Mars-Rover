@@ -6,6 +6,7 @@ target 'Mars Rover' do
   use_frameworks!
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
+pod 'FirebaseFirestoreSwift', '8.9.0-beta'
 pod 'Firebase/Storage'
 pod 'SwiftLint'
 inhibit_all_warnings!
