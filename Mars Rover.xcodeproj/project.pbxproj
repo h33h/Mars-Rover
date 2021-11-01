@@ -19,6 +19,15 @@
 		A923D519272E452C00E1DCB3 /* ImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923D518272E452C00E1DCB3 /* ImageTextField.swift */; };
 		A923D51B272E701900E1DCB3 /* RegisterFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923D51A272E701800E1DCB3 /* RegisterFormViewController.swift */; };
 		A923D51D272E891700E1DCB3 /* FadeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923D51C272E891700E1DCB3 /* FadeAnimationController.swift */; };
+		A923D520272EB45400E1DCB3 /* LoginFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923D51F272EB45400E1DCB3 /* LoginFormPresenter.swift */; };
+		A923D523272EB52B00E1DCB3 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923D522272EB52B00E1DCB3 /* ProfileModel.swift */; };
+		A923D526272EC19700E1DCB3 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923D525272EC19700E1DCB3 /* FirebaseAuthService.swift */; };
+		A9F453FC272F07F500017E26 /* RegisterFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F453FB272F07F500017E26 /* RegisterFormPresenter.swift */; };
+		A9F453FE272F192200017E26 /* FirebaseLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F453FD272F192200017E26 /* FirebaseLoginService.swift */; };
+		A9F45400272F194900017E26 /* FirebaseRegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F453FF272F194900017E26 /* FirebaseRegisterService.swift */; };
+		A9F45403273016A600017E26 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F45402273016A600017E26 /* UIView.swift */; };
+		A9F4540527301D6A00017E26 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4540427301D6A00017E26 /* UIViewController.swift */; };
+		A9F45407273024BC00017E26 /* MainMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F45406273024BC00017E26 /* MainMenuPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +46,15 @@
 		A923D518272E452C00E1DCB3 /* ImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextField.swift; sourceTree = "<group>"; };
 		A923D51A272E701800E1DCB3 /* RegisterFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFormViewController.swift; sourceTree = "<group>"; };
 		A923D51C272E891700E1DCB3 /* FadeAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimationController.swift; sourceTree = "<group>"; };
+		A923D51F272EB45400E1DCB3 /* LoginFormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormPresenter.swift; sourceTree = "<group>"; };
+		A923D522272EB52B00E1DCB3 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		A923D525272EC19700E1DCB3 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
+		A9F453FB272F07F500017E26 /* RegisterFormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFormPresenter.swift; sourceTree = "<group>"; };
+		A9F453FD272F192200017E26 /* FirebaseLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLoginService.swift; sourceTree = "<group>"; };
+		A9F453FF272F194900017E26 /* FirebaseRegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRegisterService.swift; sourceTree = "<group>"; };
+		A9F45402273016A600017E26 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		A9F4540427301D6A00017E26 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		A9F45406273024BC00017E26 /* MainMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +107,10 @@
 		A9219394272DD6330006CE85 /* Mars Rover */ = {
 			isa = PBXGroup;
 			children = (
+				A9F454012730168B00017E26 /* Extensions */,
+				A923D524272EC17400E1DCB3 /* Service */,
+				A923D521272EB51200E1DCB3 /* Models */,
+				A923D51E272EB43200E1DCB3 /* Presenters */,
 				A923D517272E44CB00E1DCB3 /* Views */,
 				A923D516272E426500E1DCB3 /* ViewControllers */,
 				A92193A8272DD9180006CE85 /* GoogleService-Info.plist */,
@@ -118,6 +140,43 @@
 				A923D518272E452C00E1DCB3 /* ImageTextField.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A923D51E272EB43200E1DCB3 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				A923D51F272EB45400E1DCB3 /* LoginFormPresenter.swift */,
+				A9F453FB272F07F500017E26 /* RegisterFormPresenter.swift */,
+				A9F45406273024BC00017E26 /* MainMenuPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		A923D521272EB51200E1DCB3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A923D522272EB52B00E1DCB3 /* ProfileModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A923D524272EC17400E1DCB3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A923D525272EC19700E1DCB3 /* FirebaseAuthService.swift */,
+				A9F453FD272F192200017E26 /* FirebaseLoginService.swift */,
+				A9F453FF272F194900017E26 /* FirebaseRegisterService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A9F454012730168B00017E26 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A9F45402273016A600017E26 /* UIView.swift */,
+				A9F4540427301D6A00017E26 /* UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,12 +314,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9F4540527301D6A00017E26 /* UIViewController.swift in Sources */,
+				A9F45403273016A600017E26 /* UIView.swift in Sources */,
 				A923D51D272E891700E1DCB3 /* FadeAnimationController.swift in Sources */,
+				A9F453FE272F192200017E26 /* FirebaseLoginService.swift in Sources */,
 				A923D515272E425200E1DCB3 /* LoginFormViewController.swift in Sources */,
+				A9F45400272F194900017E26 /* FirebaseRegisterService.swift in Sources */,
+				A923D520272EB45400E1DCB3 /* LoginFormPresenter.swift in Sources */,
 				A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */,
+				A923D526272EC19700E1DCB3 /* FirebaseAuthService.swift in Sources */,
 				A923D51B272E701900E1DCB3 /* RegisterFormViewController.swift in Sources */,
 				A9219396272DD6330006CE85 /* AppDelegate.swift in Sources */,
+				A9F45407273024BC00017E26 /* MainMenuPresenter.swift in Sources */,
 				A923D519272E452C00E1DCB3 /* ImageTextField.swift in Sources */,
+				A923D523272EB52B00E1DCB3 /* ProfileModel.swift in Sources */,
+				A9F453FC272F07F500017E26 /* RegisterFormPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
