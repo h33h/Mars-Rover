@@ -79,6 +79,9 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signInButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nAM-o2-fMb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A07-td-9Uj">
                                 <rect key="frame" x="192" y="293.5" width="110" height="30"/>
@@ -87,7 +90,15 @@
                                 <state key="normal" title="Create account">
                                     <color key="titleColor" red="0.86940640211105347" green="0.96191900968551636" blue="0.29698503017425537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="createAccountButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SOO-dM-Yfv"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="6da-aE-vIf">
+                                <rect key="frame" x="60" y="20" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -113,6 +124,13 @@
                             <constraint firstItem="Jnn-tD-k8l" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="xQr-Qp-ROY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="6da-aE-vIf" id="ISg-zx-UHB"/>
+                        <outlet property="createAccountButton" destination="A07-td-9Uj" id="8ag-C4-OiV"/>
+                        <outlet property="emailTextField" destination="Jnn-tD-k8l" id="h5b-1u-pld"/>
+                        <outlet property="passwordTextField" destination="mhk-HJ-bg3" id="QV6-zc-i0l"/>
+                        <outlet property="signInButton" destination="jXO-1F-CC2" id="Iaw-3y-GVc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
