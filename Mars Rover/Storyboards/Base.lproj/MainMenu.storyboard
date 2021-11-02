@@ -11,7 +11,7 @@
         <!--Main Menu View Controller-->
         <scene sceneID="Mvc-lB-2qX">
             <objects>
-                <viewController id="89v-Tv-a69" customClass="MainMenuViewController" customModule="Mars_Rover" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainMenu" id="89v-Tv-a69" customClass="MainMenuViewController" customModule="Mars_Rover" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Ed-gM-kYm">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
