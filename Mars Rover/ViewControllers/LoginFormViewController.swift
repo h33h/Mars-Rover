@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginFormViewController: UIViewController {
-    
+
     // MARK: - LoginFormViewController: Variables
     private var presenter: LoginFormPresenter?
 
