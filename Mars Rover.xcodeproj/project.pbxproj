@@ -14,6 +14,8 @@
 		A921939F272DD6370006CE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A921939E272DD6370006CE85 /* Assets.xcassets */; };
 		A92193A2272DD6370006CE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92193A0272DD6370006CE85 /* LaunchScreen.storyboard */; };
 		A92193A9272DD9180006CE85 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A92193A8272DD9180006CE85 /* GoogleService-Info.plist */; };
+		A9F4540D2731655100017E26 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F4540C2731655100017E26 /* Auth.storyboard */; };
+		A9F4540F273165D400017E26 /* LoginFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4540E273165D400017E26 /* LoginFormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		A921939E272DD6370006CE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92193A1272DD6370006CE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A92193A8272DD9180006CE85 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9F4540C2731655100017E26 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		A9F4540E273165D400017E26 /* LoginFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				A9219399272DD6330006CE85 /* MainMenuViewController.swift */,
+				A9F4540E273165D400017E26 /* LoginFormViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 			children = (
 				A92193A0272DD6370006CE85 /* LaunchScreen.storyboard */,
 				A921939B272DD6330006CE85 /* MainMenu.storyboard */,
+				A9F4540C2731655100017E26 /* Auth.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -168,6 +174,7 @@
 			files = (
 				A92193A2272DD6370006CE85 /* LaunchScreen.storyboard in Resources */,
 				A92193A9272DD9180006CE85 /* GoogleService-Info.plist in Resources */,
+				A9F4540D2731655100017E26 /* Auth.storyboard in Resources */,
 				A921939F272DD6370006CE85 /* Assets.xcassets in Resources */,
 				A921939D272DD6330006CE85 /* MainMenu.storyboard in Resources */,
 			);
@@ -239,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9F4540F273165D400017E26 /* LoginFormViewController.swift in Sources */,
 				A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */,
 				A9219396272DD6330006CE85 /* AppDelegate.swift in Sources */,
 			);
