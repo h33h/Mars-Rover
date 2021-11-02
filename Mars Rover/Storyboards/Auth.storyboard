@@ -15,18 +15,54 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marsBackground" translatesAutoresizingMaskIntoConstraints="NO" id="T9i-cP-3p2">
+                                <rect key="frame" x="-40" y="-40" width="976" height="494"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mars Rover" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NoH-GS-4bg">
+                                <rect key="frame" x="60" y="64" width="333" height="72.5"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="60"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" systemColor="systemPinkColor"/>
+                                <size key="shadowOffset" width="4" height="-3"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authorization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmA-BW-Urw">
+                                <rect key="frame" x="60" y="140.5" width="147" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <color key="textColor" red="0.9598128131" green="0.57136141200000001" blue="0.042860243460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="T9i-cP-3p2" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="-40" id="D65-Cb-DMd"/>
+                            <constraint firstAttribute="trailing" secondItem="T9i-cP-3p2" secondAttribute="trailing" constant="-40" id="Gds-wk-buo"/>
+                            <constraint firstAttribute="bottom" secondItem="T9i-cP-3p2" secondAttribute="bottom" constant="-40" id="S8g-NZ-qdE"/>
+                            <constraint firstItem="NoH-GS-4bg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="64" id="bkR-bh-OqC"/>
+                            <constraint firstItem="gmA-BW-Urw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="iQK-Gy-trw"/>
+                            <constraint firstItem="T9i-cP-3p2" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="-40" id="iZa-dG-2v7"/>
+                            <constraint firstItem="gmA-BW-Urw" firstAttribute="top" secondItem="NoH-GS-4bg" secondAttribute="bottom" constant="4" id="ksh-XJ-Ycp"/>
+                            <constraint firstItem="NoH-GS-4bg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="upL-qV-YNx"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-265" y="-100"/>
+            <point key="canvasLocation" x="-265.17857142857144" y="-100.00000000000001"/>
         </scene>
     </scenes>
     <resources>
+        <image name="marsBackground" width="1920" height="1080"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
