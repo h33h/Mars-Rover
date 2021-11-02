@@ -55,19 +55,19 @@ class AuthorizationTextField: UITextField {
     /// Required init methods
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        // Call of setupView func than described in extension
+        // call of setupView func than described in extension
         setupView()
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        // Call of setupView func than described in extension
+        // call of setupView func than described in extension
         setupView()
     }
 }
 
 extension AuthorizationTextField {
     // MARK: - AuthorizationTextField: Methods
-    // Called from init methods
+    // called from init methods
     private func setupView() {
         // leftSideImageView setup
         leftSideImageView.contentMode = .center
