@@ -17,6 +17,7 @@
 		A9F4540D2731655100017E26 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F4540C2731655100017E26 /* Auth.storyboard */; };
 		A9F4540F273165D400017E26 /* LoginFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4540E273165D400017E26 /* LoginFormViewController.swift */; };
 		A9F4541227316E5100017E26 /* AuthorizationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4541127316E5100017E26 /* AuthorizationTextField.swift */; };
+		A9F45415273191B500017E26 /* LoginFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F45414273191B500017E26 /* LoginFormPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		A9F4540C2731655100017E26 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		A9F4540E273165D400017E26 /* LoginFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormViewController.swift; sourceTree = "<group>"; };
 		A9F4541127316E5100017E26 /* AuthorizationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTextField.swift; sourceTree = "<group>"; };
+		A9F45414273191B500017E26 /* LoginFormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		A9219394272DD6330006CE85 /* Mars Rover */ = {
 			isa = PBXGroup;
 			children = (
+				A9F454132731918800017E26 /* Presenters */,
 				A9F4540B27315A7500017E26 /* Storyboards */,
 				A9F4540A27315A6A00017E26 /* ViewControllers */,
 				A9F4541027316DFB00017E26 /* Views */,
@@ -120,6 +123,14 @@
 				A9F4541127316E5100017E26 /* AuthorizationTextField.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A9F454132731918800017E26 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				A9F45414273191B500017E26 /* LoginFormPresenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9F45415273191B500017E26 /* LoginFormPresenter.swift in Sources */,
 				A9F4540F273165D400017E26 /* LoginFormViewController.swift in Sources */,
 				A9F4541227316E5100017E26 /* AuthorizationTextField.swift in Sources */,
 				A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */,
