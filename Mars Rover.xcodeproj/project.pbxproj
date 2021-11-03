@@ -14,10 +14,16 @@
 		A921939F272DD6370006CE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A921939E272DD6370006CE85 /* Assets.xcassets */; };
 		A92193A2272DD6370006CE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92193A0272DD6370006CE85 /* LaunchScreen.storyboard */; };
 		A92193A9272DD9180006CE85 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A92193A8272DD9180006CE85 /* GoogleService-Info.plist */; };
+		A93A9F8B2732E3DC00376332 /* FirebaseSignInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F8A2732E3DC00376332 /* FirebaseSignInService.swift */; };
+		A93A9F8D2732EC0300376332 /* FirebaseProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F8C2732EC0300376332 /* FirebaseProfileService.swift */; };
+		A93A9F902732EFB800376332 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F8F2732EFB800376332 /* ProfileModel.swift */; };
+		A93A9F922732F3C100376332 /* FirebaseSignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F912732F3C100376332 /* FirebaseSignUpService.swift */; };
+		A93A9F942732FBD200376332 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F932732FBD200376332 /* FirebaseAuthService.swift */; };
+		A93A9F972733063A00376332 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F962733063A00376332 /* UIViewController+Extensions.swift */; };
 		A9F4540D2731655100017E26 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F4540C2731655100017E26 /* Auth.storyboard */; };
-		A9F4540F273165D400017E26 /* LoginFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4540E273165D400017E26 /* LoginFormViewController.swift */; };
+		A9F4540F273165D400017E26 /* SignInFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4540E273165D400017E26 /* SignInFormViewController.swift */; };
 		A9F4541227316E5100017E26 /* AuthorizationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4541127316E5100017E26 /* AuthorizationTextField.swift */; };
-		A9F45415273191B500017E26 /* LoginFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F45414273191B500017E26 /* LoginFormPresenter.swift */; };
+		A9F45415273191B500017E26 /* SignInFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F45414273191B500017E26 /* SignInFormPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,10 +37,16 @@
 		A921939E272DD6370006CE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92193A1272DD6370006CE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A92193A8272DD9180006CE85 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A93A9F8A2732E3DC00376332 /* FirebaseSignInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignInService.swift; sourceTree = "<group>"; };
+		A93A9F8C2732EC0300376332 /* FirebaseProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProfileService.swift; sourceTree = "<group>"; };
+		A93A9F8F2732EFB800376332 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		A93A9F912732F3C100376332 /* FirebaseSignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignUpService.swift; sourceTree = "<group>"; };
+		A93A9F932732FBD200376332 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
+		A93A9F962733063A00376332 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		A9F4540C2731655100017E26 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
-		A9F4540E273165D400017E26 /* LoginFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormViewController.swift; sourceTree = "<group>"; };
+		A9F4540E273165D400017E26 /* SignInFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormViewController.swift; sourceTree = "<group>"; };
 		A9F4541127316E5100017E26 /* AuthorizationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTextField.swift; sourceTree = "<group>"; };
-		A9F45414273191B500017E26 /* LoginFormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormPresenter.swift; sourceTree = "<group>"; };
+		A9F45414273191B500017E26 /* SignInFormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +99,9 @@
 		A9219394272DD6330006CE85 /* Mars Rover */ = {
 			isa = PBXGroup;
 			children = (
+				A93A9F95273305D000376332 /* Extensions */,
+				A93A9F8E2732EFA800376332 /* Model */,
+				A93A9F892732E39F00376332 /* Service */,
 				A9F454132731918800017E26 /* Presenters */,
 				A9F4540B27315A7500017E26 /* Storyboards */,
 				A9F4540A27315A6A00017E26 /* ViewControllers */,
@@ -98,11 +113,38 @@
 			path = "Mars Rover";
 			sourceTree = "<group>";
 		};
+		A93A9F892732E39F00376332 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A93A9F8A2732E3DC00376332 /* FirebaseSignInService.swift */,
+				A93A9F912732F3C100376332 /* FirebaseSignUpService.swift */,
+				A93A9F8C2732EC0300376332 /* FirebaseProfileService.swift */,
+				A93A9F932732FBD200376332 /* FirebaseAuthService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A93A9F8E2732EFA800376332 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A93A9F8F2732EFB800376332 /* ProfileModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A93A9F95273305D000376332 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A93A9F962733063A00376332 /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A9F4540A27315A6A00017E26 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				A9219399272DD6330006CE85 /* MainMenuViewController.swift */,
-				A9F4540E273165D400017E26 /* LoginFormViewController.swift */,
+				A9F4540E273165D400017E26 /* SignInFormViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -128,7 +170,7 @@
 		A9F454132731918800017E26 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				A9F45414273191B500017E26 /* LoginFormPresenter.swift */,
+				A9F45414273191B500017E26 /* SignInFormPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -268,11 +310,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9F45415273191B500017E26 /* LoginFormPresenter.swift in Sources */,
-				A9F4540F273165D400017E26 /* LoginFormViewController.swift in Sources */,
+				A93A9F942732FBD200376332 /* FirebaseAuthService.swift in Sources */,
+				A9F45415273191B500017E26 /* SignInFormPresenter.swift in Sources */,
+				A9F4540F273165D400017E26 /* SignInFormViewController.swift in Sources */,
+				A93A9F922732F3C100376332 /* FirebaseSignUpService.swift in Sources */,
+				A93A9F8B2732E3DC00376332 /* FirebaseSignInService.swift in Sources */,
 				A9F4541227316E5100017E26 /* AuthorizationTextField.swift in Sources */,
+				A93A9F972733063A00376332 /* UIViewController+Extensions.swift in Sources */,
 				A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */,
+				A93A9F902732EFB800376332 /* ProfileModel.swift in Sources */,
 				A9219396272DD6330006CE85 /* AppDelegate.swift in Sources */,
+				A93A9F8D2732EC0300376332 /* FirebaseProfileService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
