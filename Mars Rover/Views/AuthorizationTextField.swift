@@ -7,14 +7,13 @@
 
 import UIKit
 
-/// IBDesignable for realtime view update in InterfaceBuilder
+// IBDesignable for realtime view update in InterfaceBuilder
 @IBDesignable
 class AuthorizationTextField: UITextField {
 
     // MARK: - AuthorizationTextField: Variables
     // insetsWithMargin variable is used to change textfield insets depending of other views
     private var insetsWithMargin = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
-    // leftSideImageView contains image view which placed on the left side of textfield
     private var leftSideImageView = UIImageView()
     // if leftSideImageView not have image isleftSideImageisHidden will be false
     private var isleftSideImageisHidden: Bool = true {
@@ -24,7 +23,7 @@ class AuthorizationTextField: UITextField {
     }
 
     // MARK: - AuthorizationTextField: Inspectable Variables
-    /// IBInspectable for realtime update of values in InterfaceBuilder
+    // IBInspectable for realtime update of values in InterfaceBuilder
     // leftSideImage for set image to leftSideImageView
     @IBInspectable var leftSideImage: UIImage? {
         didSet {
@@ -40,11 +39,13 @@ class AuthorizationTextField: UITextField {
             insetsWithMargin = UIEdgeInsets(top: 0, left: bounds.height + 8 + 6, bottom: 0, right: 6)
         }
     }
+
     @IBInspectable var leftSideImageTintColor: UIColor = .black {
         didSet {
             leftSideImageView.tintColor = leftSideImageTintColor
         }
     }
+
     @IBInspectable var leftSideImageBackgroundColor: UIColor = .white {
         didSet {
             leftSideImageView.backgroundColor = leftSideImageBackgroundColor
@@ -52,20 +53,23 @@ class AuthorizationTextField: UITextField {
     }
 
     // MARK: - AuthorizationTextField: Init methods
-    /// Required init methods
+    // Required init methods
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         // call of setupView func than described in extension
         setupView()
     }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         // call of setupView func than described in extension
         setupView()
     }
+
 }
 
 extension AuthorizationTextField {
+
     // MARK: - AuthorizationTextField: Methods
     // called from init methods
     private func setupView() {
@@ -79,14 +83,18 @@ extension AuthorizationTextField {
         leftSideImageView.isHidden = isleftSideImageisHidden
         addSubview(leftSideImageView)
     }
+
 }
 
 extension AuthorizationTextField {
+
     // MARK: - AuthorizationTextField: Override Methods
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         bounds.inset(by: insetsWithMargin)
     }
+
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         bounds.inset(by: insetsWithMargin)
     }
+
 }
