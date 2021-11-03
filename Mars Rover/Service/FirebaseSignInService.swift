@@ -26,13 +26,15 @@ public enum SignInError {
 
     case notVerifiedEmail
 
+    case notSignedIn
+
     case unknownError
 
 }
 
 typealias SignInCompletion = (Bool, SignInError?) -> Void
 
-class FirebaseSignInService {
+final class FirebaseSignInService {
 
     // MARK: - FirebaseSignInService: Variables
     private var authListener: AuthStateDidChangeListenerHandle?
@@ -61,7 +63,7 @@ class FirebaseSignInService {
     public func checkSignIn(completion: @escaping SignInCompletion) {
         authListener = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             guard let strongSelf = self else { return completion(false, .unknownError) }
-            guard let user = user else { return completion(false, .absentOfUser) }
+            guard let user = user else { return completion(false, .notSignedIn) }
             guard user.isEmailVerified else {
                 do {
                     try strongSelf.auth.signOut()
