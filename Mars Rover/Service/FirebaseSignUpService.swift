@@ -28,7 +28,7 @@ enum SignUpError {
 
 typealias SignUpCompletion = (Bool?, SignUpError?) -> Void
 
-class FirebaseSignUpService {
+final class FirebaseSignUpService {
 
     // MARK: - FirebaseSignUpService: Variables
     private let auth = Auth.auth()
