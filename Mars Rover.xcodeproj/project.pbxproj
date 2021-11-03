@@ -14,6 +14,10 @@
 		A921939F272DD6370006CE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A921939E272DD6370006CE85 /* Assets.xcassets */; };
 		A92193A2272DD6370006CE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92193A0272DD6370006CE85 /* LaunchScreen.storyboard */; };
 		A92193A9272DD9180006CE85 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A92193A8272DD9180006CE85 /* GoogleService-Info.plist */; };
+		A9F4540D2731655100017E26 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F4540C2731655100017E26 /* Auth.storyboard */; };
+		A9F4540F273165D400017E26 /* LoginFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4540E273165D400017E26 /* LoginFormViewController.swift */; };
+		A9F4541227316E5100017E26 /* AuthorizationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4541127316E5100017E26 /* AuthorizationTextField.swift */; };
+		A9F45415273191B500017E26 /* LoginFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F45414273191B500017E26 /* LoginFormPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		A921939E272DD6370006CE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92193A1272DD6370006CE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A92193A8272DD9180006CE85 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9F4540C2731655100017E26 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		A9F4540E273165D400017E26 /* LoginFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormViewController.swift; sourceTree = "<group>"; };
+		A9F4541127316E5100017E26 /* AuthorizationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTextField.swift; sourceTree = "<group>"; };
+		A9F45414273191B500017E26 /* LoginFormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +87,10 @@
 		A9219394272DD6330006CE85 /* Mars Rover */ = {
 			isa = PBXGroup;
 			children = (
+				A9F454132731918800017E26 /* Presenters */,
 				A9F4540B27315A7500017E26 /* Storyboards */,
 				A9F4540A27315A6A00017E26 /* ViewControllers */,
+				A9F4541027316DFB00017E26 /* Views */,
 				A9219395272DD6330006CE85 /* AppDelegate.swift */,
 				A921939E272DD6370006CE85 /* Assets.xcassets */,
 				A92193A8272DD9180006CE85 /* GoogleService-Info.plist */,
@@ -92,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				A9219399272DD6330006CE85 /* MainMenuViewController.swift */,
+				A9F4540E273165D400017E26 /* LoginFormViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -101,8 +112,25 @@
 			children = (
 				A92193A0272DD6370006CE85 /* LaunchScreen.storyboard */,
 				A921939B272DD6330006CE85 /* MainMenu.storyboard */,
+				A9F4540C2731655100017E26 /* Auth.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A9F4541027316DFB00017E26 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A9F4541127316E5100017E26 /* AuthorizationTextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A9F454132731918800017E26 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				A9F45414273191B500017E26 /* LoginFormPresenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +196,7 @@
 			files = (
 				A92193A2272DD6370006CE85 /* LaunchScreen.storyboard in Resources */,
 				A92193A9272DD9180006CE85 /* GoogleService-Info.plist in Resources */,
+				A9F4540D2731655100017E26 /* Auth.storyboard in Resources */,
 				A921939F272DD6370006CE85 /* Assets.xcassets in Resources */,
 				A921939D272DD6330006CE85 /* MainMenu.storyboard in Resources */,
 			);
@@ -239,6 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9F45415273191B500017E26 /* LoginFormPresenter.swift in Sources */,
+				A9F4540F273165D400017E26 /* LoginFormViewController.swift in Sources */,
+				A9F4541227316E5100017E26 /* AuthorizationTextField.swift in Sources */,
 				A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */,
 				A9219396272DD6330006CE85 /* AppDelegate.swift in Sources */,
 			);
@@ -394,7 +426,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = MainMenu;
+				INFOPLIST_KEY_UIMainStoryboardFile = Auth;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -424,7 +456,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = MainMenu;
+				INFOPLIST_KEY_UIMainStoryboardFile = Auth;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
