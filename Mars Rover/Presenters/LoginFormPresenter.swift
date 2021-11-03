@@ -21,12 +21,15 @@ class LoginFormPresenter {
 }
 
 extension LoginFormPresenter {
+
     // MARK: - LoginFormPresenter: Methods
-    // Delegate setter method
     func setDelegate(delegate: LoginFormPresenterDelegate) {
         self.delegate = delegate
     }
+
     // Login function will call some sign In methods from service
     func login() {
+        // TODO: login func
     }
+
 }
