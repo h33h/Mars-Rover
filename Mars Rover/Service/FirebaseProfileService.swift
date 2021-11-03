@@ -21,7 +21,7 @@ public enum ProfileError {
 typealias ProfileCompletion = (ProfileModel?, ProfileError?) -> Void
 typealias RWProfileCompletion = (Bool, ProfileError?) -> Void
 
-class FirebaseProfileService {
+final class FirebaseProfileService {
 
     // MARK: - FirebaseProfileService: Variables
     private var db = Firestore.firestore()
