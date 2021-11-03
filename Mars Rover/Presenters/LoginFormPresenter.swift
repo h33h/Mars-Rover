@@ -11,13 +11,16 @@ protocol LoginFormPresenterDelegate: AnyObject {
 
     // MARK: - LoginFormPresenterDelegate: Delegate Methods
     func successfullLogin()
+
     func failureLogin(error: String)
+
 }
 
 class LoginFormPresenter {
 
     // MARK: - LoginFormPresenter: Variables
     private weak var delegate: LoginFormPresenterDelegate?
+
 }
 
 extension LoginFormPresenter {
