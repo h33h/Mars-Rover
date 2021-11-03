@@ -74,11 +74,12 @@ extension AuthorizationTextField {
     // called from init methods
     private func setupView() {
         // leftSideImageView setup
+        let margin: CGFloat = 16
         leftSideImageView.contentMode = .center
-        leftSideImageView.frame = CGRect(x: -8,
-                                         y: -8,
-                                         width: bounds.height + 16,
-                                         height: bounds.height + 16)
+        leftSideImageView.frame = CGRect(x: -margin / 2,
+                                         y: -margin / 2,
+                                         width: bounds.height + margin,
+                                         height: bounds.height + margin)
         leftSideImageView.layer.cornerRadius = leftSideImageView.bounds.width / 2
         leftSideImageView.isHidden = isleftSideImageisHidden
         addSubview(leftSideImageView)
