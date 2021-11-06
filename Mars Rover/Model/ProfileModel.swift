@@ -8,8 +8,6 @@
 import Foundation
 
 struct ProfileModel: Codable {
-
-    // MARK: - ProfileModel: Variables
+  // MARK: - ProfileModel: Variables
     var username: String
-
 }

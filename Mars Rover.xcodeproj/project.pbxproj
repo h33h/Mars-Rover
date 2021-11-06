@@ -183,11 +183,11 @@
 			buildConfigurationList = A92193A5272DD6370006CE85 /* Build configuration list for PBXNativeTarget "Mars Rover" */;
 			buildPhases = (
 				F41E98B14864FDD6DAA4626F /* [CP] Check Pods Manifest.lock */,
+				A92193AA272DE0990006CE85 /* ShellScript */,
 				A921938E272DD6330006CE85 /* Sources */,
 				A921938F272DD6330006CE85 /* Frameworks */,
 				A9219390272DD6330006CE85 /* Resources */,
 				A56F1641478AE0A2C995AC41 /* [CP] Embed Pods Frameworks */,
-				A92193AA272DE0990006CE85 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -279,7 +279,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "PATH=/opt/homebrew/bin:$PATH\nif [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
 		};
 		F41E98B14864FDD6DAA4626F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
