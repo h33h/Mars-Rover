@@ -9,7 +9,7 @@ import UIKit
 
 class SignInFormViewController: UIViewController {
   // MARK: - SignInFormViewController: Variables
-    private var presenter: SignInFormPresenter?
+    private var viewModel = SignInFormViewModel()
 
   // MARK: - SignInFormViewController: IBOutlet Variables
     @IBOutlet private var emailTextField: AuthorizationTextField!
@@ -21,18 +21,23 @@ class SignInFormViewController: UIViewController {
   // MARK: - SignInFormViewController: Life Cycle Methods
     override func viewDidLoad() {
       super.viewDidLoad()
-
       emailTextField.delegate = self
       passwordTextField.delegate = self
-      presenter = SignInFormPresenter()
-      presenter?.setDelegate(delegate: self)
+      viewModel.isSignedIn.bind { [weak self] isSigned in
+        if isSigned {
+          self?.successfullSignIn()
+        }
+      }
+      viewModel.signInError.bind { [weak self] error in
+        self?.failureSignIn(error: error)
+      }
     }
 
     override func viewDidAppear(_ animated: Bool) {
       super.viewDidAppear(animated)
 
       // when view appear check for login status
-      presenter?.signIn(signInType: .checkSignIn)
+      viewModel.signIn(signInType: .checkSignIn)
       setElementsDisabled(value: true)
     }
 
@@ -49,7 +54,7 @@ class SignInFormViewController: UIViewController {
         )
         return
       }
-      presenter?.signIn(signInType: .emailAndPassword(email: email, password: password))
+      viewModel.signIn(signInType: .emailAndPassword(email: email, password: password))
       setElementsDisabled(value: true)
     }
 
@@ -67,7 +72,7 @@ class SignInFormViewController: UIViewController {
       }
 }
 
-extension SignInFormViewController: SignInFormPresenterDelegate {
+extension SignInFormViewController {
   // MARK: - SignInFormViewController: SignInFormPresenterDelegate Methods
     func successfullSignIn() {
       // storyboard that contains MainMenuViewController
