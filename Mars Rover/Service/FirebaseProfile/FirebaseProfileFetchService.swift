@@ -6,23 +6,30 @@
 //
 
 import Foundation
+import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-public enum ProfileError {
+public enum ProfileFetchError {
   // MARK: - Enum with Profile error types
     case error(error: String)
 
     case profileNotExist
+
+    case notSignedIn
 }
 
-typealias ProfileCompletion = (ProfileModel?, ProfileError?) -> Void
-typealias RWProfileCompletion = (Bool, ProfileError?) -> Void
+typealias ProfileCompletion = (ProfileModel?, ProfileFetchError?) -> Void
 
-final class FirebaseProfileService {
+protocol ProfileFetchProtocol {
+  func fetch(completion: @escaping ProfileCompletion)
+}
+
+final class FirebaseProfileFetchService: ProfileFetchProtocol {
   // MARK: - FirebaseProfileService: Methods
-    public func fetchProfileFromFirestore(uid: String, completion: @escaping ProfileCompletion) {
-      let userRef = Firestore.firestore().collection("users").document(uid)
+    public func fetch(completion: @escaping ProfileCompletion) {
+      guard let user = Auth.auth().currentUser else { return completion(nil, .notSignedIn) }
+      let userRef = Firestore.firestore().collection("users").document(user.uid)
       userRef.getDocument { document, error in
         let result = Result {
           try document?.data(as: ProfileModel.self)
@@ -37,19 +44,6 @@ final class FirebaseProfileService {
         case .failure(let error):
           return completion(nil, .error(error: error.localizedDescription))
         }
-      }
-    }
-
-    public func setupNewProfile(uid: String, completion: @escaping RWProfileCompletion) {
-      Firestore.firestore().collection("users").document(uid).setData(
-        [
-          "username": "Player"
-        ]
-      ) { error in
-        if let error = error {
-          return completion(false, .error(error: error.localizedDescription))
-        }
-        return completion(true, nil)
       }
     }
 }

@@ -22,7 +22,7 @@ enum SignUpError {
     case absentOfUser
 }
 
-typealias SignUpCompletion = (Bool?, SignUpError?) -> Void
+typealias SignUpCompletion = (Bool, SignUpError?) -> Void
 
 protocol SignUpProtocol {
   func signUp(with type: SignUpType, completion: @escaping SignUpCompletion)
