@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInFormViewController: UIViewController {
+class SignInFormViewController: UIViewController, Storyboarded {
   // MARK: - SignInFormViewController: Variables
     private var viewModel = SignInFormViewModel()
 
@@ -76,11 +76,9 @@ extension SignInFormViewController {
   // MARK: - SignInFormViewController: SignInFormPresenterDelegate Methods
     func successfullSignIn() {
       // storyboard that contains MainMenuViewController
-        let mainMenuStoryboard = UIStoryboard(name: "MainMenu", bundle: nil)
-        guard let mainMenuVC = mainMenuStoryboard.instantiateViewController(withIdentifier: "MainMenu")
-          as? MainMenuViewController
+      setElementsDisabled(value: false)
+      guard let mainMenuVC = MainMenuViewController.instantiate(from: "MainMenu")
         else { return }
-        setElementsDisabled(value: false)
         present(mainMenuVC, animated: true, completion: nil)
     }
 

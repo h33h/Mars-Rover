@@ -9,7 +9,10 @@ import Foundation
 
 class SignInFormViewModel {
   // MARK: - SignInFormPresenter: Variables
-    private var authService = FirebaseAuthService()
+    private var authService = FirebaseAuthService(
+      signInService: FirebaseSignInService(),
+      signUpService: FirebaseSignUpService()
+    )
     var signInError = Box("")
     var isSignedIn = Box(false)
 
@@ -17,7 +20,7 @@ class SignInFormViewModel {
   // MARK: - SignInFormPresenter: Methods
   // SignIn function will call some sign In methods from service
     func signIn(signInType: SignInType) {
-      authService.signIn(signInType: signInType) { [weak self] isSignedIn, error in
+      authService.signInService.signIn(with: signInType) { [weak self] isSignedIn, error in
         guard let strongSelf = self else { return }
           if let error = error {
             switch error {

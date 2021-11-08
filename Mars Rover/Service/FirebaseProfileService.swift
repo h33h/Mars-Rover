@@ -20,12 +20,9 @@ typealias ProfileCompletion = (ProfileModel?, ProfileError?) -> Void
 typealias RWProfileCompletion = (Bool, ProfileError?) -> Void
 
 final class FirebaseProfileService {
-  // MARK: - FirebaseProfileService: Variables
-    private var database = Firestore.firestore()
-
   // MARK: - FirebaseProfileService: Methods
     public func fetchProfileFromFirestore(uid: String, completion: @escaping ProfileCompletion) {
-      let userRef = database.collection("users").document(uid)
+      let userRef = Firestore.firestore().collection("users").document(uid)
       userRef.getDocument { document, error in
         let result = Result {
           try document?.data(as: ProfileModel.self)
@@ -44,7 +41,7 @@ final class FirebaseProfileService {
     }
 
     public func setupNewProfile(uid: String, completion: @escaping RWProfileCompletion) {
-      database.collection("users").document(uid).setData(
+      Firestore.firestore().collection("users").document(uid).setData(
         [
           "username": "Player"
         ]

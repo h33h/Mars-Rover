@@ -30,22 +30,33 @@ public enum SignInError {
 
 typealias SignInCompletion = (Bool, SignInError?) -> Void
 
-final class FirebaseSignInService {
+protocol SignInProtocol {
+  func signIn(with type: SignInType, completion: @escaping SignInCompletion)
+}
+
+final class FirebaseSignInService: SignInProtocol {
   // MARK: - FirebaseSignInService: Variables
     private var authListener: AuthStateDidChangeListenerHandle?
-    private let auth = Auth.auth()
 
   // MARK: - FirebaseSignInService: SignIn Methods
-    public func signInWithPassword(email: String, password: String, completion: @escaping SignInCompletion) {
-      auth.signIn(withEmail: email, password: password) { [weak self] data, error in
-        guard let strongSelf = self else { return completion(false, .unknownError) }
+    public func signIn(with type: SignInType, completion: @escaping SignInCompletion) {
+      switch type {
+      case let .emailAndPassword(email, password):
+        signInWithPassword(email: email, password: password, completion: completion)
+      case .checkSignIn:
+        checkSignIn(completion: completion)
+      }
+    }
+
+    private func signInWithPassword(email: String, password: String, completion: @escaping SignInCompletion) {
+      Auth.auth().signIn(withEmail: email, password: password) { data, error in
         if let error = error {
           return completion(false, .error(error: error.localizedDescription))
         }
         guard let user = data?.user else { return completion(false, .absentOfUser) }
         guard user.isEmailVerified else {
           do {
-            try strongSelf.auth.signOut()
+            try Auth.auth().signOut()
             return completion(false, .notVerifiedEmail)
           } catch {
             return completion(false, .error(error: error.localizedDescription))
@@ -55,13 +66,12 @@ final class FirebaseSignInService {
       }
     }
 
-    public func checkSignIn(completion: @escaping SignInCompletion) {
-      authListener = Auth.auth().addStateDidChangeListener { [weak self] _, user in
-        guard let strongSelf = self else { return completion(false, .unknownError) }
+    private func checkSignIn(completion: @escaping SignInCompletion) {
+      authListener = Auth.auth().addStateDidChangeListener { _, user in
         guard let user = user else { return completion(false, .notSignedIn) }
         guard user.isEmailVerified else {
           do {
-            try strongSelf.auth.signOut()
+            try Auth.auth().signOut()
             return completion(false, .notVerifiedEmail)
           } catch {
             return completion(false, .error(error: error.localizedDescription))
@@ -74,7 +84,7 @@ final class FirebaseSignInService {
   // MARK: - FirebaseSignInService: Deinit
     deinit {
       if let listener = authListener {
-        auth.removeStateDidChangeListener(listener)
+        Auth.auth().removeStateDidChangeListener(listener)
       }
     }
 }

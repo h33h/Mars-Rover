@@ -24,14 +24,21 @@ enum SignUpError {
 
 typealias SignUpCompletion = (Bool?, SignUpError?) -> Void
 
-final class FirebaseSignUpService {
-  // MARK: - FirebaseSignUpService: Variables
-    private let auth = Auth.auth()
+protocol SignUpProtocol {
+  func signUp(with type: SignUpType, completion: @escaping SignUpCompletion)
+}
 
+final class FirebaseSignUpService: SignUpProtocol {
   // MARK: - FirebaseProfileService: SignUp Methods
-    func createAccountWithPassword(email: String, password: String, completion: @escaping SignUpCompletion) {
-      auth.createUser(withEmail: email, password: password) { [weak self] data, error in
-        guard let strongSelf = self else { return completion(false, .unknownError) }
+    public func signUp(with type: SignUpType, completion: @escaping SignUpCompletion) {
+      switch type {
+      case let .emailAndPassword(email, password):
+        createAccountWithPassword(email: email, password: password, completion: completion)
+      }
+    }
+
+    private func createAccountWithPassword(email: String, password: String, completion: @escaping SignUpCompletion) {
+      Auth.auth().createUser(withEmail: email, password: password) { data, error in
         if let error = error {
           completion(false, .error(error: error.localizedDescription))
           return
@@ -43,7 +50,7 @@ final class FirebaseSignUpService {
               return
             }
             do {
-              try strongSelf.auth.signOut()
+              try Auth.auth().signOut()
               return completion(true, nil)
             } catch {
               return completion(false, .error(error: error.localizedDescription))

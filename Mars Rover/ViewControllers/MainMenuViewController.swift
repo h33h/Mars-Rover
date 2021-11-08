@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainMenuViewController: UIViewController {
+class MainMenuViewController: UIViewController, Storyboarded {
   override func viewDidLoad() {
     super.viewDidLoad()
   }
