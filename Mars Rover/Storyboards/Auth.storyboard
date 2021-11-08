@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -136,8 +138,165 @@
             </objects>
             <point key="canvasLocation" x="-265.17857142857144" y="-100.00000000000001"/>
         </scene>
+        <!--Sign Up Form View Controller-->
+        <scene sceneID="mZY-kl-GxX">
+            <objects>
+                <viewController storyboardIdentifier="SignUpFormViewController" id="X2f-9c-pGG" customClass="SignUpFormViewController" customModule="Mars_Rover" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j3b-uX-dT6">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marsBackground" translatesAutoresizingMaskIntoConstraints="NO" id="m82-RH-1zj">
+                                <rect key="frame" x="-40" y="-40" width="976" height="494"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mars Rover" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amJ-oL-Eqk">
+                                <rect key="frame" x="60" y="32" width="333" height="72.5"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="60"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" systemColor="systemPinkColor"/>
+                                <size key="shadowOffset" width="4" height="-3"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yx-wj-reg">
+                                <rect key="frame" x="60" y="108.5" width="167" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <color key="textColor" red="0.9598128131" green="0.57136141200000001" blue="0.042860243460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1zp-ue-jN5" customClass="AuthorizationTextField" customModule="Mars_Rover" customModuleProvider="target">
+                                <rect key="frame" x="60" y="161.5" width="333" height="34"/>
+                                <color key="backgroundColor" red="0.9598128131" green="0.57136141200000001" blue="0.042860243460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftSideImage" value="person.fill" catalog="system"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="leftSideImageTintColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="leftSideImageBackgroundColor">
+                                        <color key="value" systemColor="systemPinkColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2sd-7W-5mT" customClass="AuthorizationTextField" customModule="Mars_Rover" customModuleProvider="target">
+                                <rect key="frame" x="60" y="219.5" width="333" height="34"/>
+                                <color key="backgroundColor" red="0.9598128131" green="0.57136141200000001" blue="0.042860243460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftSideImage" value="lock.fill" catalog="system"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="leftSideImageTintColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="leftSideImageBackgroundColor">
+                                        <color key="value" systemColor="systemPinkColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-Enter Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="I3n-at-AJ8" customClass="AuthorizationTextField" customModule="Mars_Rover" customModuleProvider="target">
+                                <rect key="frame" x="60" y="277.5" width="333" height="34"/>
+                                <color key="backgroundColor" red="0.9598128131" green="0.57136141200000001" blue="0.042860243460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftSideImage" value="lock.fill" catalog="system"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="leftSideImageTintColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="leftSideImageBackgroundColor">
+                                        <color key="value" systemColor="systemPinkColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zf5-TK-T9h">
+                                <rect key="frame" x="60" y="335.5" width="100" height="34"/>
+                                <color key="backgroundColor" red="0.84792301930000002" green="0.35242747610000003" blue="0.042860243460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="kKU-Pn-8X6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="0.95494168999999995" green="0.97109431030000004" blue="0.31140106919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signUpButtonAction:" destination="X2f-9c-pGG" eventType="touchUpInside" id="fdY-Fa-P0O"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="b7r-70-4XE">
+                                <rect key="frame" x="60" y="16" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dab-mp-Z2l">
+                                <rect key="frame" x="839" y="32" width="25" height="24"/>
+                                <color key="tintColor" red="0.9598128131" green="0.57136141200000001" blue="0.042860243460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="arrow.left.circle.fill" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="X2f-9c-pGG" eventType="touchUpInside" id="FZq-pr-2R2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RCd-3Y-oiE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="amJ-oL-Eqk" firstAttribute="leading" secondItem="RCd-3Y-oiE" secondAttribute="leading" constant="16" id="16O-zh-TZz"/>
+                            <constraint firstItem="m82-RH-1zj" firstAttribute="leading" secondItem="j3b-uX-dT6" secondAttribute="leading" constant="-40" id="45d-Ws-LNe"/>
+                            <constraint firstItem="amJ-oL-Eqk" firstAttribute="top" secondItem="RCd-3Y-oiE" secondAttribute="top" constant="32" id="5a3-9d-YPV"/>
+                            <constraint firstItem="1zp-ue-jN5" firstAttribute="leading" secondItem="RCd-3Y-oiE" secondAttribute="leading" constant="16" id="6au-G0-Bhw"/>
+                            <constraint firstItem="2sd-7W-5mT" firstAttribute="leading" secondItem="RCd-3Y-oiE" secondAttribute="leading" constant="16" id="CYZ-iw-fxm"/>
+                            <constraint firstItem="dab-mp-Z2l" firstAttribute="top" secondItem="RCd-3Y-oiE" secondAttribute="top" constant="32" id="J2a-cD-J4N"/>
+                            <constraint firstAttribute="bottom" secondItem="m82-RH-1zj" secondAttribute="bottom" constant="-40" id="Jfb-3p-wcu"/>
+                            <constraint firstAttribute="trailing" secondItem="dab-mp-Z2l" secondAttribute="trailing" constant="32" id="OWR-94-GYc"/>
+                            <constraint firstAttribute="trailing" secondItem="m82-RH-1zj" secondAttribute="trailing" constant="-40" id="PFP-ET-cyU"/>
+                            <constraint firstItem="Zf5-TK-T9h" firstAttribute="top" secondItem="I3n-at-AJ8" secondAttribute="bottom" constant="24" id="VVN-TK-i6c"/>
+                            <constraint firstItem="m82-RH-1zj" firstAttribute="top" secondItem="j3b-uX-dT6" secondAttribute="top" constant="-40" id="WPS-Us-9oZ"/>
+                            <constraint firstItem="Zf5-TK-T9h" firstAttribute="leading" secondItem="RCd-3Y-oiE" secondAttribute="leading" constant="16" id="XSq-Gj-B2y"/>
+                            <constraint firstItem="b7r-70-4XE" firstAttribute="leading" secondItem="RCd-3Y-oiE" secondAttribute="leading" constant="16" id="Xja-W6-rGg"/>
+                            <constraint firstItem="b7r-70-4XE" firstAttribute="top" secondItem="RCd-3Y-oiE" secondAttribute="top" constant="16" id="fJm-E8-1bZ"/>
+                            <constraint firstItem="1Yx-wj-reg" firstAttribute="top" secondItem="amJ-oL-Eqk" secondAttribute="bottom" constant="4" id="hLQ-1R-UlA"/>
+                            <constraint firstItem="amJ-oL-Eqk" firstAttribute="width" secondItem="I3n-at-AJ8" secondAttribute="width" id="jXK-M0-24H"/>
+                            <constraint firstItem="2sd-7W-5mT" firstAttribute="top" secondItem="1zp-ue-jN5" secondAttribute="bottom" constant="24" id="jdW-Ap-rvR"/>
+                            <constraint firstItem="1Yx-wj-reg" firstAttribute="leading" secondItem="RCd-3Y-oiE" secondAttribute="leading" constant="16" id="lwH-wo-vCd"/>
+                            <constraint firstItem="amJ-oL-Eqk" firstAttribute="width" secondItem="2sd-7W-5mT" secondAttribute="width" id="nT7-Mh-H3l"/>
+                            <constraint firstItem="I3n-at-AJ8" firstAttribute="leading" secondItem="RCd-3Y-oiE" secondAttribute="leading" constant="16" id="oEg-FH-6my"/>
+                            <constraint firstItem="amJ-oL-Eqk" firstAttribute="width" secondItem="1zp-ue-jN5" secondAttribute="width" id="pPe-cE-eIL"/>
+                            <constraint firstItem="1zp-ue-jN5" firstAttribute="top" secondItem="1Yx-wj-reg" secondAttribute="bottom" constant="24" id="sgX-eV-jSv"/>
+                            <constraint firstItem="I3n-at-AJ8" firstAttribute="top" secondItem="2sd-7W-5mT" secondAttribute="bottom" constant="24" id="zan-sA-a1v"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bqe-BQ-0ad"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="b7r-70-4XE" id="w4O-3M-mXJ"/>
+                        <outlet property="backButton" destination="dab-mp-Z2l" id="OUq-4l-O3L"/>
+                        <outlet property="emailTextField" destination="1zp-ue-jN5" id="VeR-ed-nVf"/>
+                        <outlet property="passwordTextField" destination="2sd-7W-5mT" id="tdx-1S-vfN"/>
+                        <outlet property="reEnterPasswordTextField" destination="I3n-at-AJ8" id="Kwv-uV-7vO"/>
+                        <outlet property="signUpButton" destination="Zf5-TK-T9h" id="NVS-8h-Q0F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iHb-fA-TTV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-265" y="738"/>
+        </scene>
     </scenes>
     <designables>
+        <designable name="1zp-ue-jN5">
+            <size key="intrinsicContentSize" width="102.5" height="34"/>
+        </designable>
+        <designable name="2sd-7W-5mT">
+            <size key="intrinsicContentSize" width="130.5" height="34"/>
+        </designable>
+        <designable name="I3n-at-AJ8">
+            <size key="intrinsicContentSize" width="191" height="34"/>
+        </designable>
         <designable name="Jnn-tD-k8l">
             <size key="intrinsicContentSize" width="102.5" height="34"/>
         </designable>
@@ -146,6 +305,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
         <image name="lock.fill" catalog="system" width="128" height="128"/>
         <image name="marsBackground" width="1920" height="1080"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
