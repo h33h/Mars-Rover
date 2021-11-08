@@ -9,36 +9,23 @@ import Foundation
 import FirebaseAuth
 
 final class FirebaseAuthService {
+  // MARK: - FirebaseAuthService: Variables
+    public var signInService: SignInProtocol
+    public var signUpService: SignUpProtocol
 
-    // MARK: - FirebaseAuthService: Variables
-    private let auth = Auth.auth()
-    private var signInService = FirebaseSignInService()
-    private var signUpService = FirebaseSignUpService()
-
-    // MARK: - FirebaseAuthService: Methods
-    public func signIn(signInType: SignInType, completion: @escaping SignInCompletion) {
-        switch signInType {
-        case .emailAndPassword(let email, let password):
-            signInService.signInWithPassword(email: email, password: password, completion: completion)
-        case .checkSignIn:
-            signInService.checkSignIn(completion: completion)
-        }
+  // MARK: - FirebaseAuthService: Init Methods
+    init(signInService: SignInProtocol, signUpService: SignUpProtocol) {
+      self.signInService = signInService
+      self.signUpService = signUpService
     }
 
-    public func signUp(signUpType: SignUpType, completion: @escaping SignUpCompletion) {
-        switch signUpType {
-        case .emailAndPassword(let email, let password):
-            signUpService.createAccountWithPassword(email: email, password: password, completion: completion)
-        }
-    }
-
+  // MARK: - FirebaseAuthService: Methods
     public func signOut(errorHandler: @escaping (Error?) -> Void) {
-        do {
-            try auth.signOut()
-            errorHandler(nil)
-        } catch {
-            errorHandler(error)
-        }
+      do {
+        try Auth.auth().signOut()
+        errorHandler(nil)
+      } catch {
+        errorHandler(error)
+      }
     }
-
 }

@@ -20,10 +20,12 @@
 		A93A9F922732F3C100376332 /* FirebaseSignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F912732F3C100376332 /* FirebaseSignUpService.swift */; };
 		A93A9F942732FBD200376332 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F932732FBD200376332 /* FirebaseAuthService.swift */; };
 		A93A9F972733063A00376332 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F962733063A00376332 /* UIViewController+Extensions.swift */; };
+		A9666F392736B86D0022AFFD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F382736B86D0022AFFD /* Box.swift */; };
+		A9666F3C273940FA0022AFFD /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F3B273940FA0022AFFD /* Storyboarded.swift */; };
 		A9F4540D2731655100017E26 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F4540C2731655100017E26 /* Auth.storyboard */; };
 		A9F4540F273165D400017E26 /* SignInFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4540E273165D400017E26 /* SignInFormViewController.swift */; };
 		A9F4541227316E5100017E26 /* AuthorizationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4541127316E5100017E26 /* AuthorizationTextField.swift */; };
-		A9F45415273191B500017E26 /* SignInFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F45414273191B500017E26 /* SignInFormPresenter.swift */; };
+		A9F45415273191B500017E26 /* SignInFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F45414273191B500017E26 /* SignInFormViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,10 +45,12 @@
 		A93A9F912732F3C100376332 /* FirebaseSignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignUpService.swift; sourceTree = "<group>"; };
 		A93A9F932732FBD200376332 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		A93A9F962733063A00376332 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		A9666F382736B86D0022AFFD /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		A9666F3B273940FA0022AFFD /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		A9F4540C2731655100017E26 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		A9F4540E273165D400017E26 /* SignInFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormViewController.swift; sourceTree = "<group>"; };
 		A9F4541127316E5100017E26 /* AuthorizationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTextField.swift; sourceTree = "<group>"; };
-		A9F45414273191B500017E26 /* SignInFormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormPresenter.swift; sourceTree = "<group>"; };
+		A9F45414273191B500017E26 /* SignInFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +103,11 @@
 		A9219394272DD6330006CE85 /* Mars Rover */ = {
 			isa = PBXGroup;
 			children = (
+				A9666F372736AE930022AFFD /* Utility */,
 				A93A9F95273305D000376332 /* Extensions */,
 				A93A9F8E2732EFA800376332 /* Model */,
 				A93A9F892732E39F00376332 /* Service */,
-				A9F454132731918800017E26 /* Presenters */,
+				A9F454132731918800017E26 /* ViewModel */,
 				A9F4540B27315A7500017E26 /* Storyboards */,
 				A9F4540A27315A6A00017E26 /* ViewControllers */,
 				A9F4541027316DFB00017E26 /* Views */,
@@ -118,8 +123,8 @@
 			children = (
 				A93A9F8A2732E3DC00376332 /* FirebaseSignInService.swift */,
 				A93A9F912732F3C100376332 /* FirebaseSignUpService.swift */,
-				A93A9F8C2732EC0300376332 /* FirebaseProfileService.swift */,
 				A93A9F932732FBD200376332 /* FirebaseAuthService.swift */,
+				A93A9F8C2732EC0300376332 /* FirebaseProfileService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -138,6 +143,15 @@
 				A93A9F962733063A00376332 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A9666F372736AE930022AFFD /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A9666F382736B86D0022AFFD /* Box.swift */,
+				A9666F3B273940FA0022AFFD /* Storyboarded.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		A9F4540A27315A6A00017E26 /* ViewControllers */ = {
@@ -167,12 +181,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A9F454132731918800017E26 /* Presenters */ = {
+		A9F454132731918800017E26 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A9F45414273191B500017E26 /* SignInFormPresenter.swift */,
+				A9F45414273191B500017E26 /* SignInFormViewModel.swift */,
 			);
-			path = Presenters;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,11 +197,11 @@
 			buildConfigurationList = A92193A5272DD6370006CE85 /* Build configuration list for PBXNativeTarget "Mars Rover" */;
 			buildPhases = (
 				F41E98B14864FDD6DAA4626F /* [CP] Check Pods Manifest.lock */,
+				A9666F3A2739350F0022AFFD /* ShellScript */,
 				A921938E272DD6330006CE85 /* Sources */,
 				A921938F272DD6330006CE85 /* Frameworks */,
 				A9219390272DD6330006CE85 /* Resources */,
 				A56F1641478AE0A2C995AC41 /* [CP] Embed Pods Frameworks */,
-				A92193AA272DE0990006CE85 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -264,7 +278,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mars Rover/Pods-Mars Rover-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A92193AA272DE0990006CE85 /* ShellScript */ = {
+		A9666F3A2739350F0022AFFD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -279,7 +293,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "PATH=/opt/homebrew/bin:$PATH\nif [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
 		};
 		F41E98B14864FDD6DAA4626F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -311,14 +325,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93A9F942732FBD200376332 /* FirebaseAuthService.swift in Sources */,
-				A9F45415273191B500017E26 /* SignInFormPresenter.swift in Sources */,
+				A9F45415273191B500017E26 /* SignInFormViewModel.swift in Sources */,
 				A9F4540F273165D400017E26 /* SignInFormViewController.swift in Sources */,
 				A93A9F922732F3C100376332 /* FirebaseSignUpService.swift in Sources */,
 				A93A9F8B2732E3DC00376332 /* FirebaseSignInService.swift in Sources */,
+				A9666F3C273940FA0022AFFD /* Storyboarded.swift in Sources */,
 				A9F4541227316E5100017E26 /* AuthorizationTextField.swift in Sources */,
 				A93A9F972733063A00376332 /* UIViewController+Extensions.swift in Sources */,
 				A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */,
 				A93A9F902732EFB800376332 /* ProfileModel.swift in Sources */,
+				A9666F392736B86D0022AFFD /* Box.swift in Sources */,
 				A9219396272DD6330006CE85 /* AppDelegate.swift in Sources */,
 				A93A9F8D2732EC0300376332 /* FirebaseProfileService.swift in Sources */,
 			);
@@ -397,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -452,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
