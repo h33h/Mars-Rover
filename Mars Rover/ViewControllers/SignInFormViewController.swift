@@ -10,6 +10,7 @@ import UIKit
 class SignInFormViewController: UIViewController, Storyboarded {
   // MARK: - SignInFormViewController: Variables
     private var viewModel = SignInFormViewModel()
+    weak var coordinator: MainCoordinator?
 
   // MARK: - SignInFormViewController: IBOutlet Variables
     @IBOutlet private var emailTextField: AuthorizationTextField!
@@ -23,22 +24,20 @@ class SignInFormViewController: UIViewController, Storyboarded {
       super.viewDidLoad()
       emailTextField.delegate = self
       passwordTextField.delegate = self
+      viewModel.signIn(signInType: .checkSignIn)
+      setElementsDisabled(value: true)
       viewModel.isSignedIn.bind { [weak self] isSigned in
-        if isSigned {
-          self?.successfullSignIn()
+        if self?.navigationController?.viewControllers.last === self {
+          if isSigned {
+            self?.successfullSignIn()
+          }
         }
       }
       viewModel.signInError.bind { [weak self] error in
-        self?.failureSignIn(error: error)
+        if self?.navigationController?.viewControllers.last === self {
+          self?.failureSignIn(error: error)
+        }
       }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-      super.viewDidAppear(animated)
-
-      // when view appear check for login status
-      viewModel.signIn(signInType: .checkSignIn)
-      setElementsDisabled(value: true)
     }
 
   // MARK: - SignInFormViewController: IBAction Methods
@@ -59,7 +58,7 @@ class SignInFormViewController: UIViewController, Storyboarded {
     }
 
     @IBAction private func createAccountButtonAction(_ sender: Any) {
-      // TODO: go to signUP VC
+      coordinator?.goToSignUpForm()
     }
 
     // MARK: - SignInFormViewController: Methods
@@ -73,13 +72,10 @@ class SignInFormViewController: UIViewController, Storyboarded {
 }
 
 extension SignInFormViewController {
-  // MARK: - SignInFormViewController: SignInFormPresenterDelegate Methods
+  // MARK: - SignInFormViewController: Methods
     func successfullSignIn() {
-      // storyboard that contains MainMenuViewController
+      coordinator?.goToMainMenu()
       setElementsDisabled(value: false)
-      guard let mainMenuVC = MainMenuViewController.instantiate(from: "MainMenu")
-        else { return }
-        present(mainMenuVC, animated: true, completion: nil)
     }
 
     func failureSignIn(error: String) {

@@ -16,7 +16,6 @@ class SignInFormViewModel {
     var signInError = Box("")
     var isSignedIn = Box(false)
 
-
   // MARK: - SignInFormPresenter: Methods
   // SignIn function will call some sign In methods from service
     func signIn(signInType: SignInType) {
@@ -35,14 +34,12 @@ class SignInFormViewModel {
             case .notSignedIn:
               strongSelf.signInError.value = String()
             }
-            strongSelf.isSignedIn.value = false
             return
           }
         if isSignedIn {
           strongSelf.isSignedIn.value = true
         } else {
           strongSelf.signInError.value = "Unknown error"
-          strongSelf.isSignedIn.value = false
         }
       }
     }
