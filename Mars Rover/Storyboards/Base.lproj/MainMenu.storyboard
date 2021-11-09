@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3cN-w9-xW5">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -9,19 +10,55 @@
     </dependencies>
     <scenes>
         <!--Main Menu View Controller-->
-        <scene sceneID="Mvc-lB-2qX">
+        <scene sceneID="gt7-uO-zWX">
             <objects>
-                <viewController storyboardIdentifier="MainMenuViewController" id="89v-Tv-a69" customClass="MainMenuViewController" customModule="Mars_Rover" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5Ed-gM-kYm">
+                <viewController storyboardIdentifier="MainMenuViewController" id="3cN-w9-xW5" customClass="MainMenuViewController" customModule="Mars_Rover" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cZs-gN-2vN">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ioU-06-ArN"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="WYs-dB-MBj">
+                                <rect key="frame" x="359" y="186.5" width="178.5" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged as:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJa-h0-ULw">
+                                        <rect key="frame" x="0.0" y="0.0" width="84" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="617-TT-ZS9">
+                                        <rect key="frame" x="100" y="0.0" width="78.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8q-aW-zh5">
+                                <rect key="frame" x="418" y="223" width="60" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutButton:" destination="3cN-w9-xW5" eventType="touchUpInside" id="5tv-nU-Tfg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2HZ-ld-uHT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WYs-dB-MBj" firstAttribute="centerX" secondItem="2HZ-ld-uHT" secondAttribute="centerX" id="6va-8D-0yv"/>
+                            <constraint firstItem="b8q-aW-zh5" firstAttribute="top" secondItem="WYs-dB-MBj" secondAttribute="bottom" constant="16" id="A3o-ke-N0p"/>
+                            <constraint firstItem="b8q-aW-zh5" firstAttribute="centerX" secondItem="2HZ-ld-uHT" secondAttribute="centerX" id="G2d-zD-NMd"/>
+                            <constraint firstItem="WYs-dB-MBj" firstAttribute="centerY" secondItem="2HZ-ld-uHT" secondAttribute="centerY" id="PX4-fG-Ltk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="usernameLabel" destination="617-TT-ZS9" id="e8a-bT-TH8"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sAb-zX-NA4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IxK-5Z-w3y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-715" y="-93"/>
+            <point key="canvasLocation" x="-714" y="3"/>
         </scene>
     </scenes>
     <resources>
