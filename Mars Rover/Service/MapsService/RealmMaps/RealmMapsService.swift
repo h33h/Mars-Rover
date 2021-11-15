@@ -16,9 +16,11 @@ protocol RealmMapsServceProtocol {
 
 class RealmMapsServce: RealmMapsServceProtocol {
   private let mapActionService: MapActionProtocol
+  private let realm: Realm?
 
   init(mapActionService: MapActionProtocol) {
     self.mapActionService = mapActionService
+    self.realm = Realm.safeInit()
   }
 
   func mapAction(is action: RealmMapAction) {
@@ -26,13 +28,13 @@ class RealmMapsServce: RealmMapsServceProtocol {
   }
 
   func getLocalMaps() -> [RealmMapModelData]? {
-    guard let realm = Realm.safeInit() else { return nil }
+    guard let realm = realm else { return nil }
     let maps = realm.objects(RealmMapModelData.self)
     return Array(maps)
   }
 
   func removeAllLocalMaps() {
-    guard let realm = Realm.safeInit() else { return }
+    guard let realm = realm else { return }
     realm.safeWrite {
       realm.deleteAll()
     }

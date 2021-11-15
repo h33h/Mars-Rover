@@ -19,6 +19,12 @@ protocol MapActionProtocol {
 }
 
 class RealmMapsActionService: MapActionProtocol {
+  private var realm: Realm?
+
+  init() {
+    self.realm = Realm.safeInit()
+  }
+
   func mapAction(is action: RealmMapAction) {
     switch action {
     case let .addMap(mapModel):
@@ -31,14 +37,14 @@ class RealmMapsActionService: MapActionProtocol {
   }
 
   private func addMap(mapModel: RealmMapModelData) {
-    guard let realm = Realm.safeInit() else { return }
+    guard let realm = realm else { return }
     realm.safeWrite {
       realm.add(mapModel)
     }
   }
 
   private func editMap(mapModel: RealmMapModelData) {
-    guard let realm = Realm.safeInit() else { return }
+    guard let realm = realm else { return }
       let object = realm.objects(RealmMapModelData.self).filter("id = %@", mapModel.id).first
       realm.safeWrite {
         if let object = object {
@@ -50,7 +56,7 @@ class RealmMapsActionService: MapActionProtocol {
   }
 
   private func removeMap(withId mapId: ObjectId) {
-    guard let realm = Realm.safeInit() else { return }
+    guard let realm = realm else { return }
     guard
       let object = realm.objects(RealmMapModelData.self).filter("id = %@", mapId).first,
       let map = object.map
