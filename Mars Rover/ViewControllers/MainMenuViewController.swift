@@ -10,7 +10,7 @@ import UIKit
 class MainMenuViewController: UIViewController, Storyboarded {
   // MARK: - MainMenuViewController: Variables
     private var viewModel = MainMenuViewModel()
-    weak var coordinator: MainMenuCoordinator?
+    var coordinator: MainMenuCoordinator?
 
   // MARK: - MainMenuViewController: IBOutlet Variables
     @IBOutlet private var usernameLabel: UILabel!
@@ -52,6 +52,11 @@ class MainMenuViewController: UIViewController, Storyboarded {
     @IBAction private func signOutButton(_ sender: Any) {
       viewModel.signOut()
     }
+  @IBAction func mapsButton(_ sender: Any) {
+    coordinator?.goToMaps()
+  }
+  @IBAction func playButton(_ sender: Any) {
+  }
 }
 
 extension MainMenuViewController {

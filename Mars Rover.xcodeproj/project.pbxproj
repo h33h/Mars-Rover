@@ -24,16 +24,32 @@
 		A9666F3C273940FA0022AFFD /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F3B273940FA0022AFFD /* Storyboarded.swift */; };
 		A9666F3F27395A2C0022AFFD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F3E27395A2C0022AFFD /* Coordinator.swift */; };
 		A9666F4127395AB60022AFFD /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F4027395AB60022AFFD /* MainCoordinator.swift */; };
+		A9B5A7B6274198460075C954 /* FirebaseMapsActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B5A7B5274198460075C954 /* FirebaseMapsActionService.swift */; };
 		A9EE8EEF273964BB00F18D62 /* SignUpFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EEE273964BB00F18D62 /* SignUpFormViewController.swift */; };
 		A9EE8EF12739655F00F18D62 /* SignUpFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EF02739655F00F18D62 /* SignUpFormViewModel.swift */; };
 		A9EE8EF627397AC400F18D62 /* FirebaseProfileWriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EF527397AC300F18D62 /* FirebaseProfileWriteService.swift */; };
 		A9EE8EF827397AF000F18D62 /* FirebaseProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EF727397AF000F18D62 /* FirebaseProfileService.swift */; };
 		A9EE8EFC273985CD00F18D62 /* MainMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EFB273985CD00F18D62 /* MainMenuCoordinator.swift */; };
 		A9EE8EFE27398D2A00F18D62 /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EFD27398D2A00F18D62 /* MainMenuViewModel.swift */; };
+		A9EE8F00273BF9E800F18D62 /* MapEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EFF273BF9E800F18D62 /* MapEditorViewController.swift */; };
+		A9EE8F03273BFD3100F18D62 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8F01273BFD3100F18D62 /* MapTableViewCell.swift */; };
+		A9EE8F04273BFD3100F18D62 /* MapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9EE8F02273BFD3100F18D62 /* MapTableViewCell.xib */; };
+		A9EE8F06273C032000F18D62 /* RealmMapModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8F05273C032000F18D62 /* RealmMapModelData.swift */; };
+		A9EE8F08273C066600F18D62 /* MapEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8F07273C066600F18D62 /* MapEditorViewModel.swift */; };
+		A9EE8F0B273C0DE300F18D62 /* RealmMapsActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8F0A273C0DE300F18D62 /* RealmMapsActionService.swift */; };
+		A9EE8F0D273C312A00F18D62 /* RealmMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8F0C273C312A00F18D62 /* RealmMapsService.swift */; };
+		A9EE8F0F273D3F8D00F18D62 /* RealmMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8F0E273D3F8C00F18D62 /* RealmMapModel.swift */; };
 		A9F4540D2731655100017E26 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F4540C2731655100017E26 /* Auth.storyboard */; };
 		A9F4540F273165D400017E26 /* SignInFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4540E273165D400017E26 /* SignInFormViewController.swift */; };
 		A9F4541227316E5100017E26 /* AuthorizationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4541127316E5100017E26 /* AuthorizationTextField.swift */; };
 		A9F45415273191B500017E26 /* SignInFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F45414273191B500017E26 /* SignInFormViewModel.swift */; };
+		A9FA5902273EB571002109A0 /* MapsSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA5901273EB571002109A0 /* MapsSyncService.swift */; };
+		A9FA5904273EB759002109A0 /* FirebaseMapModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA5903273EB759002109A0 /* FirebaseMapModelData.swift */; };
+		A9FA5907273EF416002109A0 /* FirebaseMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA5906273EF416002109A0 /* FirebaseMapsService.swift */; };
+		A9FA5909273FB467002109A0 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA5908273FB467002109A0 /* Obstacle.swift */; };
+		A9FA590B273FB4D9002109A0 /* FirebaseMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA590A273FB4D9002109A0 /* FirebaseMapModel.swift */; };
+		A9FA590D273FF331002109A0 /* Realm+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA590C273FF331002109A0 /* Realm+Extensions.swift */; };
+		A9FA59102740312B002109A0 /* MapsJournalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA590F2740312B002109A0 /* MapsJournalService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,16 +73,32 @@
 		A9666F3B273940FA0022AFFD /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		A9666F3E27395A2C0022AFFD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A9666F4027395AB60022AFFD /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		A9B5A7B5274198460075C954 /* FirebaseMapsActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMapsActionService.swift; sourceTree = "<group>"; };
 		A9EE8EEE273964BB00F18D62 /* SignUpFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormViewController.swift; sourceTree = "<group>"; };
 		A9EE8EF02739655F00F18D62 /* SignUpFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormViewModel.swift; sourceTree = "<group>"; };
 		A9EE8EF527397AC300F18D62 /* FirebaseProfileWriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProfileWriteService.swift; sourceTree = "<group>"; };
 		A9EE8EF727397AF000F18D62 /* FirebaseProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProfileService.swift; sourceTree = "<group>"; };
 		A9EE8EFB273985CD00F18D62 /* MainMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCoordinator.swift; sourceTree = "<group>"; };
 		A9EE8EFD27398D2A00F18D62 /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
+		A9EE8EFF273BF9E800F18D62 /* MapEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditorViewController.swift; sourceTree = "<group>"; };
+		A9EE8F01273BFD3100F18D62 /* MapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
+		A9EE8F02273BFD3100F18D62 /* MapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapTableViewCell.xib; sourceTree = "<group>"; };
+		A9EE8F05273C032000F18D62 /* RealmMapModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMapModelData.swift; sourceTree = "<group>"; };
+		A9EE8F07273C066600F18D62 /* MapEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditorViewModel.swift; sourceTree = "<group>"; };
+		A9EE8F0A273C0DE300F18D62 /* RealmMapsActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMapsActionService.swift; sourceTree = "<group>"; };
+		A9EE8F0C273C312A00F18D62 /* RealmMapsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMapsService.swift; sourceTree = "<group>"; };
+		A9EE8F0E273D3F8C00F18D62 /* RealmMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMapModel.swift; sourceTree = "<group>"; };
 		A9F4540C2731655100017E26 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		A9F4540E273165D400017E26 /* SignInFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormViewController.swift; sourceTree = "<group>"; };
 		A9F4541127316E5100017E26 /* AuthorizationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTextField.swift; sourceTree = "<group>"; };
 		A9F45414273191B500017E26 /* SignInFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormViewModel.swift; sourceTree = "<group>"; };
+		A9FA5901273EB571002109A0 /* MapsSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsSyncService.swift; sourceTree = "<group>"; };
+		A9FA5903273EB759002109A0 /* FirebaseMapModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMapModelData.swift; sourceTree = "<group>"; };
+		A9FA5906273EF416002109A0 /* FirebaseMapsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMapsService.swift; sourceTree = "<group>"; };
+		A9FA5908273FB467002109A0 /* Obstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
+		A9FA590A273FB4D9002109A0 /* FirebaseMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMapModel.swift; sourceTree = "<group>"; };
+		A9FA590C273FF331002109A0 /* Realm+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Extensions.swift"; sourceTree = "<group>"; };
+		A9FA590F2740312B002109A0 /* MapsJournalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsJournalService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +170,7 @@
 		A93A9F892732E39F00376332 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A9FA590E274030C3002109A0 /* MapsService */,
 				A9EE8EFA2739833700F18D62 /* FirebaseProfile */,
 				A9EE8EF92739832100F18D62 /* FirebaseAuth */,
 			);
@@ -148,6 +181,11 @@
 			isa = PBXGroup;
 			children = (
 				A93A9F8F2732EFB800376332 /* ProfileModel.swift */,
+				A9EE8F05273C032000F18D62 /* RealmMapModelData.swift */,
+				A9EE8F0E273D3F8C00F18D62 /* RealmMapModel.swift */,
+				A9FA5903273EB759002109A0 /* FirebaseMapModelData.swift */,
+				A9FA590A273FB4D9002109A0 /* FirebaseMapModel.swift */,
+				A9FA5908273FB467002109A0 /* Obstacle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				A93A9F962733063A00376332 /* UIViewController+Extensions.swift */,
+				A9FA590C273FF331002109A0 /* Realm+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -199,12 +238,24 @@
 			path = FirebaseProfile;
 			sourceTree = "<group>";
 		};
+		A9EE8F09273C0DB200F18D62 /* RealmMaps */ = {
+			isa = PBXGroup;
+			children = (
+				A9EE8F0A273C0DE300F18D62 /* RealmMapsActionService.swift */,
+				A9EE8F0C273C312A00F18D62 /* RealmMapsService.swift */,
+			);
+			path = RealmMaps;
+			sourceTree = "<group>";
+		};
 		A9F4540A27315A6A00017E26 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				A9F4540E273165D400017E26 /* SignInFormViewController.swift */,
 				A9EE8EEE273964BB00F18D62 /* SignUpFormViewController.swift */,
 				A9219399272DD6330006CE85 /* MainMenuViewController.swift */,
+				A9EE8EFF273BF9E800F18D62 /* MapEditorViewController.swift */,
+				A9EE8F01273BFD3100F18D62 /* MapTableViewCell.swift */,
+				A9EE8F02273BFD3100F18D62 /* MapTableViewCell.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -233,8 +284,29 @@
 				A9F45414273191B500017E26 /* SignInFormViewModel.swift */,
 				A9EE8EF02739655F00F18D62 /* SignUpFormViewModel.swift */,
 				A9EE8EFD27398D2A00F18D62 /* MainMenuViewModel.swift */,
+				A9EE8F07273C066600F18D62 /* MapEditorViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A9FA590E274030C3002109A0 /* MapsService */ = {
+			isa = PBXGroup;
+			children = (
+				A9FA590F2740312B002109A0 /* MapsJournalService.swift */,
+				A9FA5901273EB571002109A0 /* MapsSyncService.swift */,
+				A9FEE0302742726600B4A569 /* FirebaseMaps */,
+				A9EE8F09273C0DB200F18D62 /* RealmMaps */,
+			);
+			path = MapsService;
+			sourceTree = "<group>";
+		};
+		A9FEE0302742726600B4A569 /* FirebaseMaps */ = {
+			isa = PBXGroup;
+			children = (
+				A9B5A7B5274198460075C954 /* FirebaseMapsActionService.swift */,
+				A9FA5906273EF416002109A0 /* FirebaseMapsService.swift */,
+			);
+			path = FirebaseMaps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +374,7 @@
 				A92193A9272DD9180006CE85 /* GoogleService-Info.plist in Resources */,
 				A9F4540D2731655100017E26 /* Auth.storyboard in Resources */,
 				A921939F272DD6370006CE85 /* Assets.xcassets in Resources */,
+				A9EE8F04273BFD3100F18D62 /* MapTableViewCell.xib in Resources */,
 				A921939D272DD6330006CE85 /* MainMenu.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,9 +447,12 @@
 			files = (
 				A93A9F942732FBD200376332 /* FirebaseAuthService.swift in Sources */,
 				A9F45415273191B500017E26 /* SignInFormViewModel.swift in Sources */,
+				A9FA590B273FB4D9002109A0 /* FirebaseMapModel.swift in Sources */,
 				A9EE8EEF273964BB00F18D62 /* SignUpFormViewController.swift in Sources */,
 				A9F4540F273165D400017E26 /* SignInFormViewController.swift in Sources */,
+				A9EE8F0F273D3F8D00F18D62 /* RealmMapModel.swift in Sources */,
 				A9EE8EF627397AC400F18D62 /* FirebaseProfileWriteService.swift in Sources */,
+				A9EE8F03273BFD3100F18D62 /* MapTableViewCell.swift in Sources */,
 				A93A9F922732F3C100376332 /* FirebaseSignUpService.swift in Sources */,
 				A93A9F8B2732E3DC00376332 /* FirebaseSignInService.swift in Sources */,
 				A9666F3C273940FA0022AFFD /* Storyboarded.swift in Sources */,
@@ -387,12 +463,24 @@
 				A93A9F972733063A00376332 /* UIViewController+Extensions.swift in Sources */,
 				A9EE8EF12739655F00F18D62 /* SignUpFormViewModel.swift in Sources */,
 				A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */,
+				A9EE8F06273C032000F18D62 /* RealmMapModelData.swift in Sources */,
+				A9B5A7B6274198460075C954 /* FirebaseMapsActionService.swift in Sources */,
 				A93A9F902732EFB800376332 /* ProfileModel.swift in Sources */,
+				A9EE8F08273C066600F18D62 /* MapEditorViewModel.swift in Sources */,
+				A9FA590D273FF331002109A0 /* Realm+Extensions.swift in Sources */,
 				A9666F392736B86D0022AFFD /* Box.swift in Sources */,
+				A9FA59102740312B002109A0 /* MapsJournalService.swift in Sources */,
 				A9219396272DD6330006CE85 /* AppDelegate.swift in Sources */,
+				A9FA5909273FB467002109A0 /* Obstacle.swift in Sources */,
+				A9FA5902273EB571002109A0 /* MapsSyncService.swift in Sources */,
+				A9EE8F0B273C0DE300F18D62 /* RealmMapsActionService.swift in Sources */,
+				A9EE8F00273BF9E800F18D62 /* MapEditorViewController.swift in Sources */,
 				A9666F4127395AB60022AFFD /* MainCoordinator.swift in Sources */,
 				A9EE8EF827397AF000F18D62 /* FirebaseProfileService.swift in Sources */,
 				A93A9F8D2732EC0300376332 /* FirebaseProfileFetchService.swift in Sources */,
+				A9FA5907273EF416002109A0 /* FirebaseMapsService.swift in Sources */,
+				A9EE8F0D273C312A00F18D62 /* RealmMapsService.swift in Sources */,
+				A9FA5904273EB759002109A0 /* FirebaseMapModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
