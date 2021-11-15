@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
+class MainCoordinator: Coordinator {
   var childCoordinators: [Coordinator] = []
   var navigationController: UINavigationController
 
@@ -16,7 +16,6 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
   }
 
   func start() {
-    navigationController.delegate = self
     guard let signInVC = SignInFormViewController.instantiate(from: "Auth") else { return }
     signInVC.coordinator = self
     navigationController.pushViewController(signInVC, animated: true)
