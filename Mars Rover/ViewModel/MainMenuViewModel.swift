@@ -17,6 +17,7 @@ class MainMenuViewModel {
       profileFetchService: FirebaseProfileFetchService(),
       profileWriteService: FirebaseProfileWriteService()
     )
+    private let realmSevice = RealmMapsServce(mapActionService: RealmMapsActionService())
     var fetchError = Box("")
     var profileFetched = Box(ProfileModel(username: "Loading..."))
     var signOutError = Box("")
@@ -72,6 +73,7 @@ class MainMenuViewModel {
             strongSelf.signOutError.value = error.localizedDescription
               return
           }
+        strongSelf.realmSevice.removeAllLocalMaps()
         strongSelf.isSignedOut.value = true
       }
     }
