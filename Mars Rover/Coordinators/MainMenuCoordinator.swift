@@ -22,6 +22,12 @@ class MainMenuCoordinator: Coordinator {
     navigationController.pushViewController(mainMenuVC, animated: true)
   }
 
+  func goToMaps() {
+    guard let mapsVC = MapEditorViewController.instantiate(from: "MainMenu") else { return }
+    mapsVC.coordinator = self
+    navigationController.pushViewController(mapsVC, animated: true)
+  }
+
   func goBack() {
     parentCoordinator?.childDidFinish(child: self)
   }
