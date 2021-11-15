@@ -19,11 +19,7 @@ protocol MapActionProtocol {
 }
 
 class RealmMapsActionService: MapActionProtocol {
-  private var realm: Realm?
-
-  init() {
-    self.realm = Realm.safeInit()
-  }
+  private var realm: Realm? = Realm.safeInit()
 
   func mapAction(is action: RealmMapAction) {
     switch action {
