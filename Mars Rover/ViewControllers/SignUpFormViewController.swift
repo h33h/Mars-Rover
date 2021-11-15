@@ -10,7 +10,7 @@ import UIKit
 class SignUpFormViewController: UIViewController, Storyboarded {
   // MARK: - SignInFormViewController: Variables
     private var viewModel = SignUpFormViewModel()
-    weak var coordinator: MainCoordinator?
+    var coordinator: MainCoordinator?
 
   // MARK: - SignUpFormViewController: IBOutlet Variables
     @IBOutlet private var emailTextField: AuthorizationTextField!
