@@ -52,6 +52,12 @@ class MapsJournalService: MapsJournalServiceProtocol {
 
   func mapDeleted(mapId: String) {
     mapsIdToDelete.append(mapId)
+    for (index, map) in mapsToAdd.enumerated() where map.id.stringValue == mapId {
+      mapsToAdd.remove(at: index)
+    }
+    for (index, map) in mapsToUpdate.enumerated() where map.id.stringValue == mapId {
+      mapsToUpdate.remove(at: index)
+    }
   }
 
   func clearJournal() {
