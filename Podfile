@@ -17,6 +17,9 @@ pod 'Firebase/Storage'
 # A tool to enforce Swift style and conventions
 pod 'SwiftLint'
 
+# Local database Realm
+pod 'RealmSwift'
+
 # Disable all warnings from Pods
 inhibit_all_warnings!
 
