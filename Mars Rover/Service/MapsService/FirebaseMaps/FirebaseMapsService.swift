@@ -17,10 +17,11 @@ enum FirebaseMapsServceError: Error {
 }
 
 typealias FirebaseMapModelCompletion = ([FirebaseMapModelData]?, FirebaseMapsServceError?) -> Void
+typealias FirebaseMapsServceErrorCompletion = (FirebaseMapsServceError?) -> Void
 
 protocol FirebaseMapsServceProtocol {
   func getMaps(completion: @escaping FirebaseMapModelCompletion)
-  func mapAction(is action: FirebaseMapAction)
+  func mapAction(is action: FirebaseMapAction, errorHandler: @escaping FirebaseMapsServceErrorCompletion)
 }
 
 class FirebaseMapsServce: FirebaseMapsServceProtocol {
@@ -30,8 +31,8 @@ class FirebaseMapsServce: FirebaseMapsServceProtocol {
     self.mapActionService = mapActionService
   }
 
-  func mapAction(is action: FirebaseMapAction) {
-    mapActionService.mapAction(is: action)
+  func mapAction(is action: FirebaseMapAction, errorHandler: @escaping FirebaseMapsServceErrorCompletion) {
+    mapActionService.mapAction(is: action, errorHandler: errorHandler)
   }
 
   func getMaps(completion: @escaping FirebaseMapModelCompletion) {

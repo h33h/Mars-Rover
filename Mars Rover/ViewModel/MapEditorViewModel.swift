@@ -42,8 +42,11 @@ class MapEditorViewModel {
 
   func syncMaps() {
     maps.value.removeAll()
-    syncService.sync { isUpdated in
-      if isUpdated { self.isUpdated.value = true }
+    syncService.sync { error in
+      if let error = error {
+        return print(error)
+      }
+      self.isUpdated.value = true
     }
   }
 }

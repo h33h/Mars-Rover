@@ -16,32 +16,32 @@ enum FirebaseMapAction {
 }
 
 protocol FirebaseMapsActionServiceProtocol {
-  func mapAction(is action: FirebaseMapAction)
+  func mapAction(is action: FirebaseMapAction, errorHandler: @escaping FirebaseMapsServceErrorCompletion)
 }
 
 class FirebaseMapsActionService: FirebaseMapsActionServiceProtocol {
-  func mapAction(is action: FirebaseMapAction) {
+  func mapAction(is action: FirebaseMapAction, errorHandler: @escaping FirebaseMapsServceErrorCompletion) {
     switch action {
     case .addMap(let firebaseMapModelData):
-      try? addMap(map: firebaseMapModelData)
+      addMap(map: firebaseMapModelData) { return errorHandler($0) }
     case .editMap(let firebaseMapModelData):
-      try? editMap(map: firebaseMapModelData)
+      editMap(map: firebaseMapModelData) { return errorHandler($0) }
     case .removeMap(let mapId):
-      try? removeMap(withId: mapId)
+      removeMap(withId: mapId) { return errorHandler($0) }
     }
   }
 
-  private func addMap(map: FirebaseMapModelData) throws {
-    guard let user = Auth.auth().currentUser else { throw FirebaseMapsServceError.notSignedIn }
+  private func addMap(map: FirebaseMapModelData, errorHandler: @escaping FirebaseMapsServceErrorCompletion) {
+    guard let user = Auth.auth().currentUser else { return errorHandler(.notSignedIn) }
     do {
       try  Firestore.firestore().collection("users").document(user.uid).collection("maps").document(map.id).setData(from: map)
     } catch {
-      throw FirebaseMapsServceError.textError(description: error.localizedDescription)
+      return errorHandler(.textError(description: error.localizedDescription))
     }
   }
 
-  private func editMap(map: FirebaseMapModelData) throws {
-    guard let user = Auth.auth().currentUser else { throw FirebaseMapsServceError.notSignedIn }
+  private func editMap(map: FirebaseMapModelData, errorHandler: @escaping FirebaseMapsServceErrorCompletion) {
+    guard let user = Auth.auth().currentUser else { return errorHandler(.notSignedIn) }
     let mapRef = Firestore.firestore().collection("users").document(user.uid).collection("maps").document(map.id)
     mapRef.updateData(
       [
@@ -49,11 +49,19 @@ class FirebaseMapsActionService: FirebaseMapsActionServiceProtocol {
         "lastEdited": map.lastEdited,
         "map": map.map
       ]
-    )
+    ) { error in
+      if let error = error {
+        return errorHandler(.textError(description: error.localizedDescription))
+      }
+    }
   }
 
-  private func removeMap(withId mapId: String) throws {
-    guard let user = Auth.auth().currentUser else { throw FirebaseMapsServceError.notSignedIn }
-    Firestore.firestore().collection("users").document(user.uid).collection("maps").document(mapId).delete()
+  private func removeMap(withId mapId: String, errorHandler: @escaping FirebaseMapsServceErrorCompletion) {
+    guard let user = Auth.auth().currentUser else { return errorHandler(.notSignedIn) }
+    Firestore.firestore().collection("users").document(user.uid).collection("maps").document(mapId).delete { error in
+      if let error = error {
+        return errorHandler(.textError(description: error.localizedDescription))
+      }
+    }
   }
 }
