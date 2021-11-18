@@ -8,7 +8,7 @@
 import UIKit
 
 class MapEditorViewController: UIViewController, Storyboarded {
-  var coordinator: MainMenuCoordinator?
+  var coordinator: MapEditorCoordinator?
   private var viewModel = MapEditorViewModel()
   @IBOutlet var addMapButton: UIButton!
   @IBOutlet var syncMapsButton: UIButton!
@@ -38,19 +38,7 @@ class MapEditorViewController: UIViewController, Storyboarded {
     viewModel.syncMaps()
   }
   @IBAction func addMapButton(_ sender: Any) {
-    viewModel.mapAction(
-      action: .addMap(RealmMapModelData(
-        mapLabel: "",
-        lastEdited: Date(),
-        map:
-          RealmMapModel(
-          rowCount: 9,
-          colomnsCount: 16
-          )
-        )
-      )
-    )
-    mapsTableView.reloadData()
+    coordinator?.goToMapEditorScene()
   }
   @IBAction func syncMapsButton(_ sender: Any) {
     viewModel.syncMaps()
