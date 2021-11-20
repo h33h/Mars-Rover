@@ -35,10 +35,18 @@ class MapEditorViewController: UIViewController, Storyboarded {
         self.viewModel.isUpdated.value = false
       }
     }
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
     viewModel.syncMaps()
   }
   @IBAction func addMapButton(_ sender: Any) {
-    coordinator?.goToMapEditorScene()
+    coordinator?.goToMapEditorScene(
+      map: nil,
+      journalService: viewModel.getJournalSerice(),
+      realmMapService: viewModel.getRealmService()
+    )
   }
   @IBAction func syncMapsButton(_ sender: Any) {
     viewModel.syncMaps()
@@ -66,6 +74,14 @@ extension MapEditorViewController: UITableViewDataSource, UITableViewDelegate {
     cell.mapLabel.text = mapModel.mapLabel
     cell.mapLastEditLabel.text = dateFormatter.string(from: mapModel.lastEdited)
     return cell
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    coordinator?.goToMapEditorScene(
+      map: viewModel.maps.value[indexPath.row],
+      journalService: viewModel.getJournalSerice(),
+      realmMapService: viewModel.getRealmService()
+    )
   }
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
