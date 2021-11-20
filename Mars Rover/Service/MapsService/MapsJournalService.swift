@@ -8,6 +8,7 @@
 import Foundation
 
 protocol MapsJournalServiceProtocol {
+  func journal(action: RealmMapAction)
   var addJournal: [RealmMapModelData] { get }
   var updateJournal: [RealmMapModelData] { get }
   var deleteJournal: [String] { get }
@@ -42,15 +43,15 @@ class MapsJournalService: MapsJournalServiceProtocol {
     }
   }
 
-  func mapAdded(map: RealmMapModelData) {
+  private func mapAdded(map: RealmMapModelData) {
     mapsToAdd.append(map)
   }
 
-  func mapUpdated(map: RealmMapModelData) {
+  private func mapUpdated(map: RealmMapModelData) {
     mapsToUpdate.append(map)
   }
 
-  func mapDeleted(mapId: String) {
+  private func mapDeleted(mapId: String) {
     mapsIdToDelete.append(mapId)
     for (index, map) in mapsToAdd.enumerated() where map.id.stringValue == mapId {
       mapsToAdd.remove(at: index)
