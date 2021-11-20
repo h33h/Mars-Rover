@@ -27,6 +27,14 @@ class MapEditorViewModel {
     self.isUpdated = Box(false)
   }
 
+  func getJournalSerice() -> MapsJournalServiceProtocol {
+    journalService
+  }
+
+  func getRealmService() -> RealmMapsServceProtocol {
+    realmService
+  }
+
   func getLocalMaps() {
     self.maps.value.removeAll()
     let maps = realmService.getLocalMaps()
