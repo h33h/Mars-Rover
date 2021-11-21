@@ -14,12 +14,14 @@ enum MapType {
 }
 
 class MapEditorSceneViewModel {
+  // MARK: - MapEditorSceneViewModel: Variables
   private var mapModelData: RealmMapModelData?
   private var mapManager: MapManagerProtocol?
   private var currentMapType: MapType?
   private var realmMaps: RealmMapsServceProtocol?
   private var journalSevice: MapsJournalServiceProtocol?
 
+  // MARK: - MapEditorSceneViewModel: Methods
   func setupMapManager(type: MapBoardCreateType) {
     switch type {
     case .newMap:

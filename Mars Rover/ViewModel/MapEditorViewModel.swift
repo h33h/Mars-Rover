@@ -8,12 +8,14 @@
 import Foundation
 
 class MapEditorViewModel {
+  // MARK: - MapEditorViewModel: Variables
   private let syncService: MapsSyncService
   private let journalService: MapsJournalService
   private let realmService: RealmMapsServce
   var maps: Box<[RealmMapModelData]>
   var isUpdated: Box<Bool>
 
+  // MARK: - MapEditorViewModel: Init
   init() {
     let journalService = MapsJournalService()
     let realmService = RealmMapsServce(mapActionService: RealmMapsActionService())
@@ -27,6 +29,7 @@ class MapEditorViewModel {
     self.isUpdated = Box(false)
   }
 
+  // MARK: - MapEditorViewModel: Methods
   func getJournalSerice() -> MapsJournalServiceProtocol {
     journalService
   }
