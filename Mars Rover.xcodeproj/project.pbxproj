@@ -30,6 +30,15 @@
 		A9666F4127395AB60022AFFD /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F4027395AB60022AFFD /* MainCoordinator.swift */; };
 		A9ACAB132747CBD5004C4DC3 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB122747CBD5004C4DC3 /* MapManager.swift */; };
 		A9ACAB152747EFA3004C4DC3 /* MapEditorSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB142747EFA3004C4DC3 /* MapEditorSceneViewModel.swift */; };
+		A9ACAB1A274A7326004C4DC3 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB19274A7326004C4DC3 /* GameScreenViewController.swift */; };
+		A9ACAB1C274A75B3004C4DC3 /* GameScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB1B274A75B3004C4DC3 /* GameScreenViewModel.swift */; };
+		A9ACAB1E274A788B004C4DC3 /* PlayCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB1D274A788B004C4DC3 /* PlayCoordinator.swift */; };
+		A9ACAB21274ACBB7004C4DC3 /* FindShortestPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB20274ACBB7004C4DC3 /* FindShortestPath.swift */; };
+		A9ACAB23274ADCD0004C4DC3 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB22274ADCD0004C4DC3 /* Node.swift */; };
+		A9ACAB25274ADCEE004C4DC3 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB24274ADCEE004C4DC3 /* Connection.swift */; };
+		A9ACAB27274ADD19004C4DC3 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB26274ADD19004C4DC3 /* Path.swift */; };
+		A9ACAB29274AE10C004C4DC3 /* MatrixPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB28274AE10C004C4DC3 /* MatrixPoint.swift */; };
+		A9ACAB2B274AE1FC004C4DC3 /* MatrixNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB2A274AE1FC004C4DC3 /* MatrixNode.swift */; };
 		A9B5A7B6274198460075C954 /* FirebaseMapsActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B5A7B5274198460075C954 /* FirebaseMapsActionService.swift */; };
 		A9EE8EEF273964BB00F18D62 /* SignUpFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EEE273964BB00F18D62 /* SignUpFormViewController.swift */; };
 		A9EE8EF12739655F00F18D62 /* SignUpFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EF02739655F00F18D62 /* SignUpFormViewModel.swift */; };
@@ -85,6 +94,15 @@
 		A9666F4027395AB60022AFFD /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A9ACAB122747CBD5004C4DC3 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		A9ACAB142747EFA3004C4DC3 /* MapEditorSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditorSceneViewModel.swift; sourceTree = "<group>"; };
+		A9ACAB19274A7326004C4DC3 /* GameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
+		A9ACAB1B274A75B3004C4DC3 /* GameScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewModel.swift; sourceTree = "<group>"; };
+		A9ACAB1D274A788B004C4DC3 /* PlayCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayCoordinator.swift; sourceTree = "<group>"; };
+		A9ACAB20274ACBB7004C4DC3 /* FindShortestPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindShortestPath.swift; sourceTree = "<group>"; };
+		A9ACAB22274ADCD0004C4DC3 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		A9ACAB24274ADCEE004C4DC3 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		A9ACAB26274ADD19004C4DC3 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		A9ACAB28274AE10C004C4DC3 /* MatrixPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixPoint.swift; sourceTree = "<group>"; };
+		A9ACAB2A274AE1FC004C4DC3 /* MatrixNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixNode.swift; sourceTree = "<group>"; };
 		A9B5A7B5274198460075C954 /* FirebaseMapsActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMapsActionService.swift; sourceTree = "<group>"; };
 		A9EE8EEE273964BB00F18D62 /* SignUpFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormViewController.swift; sourceTree = "<group>"; };
 		A9EE8EF02739655F00F18D62 /* SignUpFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormViewModel.swift; sourceTree = "<group>"; };
@@ -163,6 +181,7 @@
 		A9219394272DD6330006CE85 /* Mars Rover */ = {
 			isa = PBXGroup;
 			children = (
+				A9ACAB1F274ACB0F004C4DC3 /* Algorithm */,
 				A9ACAB112747CBC0004C4DC3 /* Manager */,
 				A9666F3D273959640022AFFD /* Coordinators */,
 				A9666F372736AE930022AFFD /* Utility */,
@@ -229,6 +248,7 @@
 				A9666F4027395AB60022AFFD /* MainCoordinator.swift */,
 				A9EE8EFB273985CD00F18D62 /* MainMenuCoordinator.swift */,
 				A9109D502746703E00E31ED3 /* MapEditorCoordinator.swift */,
+				A9ACAB1D274A788B004C4DC3 /* PlayCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -239,6 +259,19 @@
 				A9ACAB122747CBD5004C4DC3 /* MapManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		A9ACAB1F274ACB0F004C4DC3 /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				A9ACAB20274ACBB7004C4DC3 /* FindShortestPath.swift */,
+				A9ACAB22274ADCD0004C4DC3 /* Node.swift */,
+				A9ACAB24274ADCEE004C4DC3 /* Connection.swift */,
+				A9ACAB26274ADD19004C4DC3 /* Path.swift */,
+				A9ACAB28274AE10C004C4DC3 /* MatrixPoint.swift */,
+				A9ACAB2A274AE1FC004C4DC3 /* MatrixNode.swift */,
+			);
+			path = Algorithm;
 			sourceTree = "<group>";
 		};
 		A9EE8EF92739832100F18D62 /* FirebaseAuth */ = {
@@ -280,6 +313,7 @@
 				A9109D4B27452DF500E31ED3 /* MapEditorSceneViewController.swift */,
 				A9EE8F01273BFD3100F18D62 /* MapTableViewCell.swift */,
 				A9EE8F02273BFD3100F18D62 /* MapTableViewCell.xib */,
+				A9ACAB19274A7326004C4DC3 /* GameScreenViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -311,6 +345,7 @@
 				A9EE8EFD27398D2A00F18D62 /* MainMenuViewModel.swift */,
 				A9EE8F07273C066600F18D62 /* MapEditorViewModel.swift */,
 				A9ACAB142747EFA3004C4DC3 /* MapEditorSceneViewModel.swift */,
+				A9ACAB1B274A75B3004C4DC3 /* GameScreenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -473,26 +508,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9ACAB1C274A75B3004C4DC3 /* GameScreenViewModel.swift in Sources */,
 				A93A9F942732FBD200376332 /* FirebaseAuthService.swift in Sources */,
 				A9F45415273191B500017E26 /* SignInFormViewModel.swift in Sources */,
+				A9ACAB25274ADCEE004C4DC3 /* Connection.swift in Sources */,
 				A9FA590B273FB4D9002109A0 /* FirebaseMapModel.swift in Sources */,
 				A9EE8EEF273964BB00F18D62 /* SignUpFormViewController.swift in Sources */,
 				A9F4540F273165D400017E26 /* SignInFormViewController.swift in Sources */,
 				A9EE8F0F273D3F8D00F18D62 /* RealmMapModel.swift in Sources */,
 				A9EE8EF627397AC400F18D62 /* FirebaseProfileWriteService.swift in Sources */,
+				A9ACAB1E274A788B004C4DC3 /* PlayCoordinator.swift in Sources */,
 				A9ACAB152747EFA3004C4DC3 /* MapEditorSceneViewModel.swift in Sources */,
+				A9ACAB29274AE10C004C4DC3 /* MatrixPoint.swift in Sources */,
+				A9ACAB27274ADD19004C4DC3 /* Path.swift in Sources */,
 				A9EE8F03273BFD3100F18D62 /* MapTableViewCell.swift in Sources */,
 				A93A9F922732F3C100376332 /* FirebaseSignUpService.swift in Sources */,
 				A93A9F8B2732E3DC00376332 /* FirebaseSignInService.swift in Sources */,
 				A9ACAB132747CBD5004C4DC3 /* MapManager.swift in Sources */,
+				A9ACAB1A274A7326004C4DC3 /* GameScreenViewController.swift in Sources */,
 				A9666F3C273940FA0022AFFD /* Storyboarded.swift in Sources */,
 				A9EE8EFE27398D2A00F18D62 /* MainMenuViewModel.swift in Sources */,
 				A9109D512746703E00E31ED3 /* MapEditorCoordinator.swift in Sources */,
 				A9109D4C27452DF500E31ED3 /* MapEditorSceneViewController.swift in Sources */,
 				A9EE8EFC273985CD00F18D62 /* MainMenuCoordinator.swift in Sources */,
 				A9666F3F27395A2C0022AFFD /* Coordinator.swift in Sources */,
+				A9ACAB23274ADCD0004C4DC3 /* Node.swift in Sources */,
 				A9F4541227316E5100017E26 /* AuthorizationTextField.swift in Sources */,
 				A93A9F972733063A00376332 /* UIViewController+Extensions.swift in Sources */,
+				A9ACAB21274ACBB7004C4DC3 /* FindShortestPath.swift in Sources */,
 				A9EE8EF12739655F00F18D62 /* SignUpFormViewModel.swift in Sources */,
 				A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */,
 				A9EE8F06273C032000F18D62 /* RealmMapModelData.swift in Sources */,
@@ -509,6 +552,7 @@
 				A9EE8F00273BF9E800F18D62 /* MapEditorViewController.swift in Sources */,
 				A9666F4127395AB60022AFFD /* MainCoordinator.swift in Sources */,
 				A9EE8EF827397AF000F18D62 /* FirebaseProfileService.swift in Sources */,
+				A9ACAB2B274AE1FC004C4DC3 /* MatrixNode.swift in Sources */,
 				A93A9F8D2732EC0300376332 /* FirebaseProfileFetchService.swift in Sources */,
 				A9FA5907273EF416002109A0 /* FirebaseMapsService.swift in Sources */,
 				A9EE8F0D273C312A00F18D62 /* RealmMapsService.swift in Sources */,
