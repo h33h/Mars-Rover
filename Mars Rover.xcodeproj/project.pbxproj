@@ -30,6 +30,8 @@
 		A9666F4127395AB60022AFFD /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F4027395AB60022AFFD /* MainCoordinator.swift */; };
 		A9ACAB132747CBD5004C4DC3 /* MapCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB122747CBD5004C4DC3 /* MapCreator.swift */; };
 		A9ACAB152747EFA3004C4DC3 /* MapEditorSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB142747EFA3004C4DC3 /* MapEditorSceneViewModel.swift */; };
+		A9ACAB2E274C30A5004C4DC3 /* MatrixPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB2D274C30A5004C4DC3 /* MatrixPoint.swift */; };
+		A9ACAB30274CD43C004C4DC3 /* MapSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB2F274CD43C004C4DC3 /* MapSize.swift */; };
 		A9ACAB1A274A7326004C4DC3 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB19274A7326004C4DC3 /* GameScreenViewController.swift */; };
 		A9ACAB1C274A75B3004C4DC3 /* GameScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB1B274A75B3004C4DC3 /* GameScreenViewModel.swift */; };
 		A9ACAB1E274A788B004C4DC3 /* PlayCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB1D274A788B004C4DC3 /* PlayCoordinator.swift */; };
@@ -94,6 +96,8 @@
 		A9666F4027395AB60022AFFD /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A9ACAB122747CBD5004C4DC3 /* MapCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCreator.swift; sourceTree = "<group>"; };
 		A9ACAB142747EFA3004C4DC3 /* MapEditorSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditorSceneViewModel.swift; sourceTree = "<group>"; };
+		A9ACAB2D274C30A5004C4DC3 /* MatrixPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixPoint.swift; sourceTree = "<group>"; };
+		A9ACAB2F274CD43C004C4DC3 /* MapSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSize.swift; sourceTree = "<group>"; };
 		A9ACAB19274A7326004C4DC3 /* GameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
 		A9ACAB1B274A75B3004C4DC3 /* GameScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewModel.swift; sourceTree = "<group>"; };
 		A9ACAB1D274A788B004C4DC3 /* PlayCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayCoordinator.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 			children = (
 				A9ACAB1F274ACB0F004C4DC3 /* Algorithm */,
 				A9ACAB2C274C3082004C4DC3 /* DataTypes */,
+				A9ACAB1F274ACB0F004C4DC3 /* Algorithm */,
 				A9ACAB112747CBC0004C4DC3 /* Manager */,
 				A9666F3D273959640022AFFD /* Coordinators */,
 				A9666F372736AE930022AFFD /* Utility */,
@@ -282,8 +287,21 @@
 				A9ACAB2F274CD43C004C4DC3 /* MapSize.swift */,
 			);
 			path = DataTypes;
-			sourceTree = "<group>";
-		};
+      sourceTree = "<group>";
+    };
+		A9ACAB1F274ACB0F004C4DC3 /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				A9ACAB20274ACBB7004C4DC3 /* FindShortestPath.swift */,
+				A9ACAB22274ADCD0004C4DC3 /* Node.swift */,
+				A9ACAB24274ADCEE004C4DC3 /* Connection.swift */,
+				A9ACAB26274ADD19004C4DC3 /* Path.swift */,
+				A9ACAB28274AE10C004C4DC3 /* MatrixPoint.swift */,
+				A9ACAB2A274AE1FC004C4DC3 /* MatrixNode.swift */,
+			);
+			path = Algorithm;
+      sourceTree = "<group>";
+    };
 		A9EE8EF92739832100F18D62 /* FirebaseAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +555,7 @@
 				A9ACAB132747CBD5004C4DC3 /* MapManager.swift in Sources */,
 				A9ACAB1A274A7326004C4DC3 /* GameScreenViewController.swift in Sources */,
 				A9ACAB132747CBD5004C4DC3 /* MapCreator.swift in Sources */,
+				A9ACAB1A274A7326004C4DC3 /* GameScreenViewController.swift in Sources */,
 				A9666F3C273940FA0022AFFD /* Storyboarded.swift in Sources */,
 				A9EE8EFE27398D2A00F18D62 /* MainMenuViewModel.swift in Sources */,
 				A9109D512746703E00E31ED3 /* MapEditorCoordinator.swift in Sources */,
