@@ -10,9 +10,9 @@ import SceneKit
 
 enum Obstacle: Int, CaseIterable {
   case solidGround = 0
+  case hill
   case sand
   case pit
-  case hill
 }
 
 extension Obstacle {
