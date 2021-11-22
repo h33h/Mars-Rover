@@ -31,11 +31,15 @@ class MapManager: MapManagerProtocol {
   private let startX: Float = -170.0
   private let rowsCount: Int
   private let colomnsCount: Int
+  private let startPoint: MatrixPoint
+  private let endPoint: MatrixPoint
   private var mapNode: SCNNode
 
   init(rowsCount: Int, colomnsCount: Int) {
     self.rowsCount = rowsCount
     self.colomnsCount = colomnsCount
+    self.startPoint = MatrixPoint(row: rowsCount / 2, colomn: 0)
+    self.endPoint = MatrixPoint(row: rowsCount / 2, colomn: colomnsCount - 1)
     self.mapNode = SCNNode()
     self.currentMap = RealmMapModelData(
       mapLabel: "",
@@ -52,6 +56,8 @@ class MapManager: MapManagerProtocol {
     else { return nil }
     self.rowsCount = rows
     self.colomnsCount = colomns
+    self.startPoint = MatrixPoint(row: rowsCount / 2, colomn: 0)
+    self.endPoint = MatrixPoint(row: rowsCount / 2, colomn: colomnsCount - 1)
     self.mapNode = SCNNode()
     self.currentMap = RealmMapModelData(value: mapModelData)
     self.createMapBoard(type: .fromMap(map: mapModelData))
@@ -141,11 +147,16 @@ class MapManager: MapManagerProtocol {
   private func replaceMapBlock(replacingNode: SCNNode, with block: Obstacle) {
     guard let block = block.getBlock()?.flattenedClone() else { return }
     mapNode.enumerateChildNodes { containerNode, _ in
-      if let blockInBlockContainer = containerNode.childNodes.first, replacingNode == blockInBlockContainer {
-        let position = blockInBlockContainer.position
-        blockInBlockContainer.removeFromParentNode()
-        block.position = position
-        containerNode.addChildNode(block)
+      if
+        let blockInBlockContainer = containerNode.childNodes.first,
+        replacingNode == blockInBlockContainer,
+        let name = containerNode.name,
+        name != startPoint.toString(),
+        name != endPoint.toString() {
+          let position = blockInBlockContainer.position
+          blockInBlockContainer.removeFromParentNode()
+          block.position = position
+          containerNode.addChildNode(block)
       }
     }
     updateMapModelData()
@@ -155,7 +166,10 @@ class MapManager: MapManagerProtocol {
     mapNode.enumerateChildNodes { containerNode, _ in
       if
         let blockInBlockContainer = containerNode.childNodes.first,
-        let block = Obstacle.init(rawValue: Int.random(in: 0 ..< 5))?.getBlock()?.flattenedClone() {
+        let block = Obstacle.init(rawValue: Int.random(in: 0 ..< 5))?.getBlock()?.flattenedClone(),
+        let name = containerNode.name,
+        name != startPoint.toString(),
+        name != endPoint.toString() {
           let position = blockInBlockContainer.position
           blockInBlockContainer.removeFromParentNode()
           block.position = position
