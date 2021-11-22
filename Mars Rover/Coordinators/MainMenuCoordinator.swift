@@ -29,6 +29,13 @@ class MainMenuCoordinator: Coordinator {
     child.start()
   }
 
+  func goToPlay() {
+    let child = PlayCoordinator(navigationController: navigationController)
+    child.parentCoordinator = self
+    childCoordinators.append(child)
+    child.start()
+  }
+
   func goBack() {
     parentCoordinator?.childDidFinish(child: self)
   }
