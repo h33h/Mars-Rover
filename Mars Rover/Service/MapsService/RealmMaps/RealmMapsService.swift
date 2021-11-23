@@ -14,11 +14,12 @@ protocol RealmMapsServceProtocol {
   func removeAllLocalMaps()
 }
 
-class RealmMapsServce: RealmMapsServceProtocol {
-  private let mapActionService: MapActionProtocol
-  private let realm: Realm?
+final class RealmMapsServce: RealmMapsServceProtocol {
+  static var shared = RealmMapsServce(mapActionService: RealmMapsActionService())
+  let mapActionService: RealmMapsActionServiceProtocol
+  let realm: Realm?
 
-  init(mapActionService: MapActionProtocol) {
+  init(mapActionService: RealmMapsActionServiceProtocol) {
     self.mapActionService = mapActionService
     self.realm = Realm.safeInit()
   }

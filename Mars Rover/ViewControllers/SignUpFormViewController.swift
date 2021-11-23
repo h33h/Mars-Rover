@@ -9,7 +9,7 @@ import UIKit
 
 class SignUpFormViewController: UIViewController, Storyboarded {
   // MARK: - SignInFormViewController: Variables
-    private var viewModel = SignUpFormViewModel()
+    private var viewModel = SignUpFormViewModel(authService: FirebaseAuthService.shared)
     var coordinator: MainCoordinator?
 
   // MARK: - SignUpFormViewController: IBOutlet Variables

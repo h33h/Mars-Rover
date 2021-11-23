@@ -8,29 +8,18 @@
 import Foundation
 
 protocol MapsJournalServiceProtocol {
+  var mapsToAdd: [RealmMapModelData] { get }
+  var mapsToUpdate: [RealmMapModelData] { get }
+  var mapsIdToDelete: [String] { get }
   func journal(action: RealmMapAction)
-  var addJournal: [RealmMapModelData] { get }
-  var updateJournal: [RealmMapModelData] { get }
-  var deleteJournal: [String] { get }
   func clearJournal()
 }
 
-class MapsJournalService: MapsJournalServiceProtocol {
-  private var mapsToAdd: [RealmMapModelData] = []
-  private var mapsToUpdate: [RealmMapModelData] = []
-  private var mapsIdToDelete: [String] = []
-
-  var addJournal: [RealmMapModelData] {
-    mapsToAdd
-  }
-
-  var updateJournal: [RealmMapModelData] {
-    mapsToUpdate
-  }
-
-  var deleteJournal: [String] {
-    mapsIdToDelete
-  }
+final class MapsJournalService: MapsJournalServiceProtocol {
+  static var shared = MapsJournalService()
+  private(set) var mapsToAdd: [RealmMapModelData] = []
+  private(set) var mapsToUpdate: [RealmMapModelData] = []
+  private(set) var mapsIdToDelete: [String] = []
 
   func journal(action: RealmMapAction) {
     switch action {

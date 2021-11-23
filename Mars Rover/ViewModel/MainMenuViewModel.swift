@@ -9,72 +9,72 @@ import Foundation
 
 class MainMenuViewModel {
   // MARK: - MainMenuViewModel: Variables
-    private var authService = FirebaseAuthService(
-      signInService: FirebaseSignInService(),
-      signUpService: FirebaseSignUpService()
-    )
-    private var profileService = FirebaseProfileService(
-      profileFetchService: FirebaseProfileFetchService(),
-      profileWriteService: FirebaseProfileWriteService()
-    )
-    private let realmSevice = RealmMapsServce(mapActionService: RealmMapsActionService())
-    var fetchError = Box("")
-    var profileFetched = Box(ProfileModel(username: "Loading..."))
-    var signOutError = Box("")
-    var isSignedOut = Box(false)
+    let authService: FirebaseAuthServiceProtocol
+    let profileService: FirebaseProfileServiceProtocol
+    let realmSevice: RealmMapsServceProtocol
+    var errorMessage: Box<String>
+    var profile: Box<ProfileModel>
+    var isSignedOut: Box<Bool>
+
+  init(authService: FirebaseAuthServiceProtocol, profileService: FirebaseProfileServiceProtocol, realmMapsService: RealmMapsServceProtocol) {
+    self.authService = authService
+    self.profileService = profileService
+    self.realmSevice = realmMapsService
+    self.errorMessage = Box("")
+    self.profile = Box(ProfileModel(username: "Loading..."))
+    self.isSignedOut = Box(false)
+  }
 
   // MARK: - MainMenuViewModel: Methods
     func getProfile() {
-      profileService.profileFetchService.fetch { [weak self] profile, error in
-        guard let strongSelf = self else { return }
+      profileService.fetch { [weak self] profile, error in
+        guard let this = self else { return }
           if let error = error {
             switch error {
             case .error(error: let error):
-              strongSelf.fetchError.value = error
+              this.errorMessage.value = error
             case .notSignedIn:
-              strongSelf.fetchError.value = "Authentication error"
+              this.errorMessage.value = "Authentication error"
             case .profileNotExist:
-              strongSelf.fetchError.value = "Profile not exist"
+              this.errorMessage.value = "Profile not exist"
             }
             return
           }
           guard let profile = profile else {
-            strongSelf.fetchError.value = "Unknown error"
+            this.errorMessage.value = "Unknown error"
               return
           }
-          strongSelf.profileFetched.value = profile
+        this.profile.value = profile
       }
     }
 
   func setupNewUser() {
-    profileService.profileWriteService.profileAction(action: .setupNewProfile) { [weak self] isCreated, error in
-      guard let strongSelf = self else { return }
+    profileService.profileAction(action: .setupNewProfile) { [weak self] error in
+      guard let this = self else { return }
       if let error = error {
         switch error {
         case .error(let error):
-          strongSelf.fetchError.value = error
+          this.errorMessage.value = error
         case .profileNotExist:
-          strongSelf.fetchError.value = "Profile not exist"
+          this.errorMessage.value = "Profile not exist"
         case .notSignedIn:
-          strongSelf.fetchError.value = "Authentication error"
+          this.errorMessage.value = "Authentication error"
         }
         return
       }
-      if isCreated {
-        self?.getProfile()
-      }
+      this.getProfile()
     }
   }
 
     func signOut() {
       authService.signOut { [weak self] error in
-        guard let strongSelf = self else { return }
+        guard let this = self else { return }
           if let error = error {
-            strongSelf.signOutError.value = error.localizedDescription
+            this.errorMessage.value = error.localizedDescription
               return
           }
-        strongSelf.realmSevice.removeAllLocalMaps()
-        strongSelf.isSignedOut.value = true
+        this.realmSevice.removeAllLocalMaps()
+        this.isSignedOut.value = true
       }
     }
 }

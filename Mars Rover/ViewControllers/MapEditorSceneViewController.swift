@@ -60,7 +60,7 @@ class MapEditorSceneViewController: UIViewController, Storyboarded {
       let scnScene = scnScene,
       let mapNode = scnScene.rootNode.childNode(withName: "board", recursively: true)
     else { return }
-    if let mapManagerNode = viewModel?.getMapNode() {
+    if let mapManagerNode = viewModel?.mapCreator.mapNode {
       clearMap()
       mapNode.addChildNode(mapManagerNode)
     }
@@ -102,8 +102,10 @@ class MapEditorSceneViewController: UIViewController, Storyboarded {
     let location = sender.location(in: scnView)
     let hitResults = scnView.hitTest(location, options: nil)
     if !hitResults.isEmpty {
-      let resultNode = hitResults[0].node
-      guard let selectedBlock = selectedBlock, Obstacle.getObstacle(node: resultNode) != nil else { return }
+      guard
+        let resultNode = hitResults.first?.node,
+        let selectedBlock = selectedBlock, Obstacle.getObstacle(node: resultNode) != nil
+      else { return }
       viewModel?.mapAction(type: .replaceMapBlock(replacingNode: resultNode, block: selectedBlock))
     }
   }

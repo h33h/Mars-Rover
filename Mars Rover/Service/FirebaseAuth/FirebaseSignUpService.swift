@@ -22,13 +22,13 @@ enum SignUpError {
     case absentOfUser
 }
 
-typealias SignUpCompletion = (Bool, SignUpError?) -> Void
+typealias SignUpCompletion = (SignUpError?) -> Void
 
-protocol SignUpProtocol {
+protocol FirebaseSignUpServiceProtocol {
   func signUp(with type: SignUpType, completion: @escaping SignUpCompletion)
 }
 
-final class FirebaseSignUpService: SignUpProtocol {
+final class FirebaseSignUpService: FirebaseSignUpServiceProtocol {
   // MARK: - FirebaseProfileService: SignUp Methods
     public func signUp(with type: SignUpType, completion: @escaping SignUpCompletion) {
       switch type {
@@ -40,20 +40,20 @@ final class FirebaseSignUpService: SignUpProtocol {
     private func createAccountWithPassword(email: String, password: String, completion: @escaping SignUpCompletion) {
       Auth.auth().createUser(withEmail: email, password: password) { data, error in
         if let error = error {
-          completion(false, .error(error: error.localizedDescription))
+          completion(.error(error: error.localizedDescription))
           return
         }
-        guard let user = data?.user else { return completion(false, .absentOfUser) }
+        guard let user = data?.user else { return completion(.absentOfUser) }
           user.sendEmailVerification { error in
             if let error = error {
-              completion(false, .error(error: error.localizedDescription))
+              completion(.error(error: error.localizedDescription))
               return
             }
             do {
               try Auth.auth().signOut()
-              return completion(true, nil)
+              return completion(nil)
             } catch {
-              return completion(false, .error(error: error.localizedDescription))
+              return completion(.error(error: error.localizedDescription))
             }
           }
       }

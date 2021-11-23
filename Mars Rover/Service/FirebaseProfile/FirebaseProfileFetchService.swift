@@ -21,11 +21,11 @@ public enum ProfileFetchError {
 
 typealias ProfileCompletion = (ProfileModel?, ProfileFetchError?) -> Void
 
-protocol ProfileFetchProtocol {
+protocol FirebaseProfileFetchServiceProtocol {
   func fetch(completion: @escaping ProfileCompletion)
 }
 
-final class FirebaseProfileFetchService: ProfileFetchProtocol {
+final class FirebaseProfileFetchService: FirebaseProfileFetchServiceProtocol {
   // MARK: - FirebaseProfileService: Methods
     public func fetch(completion: @escaping ProfileCompletion) {
       guard let user = Auth.auth().currentUser else { return completion(nil, .notSignedIn) }
