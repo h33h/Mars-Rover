@@ -55,6 +55,7 @@ class MainMenuViewController: UIViewController, Storyboarded {
     coordinator?.goToMaps()
   }
   @IBAction func playButton(_ sender: Any) {
+    coordinator?.goToPlay()
   }
 }
 

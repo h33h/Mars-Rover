@@ -50,7 +50,7 @@ class MapEditorSceneViewController: UIViewController, Storyboarded {
 
   // MARK: - MapEditorSceneViewController: ViewDidLoad Methods
   private func setupScene() {
-    guard let scnScene = SCNScene(named: "mapEditorScene.scn", inDirectory: "GameAssets.scnassets") else { return }
+    guard let scnScene = SCNScene(named: "GameAssets.scnassets/mapEditorScene.scn") else { return }
     self.scnScene = scnScene
     scnView?.scene = scnScene
   }

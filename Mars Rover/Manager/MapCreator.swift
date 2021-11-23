@@ -111,7 +111,9 @@ class MapCreator: MapCreatorProtocol {
     mapNode.enumerateChildNodes { containerNode, _ in
       if
         let blockInBlockContainer = containerNode.childNodes.first,
-        replacingNode == blockInBlockContainer
+        replacingNode == blockInBlockContainer,
+        containerNode.name != currentMap.map?.startGamePoint().toString(),
+        containerNode.name != currentMap.map?.endGamePoint().toString()
       {
         let position = blockInBlockContainer.position
         blockInBlockContainer.removeFromParentNode()
@@ -126,7 +128,12 @@ class MapCreator: MapCreatorProtocol {
     mapNode.enumerateChildNodes { containerNode, _ in
       if
         let blockInBlockContainer = containerNode.childNodes.first,
-        let block = Obstacle.init(rawValue: Int.random(in: 0 ..< Obstacle.allCases.count))?.getBlock()?.flattenedClone()
+        let block = Obstacle.init(
+          rawValue: Int.random(in: 0 ..< Obstacle.allCases.count))?
+          .getBlock()?
+          .flattenedClone(),
+        containerNode.name != currentMap.map?.startGamePoint().toString(),
+        containerNode.name != currentMap.map?.endGamePoint().toString()
       {
         let position = blockInBlockContainer.position
         blockInBlockContainer.removeFromParentNode()
