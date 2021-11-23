@@ -15,18 +15,18 @@ class RealmMapModel: Object {
   @Persisted var map: List<Int>
 
 // MARK: - RealmMapModel: Init Methods
-  convenience init(rowCount: Int, colomnsCount: Int) {
+  convenience init(size: MapSize) {
     self.init()
-    self.rowCount = rowCount
-    self.colomnsCount = colomnsCount
+    self.rowCount = size.getSize().rows
+    self.colomnsCount = size.getSize().colomns
     self.map = List<Int>()
     map.append(objectsIn: Array(repeating: 0, count: (rowCount * colomnsCount)))
   }
 
-  convenience init(rowCount: Int, colomnsCount: Int, map: [Int]) {
+  convenience init(size: MapSize, map: [Int]) {
     self.init()
-    self.rowCount = rowCount
-    self.colomnsCount = colomnsCount
+    self.rowCount = size.getSize().rows
+    self.colomnsCount = size.getSize().colomns
     self.map = List<Int>()
     map.forEach { self.map.append($0) }
   }
@@ -54,7 +54,15 @@ extension RealmMapModel {
     return FirebaseMapModel(rowCount: self.rowCount, colomnsCount: self.colomnsCount, map: Array(self.map))
   }
 
-  func getMapSize() -> (rows: Int, colomns: Int) {
-    return (self.rowCount, self.colomnsCount)
+  func getMapSize() -> MapSize {
+    return .mapSize(rows: self.rowCount, colomns: self.colomnsCount)
+  }
+
+  func startGamePoint() -> MatrixPoint {
+    MatrixPoint(row: Int((getMapSize().getSize().rows - 1) / 2), colomn: 0)
+  }
+
+  func endGamePoint() -> MatrixPoint {
+    MatrixPoint(row: Int((getMapSize().getSize().rows - 1) / 2), colomn: getMapSize().getSize().colomns - 1)
   }
 }

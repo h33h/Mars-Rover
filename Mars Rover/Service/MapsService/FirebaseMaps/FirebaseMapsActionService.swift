@@ -19,7 +19,7 @@ protocol FirebaseMapsActionServiceProtocol {
   func mapAction(is action: FirebaseMapAction, errorHandler: @escaping FirebaseMapsServceErrorCompletion)
 }
 
-class FirebaseMapsActionService: FirebaseMapsActionServiceProtocol {
+final class FirebaseMapsActionService: FirebaseMapsActionServiceProtocol {
   func mapAction(is action: FirebaseMapAction, errorHandler: @escaping FirebaseMapsServceErrorCompletion) {
     switch action {
     case .addMap(let firebaseMapModelData):

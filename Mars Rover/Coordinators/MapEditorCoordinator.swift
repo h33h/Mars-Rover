@@ -22,18 +22,25 @@ class MapEditorCoordinator: Coordinator {
     navigationController.pushViewController(mapEditorVC, animated: true)
   }
 
-  func goToMapEditorScene(map: RealmMapModelData? = nil, journalService: MapsJournalServiceProtocol, realmMapService: RealmMapsServceProtocol) {
+  func goToMapEditorScene(map: RealmMapModelData? = nil) {
     guard let mapEditorSceneVC = MapEditorSceneViewController.instantiate(from: "GameScreens") else { return }
     mapEditorSceneVC.coordinator = self
-    let viewModel = MapEditorSceneViewModel()
-    viewModel.setRealmService(service: realmMapService)
-    viewModel.setJournalService(service: journalService)
     if let map = map {
-      viewModel.setupMapManager(type: .fromMap(map: map))
+      guard let mapCreator = MapCreator(mapModelData: map) else { return }
+      let viewModel = MapEditorSceneViewModel(
+        realmMapsService: RealmMapsServce.shared,
+        journalService: MapsJournalService.shared,
+        mapCreator: mapCreator
+      )
+      mapEditorSceneVC.setViewModel(viewModel: viewModel)
     } else {
-      viewModel.setupMapManager(type: .newMap)
+      let viewModel = MapEditorSceneViewModel(
+        realmMapsService: RealmMapsServce.shared,
+        journalService: MapsJournalService.shared,
+        mapCreator: MapCreator(size: .defaultSize)
+      )
+      mapEditorSceneVC.setViewModel(viewModel: viewModel)
     }
-    mapEditorSceneVC.setViewModel(viewModel: viewModel)
     navigationController.pushViewController(mapEditorSceneVC, animated: true)
   }
 

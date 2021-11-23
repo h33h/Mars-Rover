@@ -10,7 +10,11 @@ import UIKit
 class MapEditorViewController: UIViewController, Storyboarded {
   // MARK: - MapEditorViewController: Variables
   var coordinator: MapEditorCoordinator?
-  private var viewModel = MapEditorViewModel()
+  private var viewModel = MapEditorViewModel(
+    journalService: MapsJournalService.shared,
+    realmMapsSevice: RealmMapsServce.shared,
+    syncService: MapsSyncService.shared
+  )
 
   // MARK: - MapEditorViewController: IBOutlet Variables
   @IBOutlet var addMapButton: UIButton!
@@ -24,10 +28,7 @@ class MapEditorViewController: UIViewController, Storyboarded {
     mapsTableView.delegate = self
     mapsTableView.dataSource = self
     mapsTableView.register(
-      UINib(
-        nibName: "MapTableViewCell",
-        bundle: nil
-      ),
+      UINib(nibName: "MapTableViewCell", bundle: nil),
       forCellReuseIdentifier: "MapTableViewCell"
     )
     viewModel.isUpdated.bind { isUpdated in
@@ -36,7 +37,7 @@ class MapEditorViewController: UIViewController, Storyboarded {
         DispatchQueue.main.async {
           self.mapsTableView.reloadData()
         }
-        self.viewModel.isUpdated.value = false
+        self.viewModel.isUpdated.value.toggle()
       }
     }
   }
@@ -48,11 +49,7 @@ class MapEditorViewController: UIViewController, Storyboarded {
 
   // MARK: - MapEditorViewController: IBAction Methods
   @IBAction private func addMapButton(_ sender: Any) {
-    coordinator?.goToMapEditorScene(
-      map: nil,
-      journalService: viewModel.getJournalSerice(),
-      realmMapService: viewModel.getRealmService()
-    )
+    coordinator?.goToMapEditorScene(map: nil)
   }
   @IBAction private func syncMapsButton(_ sender: Any) {
     viewModel.syncMaps()
@@ -91,9 +88,9 @@ extension MapEditorViewController: UITableViewDataSource, UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     let delete = UIContextualAction(style: .destructive, title: "") { [weak self] _, _, completion in
-      guard let strongSelf = self else { return completion(false) }
+      guard let this = self else { return completion(false) }
       tableView.beginUpdates()
-      strongSelf.viewModel.mapAction(action: .removeMap(strongSelf.viewModel.maps.value[indexPath.row].id))
+      this.viewModel.mapAction(action: .removeMap(this.viewModel.maps.value[indexPath.row].id))
       tableView.deleteRows(at: [indexPath], with: .fade)
       tableView.endUpdates()
       completion(true)
@@ -101,12 +98,8 @@ extension MapEditorViewController: UITableViewDataSource, UITableViewDelegate {
     delete.image = UIImage(systemName: "trash")
 
     let edit = UIContextualAction(style: .normal, title: "") { [weak self] _, _, completion in
-      guard let strongSelf = self else { return completion(false) }
-      strongSelf.coordinator?.goToMapEditorScene(
-        map: strongSelf.viewModel.maps.value[indexPath.row],
-        journalService: strongSelf.viewModel.getJournalSerice(),
-        realmMapService: strongSelf.viewModel.getRealmService()
-      )
+      guard let this = self else { return completion(false) }
+      this.coordinator?.goToMapEditorScene(map: this.viewModel.maps.value[indexPath.row])
       completion(true)
     }
     edit.image = UIImage(systemName: "pencil")

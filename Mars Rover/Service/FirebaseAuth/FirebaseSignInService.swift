@@ -28,13 +28,13 @@ public enum SignInError {
     case unknownError
 }
 
-typealias SignInCompletion = (Bool, SignInError?) -> Void
+typealias SignInCompletion = (SignInError?) -> Void
 
-protocol SignInProtocol {
+protocol FirebaseSignInServiceProtocol {
   func signIn(with type: SignInType, completion: @escaping SignInCompletion)
 }
 
-final class FirebaseSignInService: SignInProtocol {
+final class FirebaseSignInService: FirebaseSignInServiceProtocol {
   // MARK: - FirebaseSignInService: Variables
     private var authListener: AuthStateDidChangeListenerHandle?
 
@@ -51,33 +51,33 @@ final class FirebaseSignInService: SignInProtocol {
     private func signInWithPassword(email: String, password: String, completion: @escaping SignInCompletion) {
       Auth.auth().signIn(withEmail: email, password: password) { data, error in
         if let error = error {
-          return completion(false, .error(error: error.localizedDescription))
+          return completion(.error(error: error.localizedDescription))
         }
-        guard let user = data?.user else { return completion(false, .absentOfUser) }
+        guard let user = data?.user else { return completion(.absentOfUser) }
         guard user.isEmailVerified else {
           do {
             try Auth.auth().signOut()
-            return completion(false, .notVerifiedEmail)
+            return completion(.notVerifiedEmail)
           } catch {
-            return completion(false, .error(error: error.localizedDescription))
+            return completion(.error(error: error.localizedDescription))
           }
         }
-        return completion(true, nil)
+        return completion(nil)
       }
     }
 
     private func checkSignIn(completion: @escaping SignInCompletion) {
       authListener = Auth.auth().addStateDidChangeListener { _, user in
-        guard let user = user else { return completion(false, .notSignedIn) }
+        guard let user = user else { return completion(.notSignedIn) }
         guard user.isEmailVerified else {
           do {
             try Auth.auth().signOut()
-            return completion(false, .notVerifiedEmail)
+            return completion(.notVerifiedEmail)
           } catch {
-            return completion(false, .error(error: error.localizedDescription))
+            return completion(.error(error: error.localizedDescription))
           }
         }
-        return completion(true, nil)
+        return completion(nil)
       }
     }
 

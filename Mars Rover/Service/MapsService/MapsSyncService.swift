@@ -11,10 +11,19 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseFirestoreSwift
 
-class MapsSyncService {
-  private let firebaseMapService: FirebaseMapsServceProtocol
-  private let realmMapService: RealmMapsServceProtocol
-  private let journalService: MapsJournalServiceProtocol
+protocol MapsSyncServiceProtocol {
+  func sync(completion: @escaping FirebaseMapsServceErrorCompletion)
+}
+
+final class MapsSyncService: MapsSyncServiceProtocol {
+  static var shared = MapsSyncService(
+    realmMapService: RealmMapsServce.shared,
+    firebaseMapService: FirebaseMapsServce.shared,
+    journalService: MapsJournalService.shared
+  )
+  let firebaseMapService: FirebaseMapsServceProtocol
+  let realmMapService: RealmMapsServceProtocol
+  let journalService: MapsJournalServiceProtocol
   private let queue = DispatchQueue(label: "sync")
 
   init(realmMapService: RealmMapsServceProtocol, firebaseMapService: FirebaseMapsServceProtocol, journalService: MapsJournalServiceProtocol) {
@@ -65,22 +74,22 @@ class MapsSyncService {
     }
   }
 
-  func syncAddedMaps(journalService: MapsJournalServiceProtocol, errorHandler: @escaping FirebaseMapsServceErrorCompletion) {
-    for map in journalService.addJournal {
+  private func syncAddedMaps(journalService: MapsJournalServiceProtocol, errorHandler: @escaping FirebaseMapsServceErrorCompletion) {
+    for map in journalService.mapsToAdd {
       guard let map = map.convertToFirebaseMapModelData() else { return }
       firebaseMapService.mapAction(is: .addMap(map), errorHandler: errorHandler)
     }
   }
 
-  func syncUpdatedMaps(journalService: MapsJournalServiceProtocol, errorHandler: @escaping FirebaseMapsServceErrorCompletion) {
-    for map in journalService.updateJournal {
+  private func syncUpdatedMaps(journalService: MapsJournalServiceProtocol, errorHandler: @escaping FirebaseMapsServceErrorCompletion) {
+    for map in journalService.mapsToUpdate {
       guard let map = map.convertToFirebaseMapModelData() else { return }
       firebaseMapService.mapAction(is: .editMap(map), errorHandler: errorHandler)
     }
   }
 
-  func syncDeletedMaps(journalService: MapsJournalServiceProtocol, errorHandler: @escaping FirebaseMapsServceErrorCompletion) {
-    for mapId in journalService.deleteJournal {
+  private func syncDeletedMaps(journalService: MapsJournalServiceProtocol, errorHandler: @escaping FirebaseMapsServceErrorCompletion) {
+    for mapId in journalService.mapsIdToDelete {
       firebaseMapService.mapAction(is: .removeMap(mapId), errorHandler: errorHandler)
     }
   }

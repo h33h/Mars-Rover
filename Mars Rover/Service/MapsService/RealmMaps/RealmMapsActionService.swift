@@ -14,12 +14,12 @@ enum RealmMapAction {
   case removeMap(ObjectId)
 }
 
-protocol MapActionProtocol {
+protocol RealmMapsActionServiceProtocol {
   func mapAction(is action: RealmMapAction)
 }
 
-class RealmMapsActionService: MapActionProtocol {
-  private var realm: Realm? = Realm.safeInit()
+final class RealmMapsActionService: RealmMapsActionServiceProtocol {
+  let realm: Realm? = Realm.safeInit()
 
   func mapAction(is action: RealmMapAction) {
     switch action {

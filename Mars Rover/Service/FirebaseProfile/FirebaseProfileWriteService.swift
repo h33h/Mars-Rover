@@ -23,13 +23,13 @@ public enum ProfileWriteError {
     case notSignedIn
 }
 
-typealias RWProfileCompletion = (Bool, ProfileWriteError?) -> Void
+typealias RWProfileCompletion = (ProfileWriteError?) -> Void
 
-protocol ProfileWriteProtocol {
+protocol FirebaseProfileWriteServiceProtocol {
   func profileAction(action: ProfileActionType, completion: @escaping RWProfileCompletion)
 }
 
-class FirebaseProfileWriteService: ProfileWriteProtocol {
+final class FirebaseProfileWriteService: FirebaseProfileWriteServiceProtocol {
   public func profileAction(action: ProfileActionType, completion: @escaping RWProfileCompletion) {
     switch action {
     case .setupNewProfile:
@@ -38,16 +38,16 @@ class FirebaseProfileWriteService: ProfileWriteProtocol {
   }
 
   private func setupNewProfile(completion: @escaping RWProfileCompletion) {
-    guard let currentUser = Auth.auth().currentUser else { return completion(false, .notSignedIn) }
+    guard let currentUser = Auth.auth().currentUser else { return completion(.notSignedIn) }
     Firestore.firestore().collection("users").document(currentUser.uid).setData(
       [
         "username": currentUser.email ?? currentUser.uid
       ]
     ) { error in
       if let error = error {
-        return completion(false, .error(error: error.localizedDescription))
+        return completion(.error(error: error.localizedDescription))
       }
-      return completion(true, nil)
+      return completion(nil)
     }
   }
 }

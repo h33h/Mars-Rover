@@ -9,34 +9,22 @@ import Foundation
 
 class MapEditorViewModel {
   // MARK: - MapEditorViewModel: Variables
-  private let syncService: MapsSyncService
-  private let journalService: MapsJournalService
-  private let realmService: RealmMapsServce
+  let syncService: MapsSyncServiceProtocol
+  let journalService: MapsJournalServiceProtocol
+  let realmService: RealmMapsServceProtocol
   var maps: Box<[RealmMapModelData]>
   var isUpdated: Box<Bool>
 
   // MARK: - MapEditorViewModel: Init
-  init() {
-    let journalService = MapsJournalService()
-    let realmService = RealmMapsServce(mapActionService: RealmMapsActionService())
+  init(journalService: MapsJournalServiceProtocol, realmMapsSevice: RealmMapsServceProtocol, syncService: MapsSyncServiceProtocol) {
     self.journalService = journalService
-    self.realmService = realmService
-    self.syncService = MapsSyncService(
-      realmMapService: realmService,
-      firebaseMapService: FirebaseMapsServce(mapActionService: FirebaseMapsActionService()),
-      journalService: journalService)
+    self.realmService = realmMapsSevice
+    self.syncService = syncService
     self.maps = Box([RealmMapModelData]())
     self.isUpdated = Box(false)
   }
 
   // MARK: - MapEditorViewModel: Methods
-  func getJournalSerice() -> MapsJournalServiceProtocol {
-    journalService
-  }
-
-  func getRealmService() -> RealmMapsServceProtocol {
-    realmService
-  }
 
   func getLocalMaps() {
     self.maps.value.removeAll()

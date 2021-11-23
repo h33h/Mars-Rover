@@ -9,34 +9,32 @@ import UIKit
 
 class SignUpFormViewModel {
   // MARK: - SignUpFormPresenter: Variables
-    private var authService = FirebaseAuthService(
-      signInService: FirebaseSignInService(),
-      signUpService: FirebaseSignUpService()
-    )
-    var signUpError = Box("")
-    var isSignedUp = Box(false)
+    let authService: FirebaseAuthServiceProtocol
+    private(set) var signUpError: Box<String>
+    private(set) var isSignedUp: Box<Bool>
+
+  init(authService: FirebaseAuthServiceProtocol) {
+    self.authService = authService
+    self.signUpError = Box("")
+    self.isSignedUp = Box(false)
+  }
 
   // MARK: - SignUpFormPresenter: Methods
     func createAccount(signUpType: SignUpType) {
-      authService.signUpService.signUp(with: signUpType) { [weak self] isSignedUp, error in
-        guard let strongSelf = self else { return }
+      authService.signUp(with: signUpType) { [weak self] error in
+        guard let this = self else { return }
         if let error = error {
           switch error {
           case .error(error: let error):
-            strongSelf.signUpError.value = error
+            this.signUpError.value = error
           case .unknownError:
-            strongSelf.signUpError.value = "Unknown error"
+            this.signUpError.value = "Unknown error"
           case .absentOfUser:
-            strongSelf.signUpError.value = "No user found"
+            this.signUpError.value = "No user found"
           }
           return
         }
-        if isSignedUp {
-          strongSelf.isSignedUp.value = true
-        } else {
-          strongSelf.signUpError.value = "Unknown error"
-          strongSelf.isSignedUp.value = false
-        }
+        this.isSignedUp.value = true
       }
     }
 }
