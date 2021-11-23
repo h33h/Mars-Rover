@@ -8,24 +8,30 @@
 import Foundation
 
 class GameScreenViewModel {
-  private let realmService = RealmMapsServce(mapActionService: RealmMapsActionService())
-  var maps = Box([RealmMapModelData]())
-  var isUpdated = Box(false)
+  let realmService: RealmMapsServceProtocol
+  var maps: Box<[RealmMapModelData]>
+  var isUpdated: Box<Bool>
+
+  init(realmService: RealmMapsServceProtocol) {
+    self.realmService = realmService
+    self.maps = Box([RealmMapModelData]())
+    self.isUpdated = Box(false)
+  }
 
   func getLocalMaps() {
     self.maps.value.removeAll()
     let maps = realmService.getLocalMaps()
     guard let maps = maps else { return }
     self.maps.value = maps
-    self.isUpdated.value = true
+    self.isUpdated.value.toggle()
   }
 
   func findPath(mapModelData: RealmMapModelData) {
     guard let map = mapModelData.map else { return }
     var mapArray: [[Obstacle]] = []
-    for rowIndex in 0 ..< map.getMapSize().rows {
+    for rowIndex in 0 ..< map.getMapSize().getSize().rows {
       mapArray.append([Obstacle]())
-      for colomnIndex in 0 ..< map.getMapSize().colomns {
+      for colomnIndex in 0 ..< map.getMapSize().getSize().colomns {
         guard let obs = map[rowIndex, colomnIndex] else { return }
         mapArray[rowIndex].append(obs)
       }
@@ -33,8 +39,8 @@ class GameScreenViewModel {
     guard
       let pathFinder = FindShortestPath(
         matrix: mapArray,
-        startPoint: MatrixPoint(row: map.getMapSize().rows / 2, colomn: 0),
-        endPoint: MatrixPoint(row: map.getMapSize().rows / 2, colomn: map.getMapSize().colomns)
+        startPoint: map.startGamePoint(),
+        endPoint: map.endGamePoint()
       )
     else { return }
     let path = pathFinder.shortestPath()

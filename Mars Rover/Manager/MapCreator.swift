@@ -7,141 +7,103 @@
 
 import SceneKit
 
-enum MapBoardCreateType {
-  case newMap
-  case fromMap(map: RealmMapModelData)
+enum MapType {
+  case new
+  case existed
 }
 
-enum MapBoardActionType {
-  case clear
+enum EditMapAction {
+  case clearMapNodes
   case generateRandomMap
   case replaceMapBlock(replacingNode: SCNNode, block: Obstacle)
 }
 
-protocol MapManagerProtocol {
-  func createMapBoard(type: MapBoardCreateType)
-  func mapAction(action: MapBoardActionType)
-  func getMapModelData() -> RealmMapModelData?
-  func getMapNode() -> SCNNode
+protocol MapCreatorProtocol {
+  var currentMap: RealmMapModelData { get }
+  var mapType: MapType { get }
+  var mapNode: SCNNode { get }
+  func mapModel(action: EditMapAction)
 }
 
-class MapManager: MapManagerProtocol {
-  private var currentMap: RealmMapModelData?
-  private let startZ: Float = -90.0
-  private let startX: Float = -170.0
-  private let rowsCount: Int
-  private let colomnsCount: Int
-  private let startPoint: MatrixPoint
-  private let endPoint: MatrixPoint
-  private var mapNode: SCNNode
+class MapCreator: MapCreatorProtocol {
+  private(set) var currentMap: RealmMapModelData
+  private(set) var mapType: MapType
+  private(set) var mapNode: SCNNode
 
-  init(rowsCount: Int, colomnsCount: Int) {
-    self.rowsCount = rowsCount
-    self.colomnsCount = colomnsCount
-    self.startPoint = MatrixPoint(row: rowsCount / 2, colomn: 0)
-    self.endPoint = MatrixPoint(row: rowsCount / 2, colomn: colomnsCount - 1)
+  init(size: MapSize) {
     self.mapNode = SCNNode()
-    self.currentMap = RealmMapModelData(
-      mapLabel: "",
-      lastEdited: Date(),
-      map: RealmMapModel(rowCount: rowsCount, colomnsCount: colomnsCount)
-    )
-    self.createMapBoard(type: .newMap)
+    self.currentMap = RealmMapModelData()
+    let mapModel = RealmMapModel(size: size)
+    self.currentMap.map = mapModel
+    self.mapType = .new
+    self.createMap()
   }
 
   init?(mapModelData: RealmMapModelData) {
-    guard
-      let rows = mapModelData.map?.getMapSize().rows,
-      let colomns = mapModelData.map?.getMapSize().colomns
-    else { return nil }
-    self.rowsCount = rows
-    self.colomnsCount = colomns
-    self.startPoint = MatrixPoint(row: rowsCount / 2, colomn: 0)
-    self.endPoint = MatrixPoint(row: rowsCount / 2, colomn: colomnsCount - 1)
     self.mapNode = SCNNode()
     self.currentMap = RealmMapModelData(value: mapModelData)
-    self.createMapBoard(type: .fromMap(map: mapModelData))
+    self.mapType = .existed
+    self.createMap()
   }
 
-  subscript(rowIndex: Int, colomnIndex: Int) -> SCNNode? {
-    if rowIndex >= 0, colomnIndex >= 0, rowIndex <= rowsCount, colomnIndex <= colomnsCount {
-      return mapNode.childNodes[rowIndex * colomnsCount + colomnIndex]
+  func node(rowIndex: Int, colomnIndex: Int) -> SCNNode? {
+    guard let mapModelDimension = currentMap.map?.getMapSize().getSize() else { return nil }
+    if rowIndex >= 0, colomnIndex >= 0, rowIndex <= mapModelDimension.rows, colomnIndex <= mapModelDimension.colomns {
+      return mapNode.childNodes[rowIndex * mapModelDimension.colomns + colomnIndex]
     }
     return nil
   }
 
-  func createMapBoard(type: MapBoardCreateType) {
-    switch type {
-    case .newMap:
-      createMapBoard()
-    case .fromMap(let mapModelData):
-      createMapBoard(mapModelData: mapModelData)
-    }
-  }
-
-  func mapAction(action: MapBoardActionType) {
+  func mapModel(action: EditMapAction) {
     switch action {
-    case .clear:
-      clearMap()
+    case .clearMapNodes:
+      clearMapNodes()
     case let .replaceMapBlock(replacingNode, block):
       replaceMapBlock(replacingNode: replacingNode, with: block)
     case .generateRandomMap:
-      randomMap()
+      generateRandomMap()
     }
-  }
-
-  func getMapNode() -> SCNNode {
-    mapNode
-  }
-
-  func getMapModelData() -> RealmMapModelData? {
-    self.currentMap
   }
 
   private func updateMapModelData() {
-    guard let map = getMapModel() else { return }
-    self.currentMap?.lastEdited = Date()
-    self.currentMap?.map = map
-  }
-
-  private func getMapModel() -> RealmMapModel? {
-    var mapArray: [Int] = []
-    for row in 0 ..< rowsCount {
-      for colomn in 0 ..< colomnsCount {
+    guard let mapModel = currentMap.map else { return }
+    var newMap: [Int] = []
+    for row in 0 ..< mapModel.getMapSize().getSize().rows {
+      for colomn in 0 ..< mapModel.getMapSize().getSize().colomns {
         guard
-          let node = self[row, colomn]?.childNodes.first,
+          let node = node(rowIndex: row, colomnIndex: colomn)?.childNodes.first,
           let obstacle = Obstacle.getObstacle(node: node)
-        else { return nil }
-        mapArray.append(obstacle.rawValue)
+        else { return }
+        newMap.append(obstacle.rawValue)
       }
     }
-    return RealmMapModel(rowCount: rowsCount, colomnsCount: colomnsCount, map: mapArray)
+    currentMap.lastEdited = Date()
+    currentMap.map = RealmMapModel(size: mapModel.getMapSize(), map: newMap)
   }
 
-  private func clearMap() {
+  private func clearMapNodes() {
     mapNode.enumerateChildNodes { node, _ in
       node.removeFromParentNode()
     }
   }
 
-  private func createMapBoard(mapModelData: RealmMapModelData? = nil) {
-    let mapBoard = SCNNode()
-    for row in 0 ..< rowsCount {
-      for colomn in 0 ..< colomnsCount {
+  private func createMap() {
+    guard let mapModel = currentMap.map else { return }
+    clearMapNodes()
+    for row in 0 ..< mapModel.getMapSize().getSize().rows {
+      for colomn in 0 ..< mapModel.getMapSize().getSize().colomns {
         let block = SCNNode()
         block.name = "\(row) \(colomn)"
-        block.position = SCNVector3(x: Float(startX) + Float(22 * colomn), y: 14, z: Float(startZ) + Float(22 * row))
-        if let blockModel = mapModelData?.map?[row, colomn]?.getBlock()?.flattenedClone() {
+        block.position = SCNVector3(x: Float(22 * colomn), y: 14, z: Float(22 * row))
+        if let blockModel = mapModel[row, colomn]?.getBlock()?.flattenedClone() {
           block.addChildNode(blockModel)
         } else {
           guard let solidGroundBlock = Obstacle.solidGround.getBlock()?.flattenedClone() else { return }
           block.addChildNode(solidGroundBlock)
         }
-        mapBoard.addChildNode(block)
+        mapNode.addChildNode(block)
       }
     }
-    clearMap()
-    mapNode = mapBoard
   }
 
   private func replaceMapBlock(replacingNode: SCNNode, with block: Obstacle) {
@@ -150,37 +112,39 @@ class MapManager: MapManagerProtocol {
       if
         let blockInBlockContainer = containerNode.childNodes.first,
         replacingNode == blockInBlockContainer,
-        let name = containerNode.name,
-        name != startPoint.toString(),
-        name != endPoint.toString() {
-          let position = blockInBlockContainer.position
-          blockInBlockContainer.removeFromParentNode()
-          block.position = position
-          containerNode.addChildNode(block)
+        containerNode.name != currentMap.map?.startGamePoint().toString(),
+        containerNode.name != currentMap.map?.endGamePoint().toString()
+      {
+        let position = blockInBlockContainer.position
+        blockInBlockContainer.removeFromParentNode()
+        block.position = position
+        containerNode.addChildNode(block)
       }
     }
     updateMapModelData()
   }
 
-  private func randomMap() {
+  private func generateRandomMap() {
     mapNode.enumerateChildNodes { containerNode, _ in
       if
         let blockInBlockContainer = containerNode.childNodes.first,
-        let block = Obstacle.init(rawValue: Int.random(in: 0 ..< 5))?.getBlock()?.flattenedClone(),
-        let name = containerNode.name,
-        name != startPoint.toString(),
-        name != endPoint.toString() {
-          let position = blockInBlockContainer.position
-          blockInBlockContainer.removeFromParentNode()
-          block.position = position
-          containerNode.addChildNode(block)
+        let block = Obstacle.init(
+          rawValue: Int.random(in: 0 ..< Obstacle.allCases.count))?
+          .getBlock()?
+          .flattenedClone(),
+        containerNode.name != currentMap.map?.startGamePoint().toString(),
+        containerNode.name != currentMap.map?.endGamePoint().toString()
+      {
+        let position = blockInBlockContainer.position
+        blockInBlockContainer.removeFromParentNode()
+        block.position = position
+        containerNode.addChildNode(block)
       }
     }
     updateMapModelData()
   }
 
   deinit {
-    clearMap()
-    getMapNode().removeFromParentNode()
+    mapNode.removeFromParentNode()
   }
 }

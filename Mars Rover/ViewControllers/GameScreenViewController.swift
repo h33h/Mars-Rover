@@ -9,7 +9,7 @@ import UIKit
 
 class GameScreenViewController: UIViewController, Storyboarded {
   var coordinator: PlayCoordinator?
-  private var viewModel = GameScreenViewModel()
+  private var viewModel = GameScreenViewModel(realmService: RealmMapsServce.shared)
 
   @IBOutlet private var tableView: UITableView!
   override func viewDidLoad() {
@@ -17,10 +17,7 @@ class GameScreenViewController: UIViewController, Storyboarded {
     tableView.dataSource = self
     tableView.delegate = self
     tableView.register(
-      UINib(
-        nibName: "MapTableViewCell",
-        bundle: nil
-      ),
+      UINib(nibName: "MapTableViewCell", bundle: nil),
       forCellReuseIdentifier: "MapTableViewCell"
     )
     viewModel.isUpdated.bind { isUpdated in

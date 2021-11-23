@@ -30,8 +30,6 @@
 		A9666F4127395AB60022AFFD /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F4027395AB60022AFFD /* MainCoordinator.swift */; };
 		A9ACAB132747CBD5004C4DC3 /* MapCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB122747CBD5004C4DC3 /* MapCreator.swift */; };
 		A9ACAB152747EFA3004C4DC3 /* MapEditorSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB142747EFA3004C4DC3 /* MapEditorSceneViewModel.swift */; };
-		A9ACAB2E274C30A5004C4DC3 /* MatrixPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB2D274C30A5004C4DC3 /* MatrixPoint.swift */; };
-		A9ACAB30274CD43C004C4DC3 /* MapSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB2F274CD43C004C4DC3 /* MapSize.swift */; };
 		A9ACAB1A274A7326004C4DC3 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB19274A7326004C4DC3 /* GameScreenViewController.swift */; };
 		A9ACAB1C274A75B3004C4DC3 /* GameScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB1B274A75B3004C4DC3 /* GameScreenViewModel.swift */; };
 		A9ACAB1E274A788B004C4DC3 /* PlayCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB1D274A788B004C4DC3 /* PlayCoordinator.swift */; };
@@ -39,8 +37,9 @@
 		A9ACAB23274ADCD0004C4DC3 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB22274ADCD0004C4DC3 /* Node.swift */; };
 		A9ACAB25274ADCEE004C4DC3 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB24274ADCEE004C4DC3 /* Connection.swift */; };
 		A9ACAB27274ADD19004C4DC3 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB26274ADD19004C4DC3 /* Path.swift */; };
-		A9ACAB29274AE10C004C4DC3 /* MatrixPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB28274AE10C004C4DC3 /* MatrixPoint.swift */; };
 		A9ACAB2B274AE1FC004C4DC3 /* MatrixNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB2A274AE1FC004C4DC3 /* MatrixNode.swift */; };
+		A9ACAB2E274C30A5004C4DC3 /* MatrixPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB2D274C30A5004C4DC3 /* MatrixPoint.swift */; };
+		A9ACAB30274CD43C004C4DC3 /* MapSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB2F274CD43C004C4DC3 /* MapSize.swift */; };
 		A9B5A7B6274198460075C954 /* FirebaseMapsActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B5A7B5274198460075C954 /* FirebaseMapsActionService.swift */; };
 		A9EE8EEF273964BB00F18D62 /* SignUpFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EEE273964BB00F18D62 /* SignUpFormViewController.swift */; };
 		A9EE8EF12739655F00F18D62 /* SignUpFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EF02739655F00F18D62 /* SignUpFormViewModel.swift */; };
@@ -96,8 +95,6 @@
 		A9666F4027395AB60022AFFD /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A9ACAB122747CBD5004C4DC3 /* MapCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCreator.swift; sourceTree = "<group>"; };
 		A9ACAB142747EFA3004C4DC3 /* MapEditorSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditorSceneViewModel.swift; sourceTree = "<group>"; };
-		A9ACAB2D274C30A5004C4DC3 /* MatrixPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixPoint.swift; sourceTree = "<group>"; };
-		A9ACAB2F274CD43C004C4DC3 /* MapSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSize.swift; sourceTree = "<group>"; };
 		A9ACAB19274A7326004C4DC3 /* GameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
 		A9ACAB1B274A75B3004C4DC3 /* GameScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewModel.swift; sourceTree = "<group>"; };
 		A9ACAB1D274A788B004C4DC3 /* PlayCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayCoordinator.swift; sourceTree = "<group>"; };
@@ -105,8 +102,9 @@
 		A9ACAB22274ADCD0004C4DC3 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		A9ACAB24274ADCEE004C4DC3 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		A9ACAB26274ADD19004C4DC3 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
-		A9ACAB28274AE10C004C4DC3 /* MatrixPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixPoint.swift; sourceTree = "<group>"; };
 		A9ACAB2A274AE1FC004C4DC3 /* MatrixNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixNode.swift; sourceTree = "<group>"; };
+		A9ACAB2D274C30A5004C4DC3 /* MatrixPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixPoint.swift; sourceTree = "<group>"; };
+		A9ACAB2F274CD43C004C4DC3 /* MapSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSize.swift; sourceTree = "<group>"; };
 		A9B5A7B5274198460075C954 /* FirebaseMapsActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMapsActionService.swift; sourceTree = "<group>"; };
 		A9EE8EEE273964BB00F18D62 /* SignUpFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormViewController.swift; sourceTree = "<group>"; };
 		A9EE8EF02739655F00F18D62 /* SignUpFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormViewModel.swift; sourceTree = "<group>"; };
@@ -274,12 +272,11 @@
 				A9ACAB22274ADCD0004C4DC3 /* Node.swift */,
 				A9ACAB24274ADCEE004C4DC3 /* Connection.swift */,
 				A9ACAB26274ADD19004C4DC3 /* Path.swift */,
-				A9ACAB28274AE10C004C4DC3 /* MatrixPoint.swift */,
 				A9ACAB2A274AE1FC004C4DC3 /* MatrixNode.swift */,
 			);
 			path = Algorithm;
-      sourceTree = "<group>";
-    };
+			sourceTree = "<group>";
+		};
 		A9ACAB2C274C3082004C4DC3 /* DataTypes */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,21 +284,8 @@
 				A9ACAB2F274CD43C004C4DC3 /* MapSize.swift */,
 			);
 			path = DataTypes;
-      sourceTree = "<group>";
-    };
-		A9ACAB1F274ACB0F004C4DC3 /* Algorithm */ = {
-			isa = PBXGroup;
-			children = (
-				A9ACAB20274ACBB7004C4DC3 /* FindShortestPath.swift */,
-				A9ACAB22274ADCD0004C4DC3 /* Node.swift */,
-				A9ACAB24274ADCEE004C4DC3 /* Connection.swift */,
-				A9ACAB26274ADD19004C4DC3 /* Path.swift */,
-				A9ACAB28274AE10C004C4DC3 /* MatrixPoint.swift */,
-				A9ACAB2A274AE1FC004C4DC3 /* MatrixNode.swift */,
-			);
-			path = Algorithm;
-      sourceTree = "<group>";
-    };
+			sourceTree = "<group>";
+		};
 		A9EE8EF92739832100F18D62 /* FirebaseAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,7 +531,6 @@
 				A9EE8EF627397AC400F18D62 /* FirebaseProfileWriteService.swift in Sources */,
 				A9ACAB1E274A788B004C4DC3 /* PlayCoordinator.swift in Sources */,
 				A9ACAB152747EFA3004C4DC3 /* MapEditorSceneViewModel.swift in Sources */,
-				A9ACAB29274AE10C004C4DC3 /* MatrixPoint.swift in Sources */,
 				A9ACAB27274ADD19004C4DC3 /* Path.swift in Sources */,
 				A9EE8F03273BFD3100F18D62 /* MapTableViewCell.swift in Sources */,
 				A93A9F922732F3C100376332 /* FirebaseSignUpService.swift in Sources */,
