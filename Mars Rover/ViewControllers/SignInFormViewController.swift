@@ -9,7 +9,7 @@ import UIKit
 
 class SignInFormViewController: UIViewController, Storyboarded {
   // MARK: - SignInFormViewController: Variables
-    private var viewModel = SignInFormViewModel()
+    private var viewModel = SignInFormViewModel(authService: FirebaseAuthService.shared)
     weak var coordinator: MainCoordinator?
 
   // MARK: - SignInFormViewController: IBOutlet Variables

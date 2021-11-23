@@ -9,7 +9,11 @@ import UIKit
 
 class MainMenuViewController: UIViewController, Storyboarded {
   // MARK: - MainMenuViewController: Variables
-    private var viewModel = MainMenuViewModel()
+  private var viewModel = MainMenuViewModel(
+    authService: FirebaseAuthService.shared,
+    profileService: FirebaseProfileService.shared,
+    realmMapsService: RealmMapsServce.shared
+  )
     var coordinator: MainMenuCoordinator?
 
   // MARK: - MainMenuViewController: IBOutlet Variables
@@ -26,19 +30,14 @@ class MainMenuViewController: UIViewController, Storyboarded {
           }
         }
       }
-      viewModel.signOutError.bind { [weak self] signOutError in
+      viewModel.profile.bind { [weak self] profile in
         if self?.navigationController?.viewControllers.last === self {
-          self?.signOutError(error: signOutError)
+          self?.profileGet(profile: profile)
         }
       }
-      viewModel.profileFetched.bind { [weak self] profileFetched in
+      viewModel.errorMessage.bind { [weak self] errorMessage in
         if self?.navigationController?.viewControllers.last === self {
-          self?.profileGet(profile: profileFetched)
-        }
-      }
-      viewModel.fetchError.bind { [weak self] fetchError in
-        if self?.navigationController?.viewControllers.last === self {
-          self?.profileGetFailure(error: fetchError)
+          self?.showError(error: errorMessage)
         }
       }
     }
@@ -67,23 +66,17 @@ extension MainMenuViewController {
       self.navigationController?.popViewController(animated: true)
     }
 
-    func signOutError(error: String) {
-      if !error.isEmpty {
-        showSimpleNotificationAlert(title: "Sign Out Error", description: error)
-      }
-    }
-
     func profileGet(profile: ProfileModel) {
       DispatchQueue.main.async { [weak self] in
         self?.usernameLabel.text = profile.username
       }
     }
 
-    func profileGetFailure(error: String) {
+    func showError(error: String) {
       if error == "Profile not exist" {
         viewModel.setupNewUser()
       } else if !error.isEmpty {
-        showSimpleNotificationAlert(title: "Profile Get Error", description: error)
+        showSimpleNotificationAlert(title: "Error", description: error)
       }
     }
 }

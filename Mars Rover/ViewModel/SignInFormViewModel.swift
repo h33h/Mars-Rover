@@ -9,38 +9,37 @@ import Foundation
 
 class SignInFormViewModel {
   // MARK: - SignInFormPresenter: Variables
-    private var authService = FirebaseAuthService(
-      signInService: FirebaseSignInService(),
-      signUpService: FirebaseSignUpService()
-    )
-    var signInError = Box("")
-    var isSignedIn = Box(false)
+    let authService: FirebaseAuthServiceProtocol
+    private(set) var signInError: Box<String>
+    private(set) var isSignedIn: Box<Bool>
+
+  init(authService: FirebaseAuthServiceProtocol) {
+    self.authService = authService
+    self.signInError = Box("")
+    self.isSignedIn = Box(false)
+  }
 
   // MARK: - SignInFormPresenter: Methods
   // SignIn function will call some sign In methods from service
     func signIn(signInType: SignInType) {
-      authService.signInService.signIn(with: signInType) { [weak self] isSignedIn, error in
-        guard let strongSelf = self else { return }
+      authService.signIn(with: signInType) { [weak self] error in
+        guard let this = self else { return }
           if let error = error {
             switch error {
             case .error(error: let error):
-              strongSelf.signInError.value = error
+              this.signInError.value = error
             case .absentOfUser:
-              strongSelf.signInError.value = "No user found"
+              this.signInError.value = "No user found"
             case .notVerifiedEmail:
-              strongSelf.signInError.value = "Your's email is not verified"
+              this.signInError.value = "Your's email is not verified"
             case .unknownError:
-              strongSelf.signInError.value = "Unknown error"
+              this.signInError.value = "Unknown error"
             case .notSignedIn:
-              strongSelf.signInError.value = String()
+              this.signInError.value = String()
             }
             return
           }
-        if isSignedIn {
-          strongSelf.isSignedIn.value = true
-        } else {
-          strongSelf.signInError.value = "Unknown error"
-        }
+        this.isSignedIn.value = true
       }
     }
 }

@@ -8,22 +8,27 @@
 import UIKit
 
 class MapEditorViewController: UIViewController, Storyboarded {
-  var coordinator: MainMenuCoordinator?
-  private var viewModel = MapEditorViewModel()
+  // MARK: - MapEditorViewController: Variables
+  var coordinator: MapEditorCoordinator?
+  private var viewModel = MapEditorViewModel(
+    journalService: MapsJournalService.shared,
+    realmMapsSevice: RealmMapsServce.shared,
+    syncService: MapsSyncService.shared
+  )
+
+  // MARK: - MapEditorViewController: IBOutlet Variables
   @IBOutlet var addMapButton: UIButton!
   @IBOutlet var syncMapsButton: UIButton!
   @IBOutlet var backButton: UIButton!
   @IBOutlet var mapsTableView: UITableView!
 
+  // MARK: - MapEditorViewController: LifeCycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     mapsTableView.delegate = self
     mapsTableView.dataSource = self
     mapsTableView.register(
-      UINib(
-        nibName: "MapTableViewCell",
-        bundle: nil
-      ),
+      UINib(nibName: "MapTableViewCell", bundle: nil),
       forCellReuseIdentifier: "MapTableViewCell"
     )
     viewModel.isUpdated.bind { isUpdated in
@@ -32,35 +37,30 @@ class MapEditorViewController: UIViewController, Storyboarded {
         DispatchQueue.main.async {
           self.mapsTableView.reloadData()
         }
-        self.viewModel.isUpdated.value = false
+        self.viewModel.isUpdated.value.toggle()
       }
     }
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
     viewModel.syncMaps()
   }
-  @IBAction func addMapButton(_ sender: Any) {
-    viewModel.mapAction(
-      action: .addMap(RealmMapModelData(
-        mapLabel: "",
-        lastEdited: Date(),
-        map:
-          RealmMapModel(
-          rowCount: 9,
-          colomnsCount: 16
-          )
-        )
-      )
-    )
-    mapsTableView.reloadData()
+
+  // MARK: - MapEditorViewController: IBAction Methods
+  @IBAction private func addMapButton(_ sender: Any) {
+    coordinator?.goToMapEditorScene(map: nil)
   }
-  @IBAction func syncMapsButton(_ sender: Any) {
+  @IBAction private func syncMapsButton(_ sender: Any) {
     viewModel.syncMaps()
   }
-  @IBAction func goBackButton(_ sender: Any) {
+  @IBAction private func goBackButton(_ sender: Any) {
     navigationController?.popViewController(animated: true)
   }
 }
 
 extension MapEditorViewController: UITableViewDataSource, UITableViewDelegate {
+  // MARK: - MapEditorViewController: TableView Delegate & DataSource Methods
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     viewModel.maps.value.count
   }
@@ -72,8 +72,10 @@ extension MapEditorViewController: UITableViewDataSource, UITableViewDelegate {
       for: indexPath
       ) as? MapTableViewCell
     else { return UITableViewCell() }
+    cell.selectionStyle = .none
     let mapModel = viewModel.maps.value[indexPath.row]
     let dateFormatter = DateFormatter()
+    dateFormatter.timeStyle = .medium
     dateFormatter.dateStyle = .medium
     cell.mapLabel.text = mapModel.mapLabel
     cell.mapLastEditLabel.text = dateFormatter.string(from: mapModel.lastEdited)
@@ -84,12 +86,28 @@ extension MapEditorViewController: UITableViewDataSource, UITableViewDelegate {
     60
   }
 
-  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    if editingStyle == .delete {
+  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    let delete = UIContextualAction(style: .destructive, title: "") { [weak self] _, _, completion in
+      guard let this = self else { return completion(false) }
       tableView.beginUpdates()
-      viewModel.mapAction(action: .removeMap(viewModel.maps.value[indexPath.row].id))
+      this.viewModel.mapAction(action: .removeMap(this.viewModel.maps.value[indexPath.row].id))
       tableView.deleteRows(at: [indexPath], with: .fade)
       tableView.endUpdates()
+      completion(true)
     }
+    delete.image = UIImage(systemName: "trash")
+
+    let edit = UIContextualAction(style: .normal, title: "") { [weak self] _, _, completion in
+      guard let this = self else { return completion(false) }
+      this.coordinator?.goToMapEditorScene(map: this.viewModel.maps.value[indexPath.row])
+      completion(true)
+    }
+    edit.image = UIImage(systemName: "pencil")
+    edit.backgroundColor =  .blue
+
+    let config = UISwipeActionsConfiguration(actions: [delete, edit])
+    config.performsFirstActionWithFullSwipe = false
+
+    return config
   }
 }

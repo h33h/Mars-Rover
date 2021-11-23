@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map Editor Scene View Controller-->
+        <scene sceneID="h0i-DY-wfz">
+            <objects>
+                <viewController storyboardIdentifier="MapEditorSceneViewController" id="cL3-zx-FQP" customClass="MapEditorSceneViewController" customModule="Mars_Rover" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6yF-uP-FNb">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZq-7H-Clc">
+                                <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                            </sceneKitView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="RPz-LN-NvP">
+                                <rect key="frame" x="0.0" y="363" width="896" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xap-Mp-jkp"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="gPC-BT-Z2a">
+                                <rect key="frame" x="0.0" y="0.0" width="896" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFL-2y-m5u">
+                                        <rect key="frame" x="0.0" y="0.0" width="265.5" height="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Random Map" image="arrow.triangle.2.circlepath" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="randomMapAction:" destination="cL3-zx-FQP" eventType="touchUpInside" id="nyk-oa-fr6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyU-8Q-pNo">
+                                        <rect key="frame" x="315.5" y="0.0" width="265" height="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Save" image="arrow.down" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveAction:" destination="cL3-zx-FQP" eventType="touchUpInside" id="5yo-S3-OKE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imc-uC-ksP">
+                                        <rect key="frame" x="630.5" y="0.0" width="265.5" height="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Exit" image="rectangle.lefthalf.inset.filled.arrow.left" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="exitAction:" destination="cL3-zx-FQP" eventType="touchUpInside" id="QEE-Pt-nAu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="pdE-Ze-fl9"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Vei-Bf-kdA"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gPC-BT-Z2a" firstAttribute="leading" secondItem="Vei-Bf-kdA" secondAttribute="leading" constant="-44" id="04d-OC-7sh"/>
+                            <constraint firstItem="RPz-LN-NvP" firstAttribute="bottom" secondItem="Vei-Bf-kdA" secondAttribute="bottom" id="7a1-e4-OTK"/>
+                            <constraint firstAttribute="trailing" secondItem="iZq-7H-Clc" secondAttribute="trailing" id="HEF-2p-rAq"/>
+                            <constraint firstItem="iZq-7H-Clc" firstAttribute="leading" secondItem="6yF-uP-FNb" secondAttribute="leading" id="IHS-Th-Ylo"/>
+                            <constraint firstAttribute="bottom" secondItem="iZq-7H-Clc" secondAttribute="bottom" id="SiW-g3-Jn8"/>
+                            <constraint firstItem="gPC-BT-Z2a" firstAttribute="top" secondItem="Vei-Bf-kdA" secondAttribute="top" id="W8D-By-b8b"/>
+                            <constraint firstItem="RPz-LN-NvP" firstAttribute="leading" secondItem="Vei-Bf-kdA" secondAttribute="leading" constant="-44" id="hY5-aP-M8h"/>
+                            <constraint firstAttribute="trailing" secondItem="RPz-LN-NvP" secondAttribute="trailing" id="lQI-xe-yCg"/>
+                            <constraint firstItem="iZq-7H-Clc" firstAttribute="top" secondItem="Vei-Bf-kdA" secondAttribute="top" id="nDH-4V-qeh"/>
+                            <constraint firstAttribute="trailing" secondItem="gPC-BT-Z2a" secondAttribute="trailing" id="qRJ-UN-PWg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomStackView" destination="RPz-LN-NvP" id="DTg-YK-qaK"/>
+                        <outlet property="scnView" destination="iZq-7H-Clc" id="uh7-vY-z2W"/>
+                        <outlet property="topStackView" destination="gPC-BT-Z2a" id="6xi-hI-YdP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fun-Ls-h0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-218.30357142857142" y="34.782608695652179"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.down" catalog="system" width="120" height="128"/>
+        <image name="arrow.triangle.2.circlepath" catalog="system" width="128" height="101"/>
+        <image name="rectangle.lefthalf.inset.filled.arrow.left" catalog="system" width="128" height="93"/>
+    </resources>
+</document>

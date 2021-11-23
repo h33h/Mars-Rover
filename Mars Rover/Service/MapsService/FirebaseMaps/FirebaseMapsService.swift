@@ -24,7 +24,8 @@ protocol FirebaseMapsServceProtocol {
   func mapAction(is action: FirebaseMapAction, errorHandler: @escaping FirebaseMapsServceErrorCompletion)
 }
 
-class FirebaseMapsServce: FirebaseMapsServceProtocol {
+final class FirebaseMapsServce: FirebaseMapsServceProtocol {
+  static var shared = FirebaseMapsServce(mapActionService: FirebaseMapsActionService())
   private let mapActionService: FirebaseMapsActionServiceProtocol
 
   init(mapActionService: FirebaseMapsActionServiceProtocol) {

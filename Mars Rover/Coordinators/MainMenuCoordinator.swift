@@ -23,12 +23,20 @@ class MainMenuCoordinator: Coordinator {
   }
 
   func goToMaps() {
-    guard let mapsVC = MapEditorViewController.instantiate(from: "MainMenu") else { return }
-    mapsVC.coordinator = self
-    navigationController.pushViewController(mapsVC, animated: true)
+    let child = MapEditorCoordinator(navigationController: navigationController)
+    child.parentCoordinator = self
+    childCoordinators.append(child)
+    child.start()
   }
 
   func goBack() {
     parentCoordinator?.childDidFinish(child: self)
+  }
+
+  func childDidFinish(child: Coordinator?) {
+    for (index, coordinator) in childCoordinators.enumerated() where coordinator === child {
+      childCoordinators.remove(at: index)
+      break
+    }
   }
 }
