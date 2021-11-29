@@ -1,28 +1,22 @@
 //
-//  MapEditorCoordinator.swift
+//  MapEditorSceneCoordinator.swift
 //  Mars Rover
 //
-//  Created by XXX on 18.11.21.
+//  Created by XXX on 27.11.21.
 //
 
 import UIKit
 
-class MapEditorCoordinator: Coordinator {
-  weak var parentCoordinator: MainMenuCoordinator?
-  var childCoordinators: [Coordinator] = []
-  var navigationController: UINavigationController
+class MapEditorSceneCoordinator: Coordinator, BackFlow {
+  let router: Router
+  let map: RealmMapModelData?
 
-  init(navigationController: UINavigationController) {
-    self.navigationController = navigationController
+  init(router: Router, map: RealmMapModelData?) {
+    self.router = router
+    self.map = map
   }
 
   func start() {
-    guard let mapEditorVC = MapEditorViewController.instantiate(from: "MainMenu") else { return }
-    mapEditorVC.coordinator = self
-    navigationController.pushViewController(mapEditorVC, animated: true)
-  }
-
-  func goToMapEditorScene(map: RealmMapModelData? = nil) {
     guard let mapEditorSceneVC = MapEditorSceneViewController.instantiate(from: "GameScreens") else { return }
     mapEditorSceneVC.coordinator = self
     if let map = map {
@@ -41,10 +35,10 @@ class MapEditorCoordinator: Coordinator {
       )
       mapEditorSceneVC.setViewModel(viewModel: viewModel)
     }
-    navigationController.pushViewController(mapEditorSceneVC, animated: true)
+    router.push(mapEditorSceneVC, isAnimated: true)
   }
 
   func goBack() {
-    parentCoordinator?.childDidFinish(child: self)
+    router.pop(isAnimated: true)
   }
 }

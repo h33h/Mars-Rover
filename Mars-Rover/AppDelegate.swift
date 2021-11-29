@@ -12,7 +12,7 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
   // MARK: - Application: Variables
     var window: UIWindow?
-    var coordinator: MainCoordinator?
+    var coordinator: AppCoordinator?
     // Set application oreintation to landscape mode
     var deviceOrientation = UIInterfaceOrientationMask.landscape
 
@@ -31,15 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
       // Use Firebase library to configure APIs
       FirebaseApp.configure()
-
-      let navigationController = UINavigationController()
-      navigationController.navigationBar.isHidden = true
-      coordinator = MainCoordinator(navigationController: navigationController)
-      coordinator?.start()
-
       window = UIWindow(frame: UIScreen.main.bounds)
-      window?.rootViewController = navigationController
-      window?.makeKeyAndVisible()
+      guard let window = window else { return false }
+      coordinator = AppCoordinator(window: window)
+      coordinator?.start()
       return true
     }
 }
