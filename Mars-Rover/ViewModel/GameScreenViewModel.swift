@@ -11,11 +11,13 @@ class GameScreenViewModel {
   let realmService: RealmMapsServceProtocol
   var maps: Box<[RealmMapModelData]>
   var isUpdated: Box<Bool>
+  var errorMessage: Box<String?>
 
   init(realmService: RealmMapsServceProtocol) {
     self.realmService = realmService
     self.maps = Box([RealmMapModelData]())
     self.isUpdated = Box(false)
+    self.errorMessage = Box(nil)
   }
 
   func getLocalMaps() {
@@ -29,8 +31,11 @@ class GameScreenViewModel {
   func findPath(mapModelData: RealmMapModelData) -> [MatrixPoint]? {
     guard let map = mapModelData.map else { return nil }
     guard let pathFinder = FindShortestPath(on: map) else { return nil }
-    let path = pathFinder.shortestPath()
-    let succession = path?.array.reversed().compactMap { $0 as? MartixNode }.map { $0.point }
+    guard let path = pathFinder.shortestPath() else {
+      errorMessage.value = "Map is not passable"
+      return nil
+    }
+    let succession = path.array.reversed().compactMap { $0 as? MartixNode }.map { $0.point }
     return succession
   }
 }

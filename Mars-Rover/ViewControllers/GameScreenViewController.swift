@@ -28,6 +28,10 @@ class GameScreenViewController: UIViewController, Storyboarded {
         self.viewModel.isUpdated.value = false
       }
     }
+    viewModel.errorMessage.bind { message in
+      guard let message = message else { return }
+      self.showSimpleNotificationAlert(title: "Error", description: message, buttonAction: nil)
+    }
   }
 
   override func viewDidAppear(_ animated: Bool) {
