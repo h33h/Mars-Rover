@@ -21,7 +21,7 @@ class AppCoordinator: Coordinator {
     window.rootViewController = rootNavigationVC
     window.makeKeyAndVisible()
     let router = AppRouter(navigationController: rootNavigationVC)
-    let signInCoordinator = MainMenuCoordinator(router: router)
+    let signInCoordinator = SignInCoordinator(router: router)
     coordinate(to: signInCoordinator)
   }
 }
