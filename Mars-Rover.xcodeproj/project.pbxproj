@@ -7,16 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		673C553DBCB152CB90E941B5 /* Pods_Mars_Rover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D90B41442A1036C1D6B9ED /* Pods_Mars_Rover.framework */; };
-		A9109D482744235C00E31ED3 /* GameScreens.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9109D472744235C00E31ED3 /* GameScreens.storyboard */; };
-		A9109D4A274423C100E31ED3 /* GameAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A9109D49274423C100E31ED3 /* GameAssets.scnassets */; };
+		7AED09778533C001B268CE5F /* Pods_Mars_Rover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA03981D5533E78B7F631EA /* Pods_Mars_Rover.framework */; };
 		A9109D4C27452DF500E31ED3 /* MapEditorSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9109D4B27452DF500E31ED3 /* MapEditorSceneViewController.swift */; };
 		A9109D512746703E00E31ED3 /* MapEditorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9109D502746703E00E31ED3 /* MapEditorCoordinator.swift */; };
 		A9219396272DD6330006CE85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9219395272DD6330006CE85 /* AppDelegate.swift */; };
 		A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9219399272DD6330006CE85 /* MainMenuViewController.swift */; };
-		A921939D272DD6330006CE85 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A921939B272DD6330006CE85 /* MainMenu.storyboard */; };
 		A921939F272DD6370006CE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A921939E272DD6370006CE85 /* Assets.xcassets */; };
-		A92193A2272DD6370006CE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92193A0272DD6370006CE85 /* LaunchScreen.storyboard */; };
 		A92193A9272DD9180006CE85 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A92193A8272DD9180006CE85 /* GoogleService-Info.plist */; };
 		A93A9F8B2732E3DC00376332 /* FirebaseSignInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F8A2732E3DC00376332 /* FirebaseSignInService.swift */; };
 		A93A9F8D2732EC0300376332 /* FirebaseProfileFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F8C2732EC0300376332 /* FirebaseProfileFetchService.swift */; };
@@ -24,15 +20,23 @@
 		A93A9F922732F3C100376332 /* FirebaseSignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F912732F3C100376332 /* FirebaseSignUpService.swift */; };
 		A93A9F942732FBD200376332 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F932732FBD200376332 /* FirebaseAuthService.swift */; };
 		A93A9F972733063A00376332 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F962733063A00376332 /* UIViewController+Extensions.swift */; };
+		A94F67B427527F49005D57DB /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94F67B327527F49005D57DB /* Auth.storyboard */; };
+		A94F67B627527F70005D57DB /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94F67B527527F70005D57DB /* MainMenu.storyboard */; };
+		A94F67BA27527FBD005D57DB /* GameScreens.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94F67B927527FBD005D57DB /* GameScreens.storyboard */; };
+		A94F67BC27527FCA005D57DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94F67BB27527FCA005D57DB /* LaunchScreen.storyboard */; };
+		A9562CC7274E60B7003E85B9 /* GameScreenSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9562CC6274E60B7003E85B9 /* GameScreenSceneViewModel.swift */; };
+		A9562CC9274E60F3003E85B9 /* GameScreenSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9562CC8274E60F3003E85B9 /* GameScreenSceneViewController.swift */; };
 		A9666F392736B86D0022AFFD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F382736B86D0022AFFD /* Box.swift */; };
 		A9666F3C273940FA0022AFFD /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F3B273940FA0022AFFD /* Storyboarded.swift */; };
 		A9666F3F27395A2C0022AFFD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F3E27395A2C0022AFFD /* Coordinator.swift */; };
-		A9666F4127395AB60022AFFD /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F4027395AB60022AFFD /* MainCoordinator.swift */; };
+		A9666F4127395AB60022AFFD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F4027395AB60022AFFD /* AppCoordinator.swift */; };
+		A98AD916274E75E700A5C0CE /* RoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98AD915274E75E700A5C0CE /* RoverManager.swift */; };
+		A98AD918274E805C00A5C0CE /* SCNNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98AD917274E805C00A5C0CE /* SCNNode+Extensions.swift */; };
+		A98AD91A274E8C3700A5C0CE /* SCNBlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98AD919274E8C3700A5C0CE /* SCNBlockNode.swift */; };
 		A9ACAB132747CBD5004C4DC3 /* MapCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB122747CBD5004C4DC3 /* MapCreator.swift */; };
 		A9ACAB152747EFA3004C4DC3 /* MapEditorSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB142747EFA3004C4DC3 /* MapEditorSceneViewModel.swift */; };
 		A9ACAB1A274A7326004C4DC3 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB19274A7326004C4DC3 /* GameScreenViewController.swift */; };
 		A9ACAB1C274A75B3004C4DC3 /* GameScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB1B274A75B3004C4DC3 /* GameScreenViewModel.swift */; };
-		A9ACAB1E274A788B004C4DC3 /* PlayCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB1D274A788B004C4DC3 /* PlayCoordinator.swift */; };
 		A9ACAB21274ACBB7004C4DC3 /* FindShortestPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB20274ACBB7004C4DC3 /* FindShortestPath.swift */; };
 		A9ACAB23274ADCD0004C4DC3 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB22274ADCD0004C4DC3 /* Node.swift */; };
 		A9ACAB25274ADCEE004C4DC3 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB24274ADCEE004C4DC3 /* Connection.swift */; };
@@ -41,6 +45,14 @@
 		A9ACAB2E274C30A5004C4DC3 /* MatrixPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB2D274C30A5004C4DC3 /* MatrixPoint.swift */; };
 		A9ACAB30274CD43C004C4DC3 /* MapSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB2F274CD43C004C4DC3 /* MapSize.swift */; };
 		A9B5A7B6274198460075C954 /* FirebaseMapsActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B5A7B5274198460075C954 /* FirebaseMapsActionService.swift */; };
+		A9D10FCB27522E9A009FA566 /* GameScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D10FCA27522E9A009FA566 /* GameScreenCoordinator.swift */; };
+		A9D10FEC2752349B009FA566 /* SignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D10FEB2752349B009FA566 /* SignInCoordinator.swift */; };
+		A9D10FEE275237C8009FA566 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D10FED275237C8009FA566 /* SignUpCoordinator.swift */; };
+		A9D10FF027523B7D009FA566 /* GameScreenSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D10FEF27523B7D009FA566 /* GameScreenSceneCoordinator.swift */; };
+		A9D10FF227523B96009FA566 /* MapEditorSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D10FF127523B96009FA566 /* MapEditorSceneCoordinator.swift */; };
+		A9D10FF427523C18009FA566 /* BackFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D10FF327523C18009FA566 /* BackFlow.swift */; };
+		A9D10FF7275253D4009FA566 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D10FF6275253D4009FA566 /* Router.swift */; };
+		A9D10FF9275254DE009FA566 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D10FF8275254DE009FA566 /* AppRouter.swift */; };
 		A9EE8EEF273964BB00F18D62 /* SignUpFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EEE273964BB00F18D62 /* SignUpFormViewController.swift */; };
 		A9EE8EF12739655F00F18D62 /* SignUpFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EF02739655F00F18D62 /* SignUpFormViewModel.swift */; };
 		A9EE8EF627397AC400F18D62 /* FirebaseProfileWriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8EF527397AC300F18D62 /* FirebaseProfileWriteService.swift */; };
@@ -55,7 +67,6 @@
 		A9EE8F0B273C0DE300F18D62 /* RealmMapsActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8F0A273C0DE300F18D62 /* RealmMapsActionService.swift */; };
 		A9EE8F0D273C312A00F18D62 /* RealmMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8F0C273C312A00F18D62 /* RealmMapsService.swift */; };
 		A9EE8F0F273D3F8D00F18D62 /* RealmMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE8F0E273D3F8C00F18D62 /* RealmMapModel.swift */; };
-		A9F4540D2731655100017E26 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F4540C2731655100017E26 /* Auth.storyboard */; };
 		A9F4540F273165D400017E26 /* SignInFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4540E273165D400017E26 /* SignInFormViewController.swift */; };
 		A9F4541227316E5100017E26 /* AuthorizationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4541127316E5100017E26 /* AuthorizationTextField.swift */; };
 		A9F45415273191B500017E26 /* SignInFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F45414273191B500017E26 /* SignInFormViewModel.swift */; };
@@ -66,22 +77,19 @@
 		A9FA590B273FB4D9002109A0 /* FirebaseMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA590A273FB4D9002109A0 /* FirebaseMapModel.swift */; };
 		A9FA590D273FF331002109A0 /* Realm+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA590C273FF331002109A0 /* Realm+Extensions.swift */; };
 		A9FA59102740312B002109A0 /* MapsJournalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA590F2740312B002109A0 /* MapsJournalService.swift */; };
+		A9FE55942751514C00EDB803 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A9FE55932751514C00EDB803 /* art.scnassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		07D90B41442A1036C1D6B9ED /* Pods_Mars_Rover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mars_Rover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A1D839787D6C5C1D35524B2 /* Pods-Mars Rover.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mars Rover.debug.xcconfig"; path = "Target Support Files/Pods-Mars Rover/Pods-Mars Rover.debug.xcconfig"; sourceTree = "<group>"; };
-		826CDA5F6587192EF415F2A0 /* Pods-Mars Rover.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mars Rover.release.xcconfig"; path = "Target Support Files/Pods-Mars Rover/Pods-Mars Rover.release.xcconfig"; sourceTree = "<group>"; };
-		A9109D472744235C00E31ED3 /* GameScreens.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreens.storyboard; sourceTree = "<group>"; };
-		A9109D49274423C100E31ED3 /* GameAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = GameAssets.scnassets; sourceTree = "<group>"; };
+		51A820ED124C4E598DFCC1DE /* Pods-Mars Rover.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mars Rover.release.xcconfig"; path = "Target Support Files/Pods-Mars Rover/Pods-Mars Rover.release.xcconfig"; sourceTree = "<group>"; };
+		6AA03981D5533E78B7F631EA /* Pods_Mars_Rover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mars_Rover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B504583C94DD7DA019B5973 /* Pods-Mars Rover.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mars Rover.debug.xcconfig"; path = "Target Support Files/Pods-Mars Rover/Pods-Mars Rover.debug.xcconfig"; sourceTree = "<group>"; };
 		A9109D4B27452DF500E31ED3 /* MapEditorSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditorSceneViewController.swift; sourceTree = "<group>"; };
 		A9109D502746703E00E31ED3 /* MapEditorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditorCoordinator.swift; sourceTree = "<group>"; };
-		A9219392272DD6330006CE85 /* Mars Rover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mars Rover.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9219392272DD6330006CE85 /* Mars-Rover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mars-Rover.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9219395272DD6330006CE85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9219399272DD6330006CE85 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
-		A921939C272DD6330006CE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainMenu.storyboard; sourceTree = "<group>"; };
 		A921939E272DD6370006CE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A92193A1272DD6370006CE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A92193A8272DD9180006CE85 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A93A9F8A2732E3DC00376332 /* FirebaseSignInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignInService.swift; sourceTree = "<group>"; };
 		A93A9F8C2732EC0300376332 /* FirebaseProfileFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProfileFetchService.swift; sourceTree = "<group>"; };
@@ -89,15 +97,23 @@
 		A93A9F912732F3C100376332 /* FirebaseSignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignUpService.swift; sourceTree = "<group>"; };
 		A93A9F932732FBD200376332 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		A93A9F962733063A00376332 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		A94F67B327527F49005D57DB /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		A94F67B527527F70005D57DB /* MainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
+		A94F67B927527FBD005D57DB /* GameScreens.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreens.storyboard; sourceTree = "<group>"; };
+		A94F67BB27527FCA005D57DB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A9562CC6274E60B7003E85B9 /* GameScreenSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenSceneViewModel.swift; sourceTree = "<group>"; };
+		A9562CC8274E60F3003E85B9 /* GameScreenSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenSceneViewController.swift; sourceTree = "<group>"; };
 		A9666F382736B86D0022AFFD /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		A9666F3B273940FA0022AFFD /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		A9666F3E27395A2C0022AFFD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		A9666F4027395AB60022AFFD /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		A9666F4027395AB60022AFFD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		A98AD915274E75E700A5C0CE /* RoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverManager.swift; sourceTree = "<group>"; };
+		A98AD917274E805C00A5C0CE /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Extensions.swift"; sourceTree = "<group>"; };
+		A98AD919274E8C3700A5C0CE /* SCNBlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNBlockNode.swift; sourceTree = "<group>"; };
 		A9ACAB122747CBD5004C4DC3 /* MapCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCreator.swift; sourceTree = "<group>"; };
 		A9ACAB142747EFA3004C4DC3 /* MapEditorSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditorSceneViewModel.swift; sourceTree = "<group>"; };
 		A9ACAB19274A7326004C4DC3 /* GameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
 		A9ACAB1B274A75B3004C4DC3 /* GameScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewModel.swift; sourceTree = "<group>"; };
-		A9ACAB1D274A788B004C4DC3 /* PlayCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayCoordinator.swift; sourceTree = "<group>"; };
 		A9ACAB20274ACBB7004C4DC3 /* FindShortestPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindShortestPath.swift; sourceTree = "<group>"; };
 		A9ACAB22274ADCD0004C4DC3 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		A9ACAB24274ADCEE004C4DC3 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
@@ -106,6 +122,14 @@
 		A9ACAB2D274C30A5004C4DC3 /* MatrixPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixPoint.swift; sourceTree = "<group>"; };
 		A9ACAB2F274CD43C004C4DC3 /* MapSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSize.swift; sourceTree = "<group>"; };
 		A9B5A7B5274198460075C954 /* FirebaseMapsActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMapsActionService.swift; sourceTree = "<group>"; };
+		A9D10FCA27522E9A009FA566 /* GameScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenCoordinator.swift; sourceTree = "<group>"; };
+		A9D10FEB2752349B009FA566 /* SignInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCoordinator.swift; sourceTree = "<group>"; };
+		A9D10FED275237C8009FA566 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
+		A9D10FEF27523B7D009FA566 /* GameScreenSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenSceneCoordinator.swift; sourceTree = "<group>"; };
+		A9D10FF127523B96009FA566 /* MapEditorSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditorSceneCoordinator.swift; sourceTree = "<group>"; };
+		A9D10FF327523C18009FA566 /* BackFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackFlow.swift; sourceTree = "<group>"; };
+		A9D10FF6275253D4009FA566 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		A9D10FF8275254DE009FA566 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		A9EE8EEE273964BB00F18D62 /* SignUpFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormViewController.swift; sourceTree = "<group>"; };
 		A9EE8EF02739655F00F18D62 /* SignUpFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormViewModel.swift; sourceTree = "<group>"; };
 		A9EE8EF527397AC300F18D62 /* FirebaseProfileWriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProfileWriteService.swift; sourceTree = "<group>"; };
@@ -120,7 +144,6 @@
 		A9EE8F0A273C0DE300F18D62 /* RealmMapsActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMapsActionService.swift; sourceTree = "<group>"; };
 		A9EE8F0C273C312A00F18D62 /* RealmMapsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMapsService.swift; sourceTree = "<group>"; };
 		A9EE8F0E273D3F8C00F18D62 /* RealmMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMapModel.swift; sourceTree = "<group>"; };
-		A9F4540C2731655100017E26 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		A9F4540E273165D400017E26 /* SignInFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormViewController.swift; sourceTree = "<group>"; };
 		A9F4541127316E5100017E26 /* AuthorizationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTextField.swift; sourceTree = "<group>"; };
 		A9F45414273191B500017E26 /* SignInFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormViewModel.swift; sourceTree = "<group>"; };
@@ -131,6 +154,7 @@
 		A9FA590A273FB4D9002109A0 /* FirebaseMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMapModel.swift; sourceTree = "<group>"; };
 		A9FA590C273FF331002109A0 /* Realm+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Extensions.swift"; sourceTree = "<group>"; };
 		A9FA590F2740312B002109A0 /* MapsJournalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsJournalService.swift; sourceTree = "<group>"; };
+		A9FE55932751514C00EDB803 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,52 +162,52 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				673C553DBCB152CB90E941B5 /* Pods_Mars_Rover.framework in Frameworks */,
+				7AED09778533C001B268CE5F /* Pods_Mars_Rover.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B6B7D935581C32A34AF3938 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AA03981D5533E78B7F631EA /* Pods_Mars_Rover.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		438568ACBA07FD60B5737BD7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2A1D839787D6C5C1D35524B2 /* Pods-Mars Rover.debug.xcconfig */,
-				826CDA5F6587192EF415F2A0 /* Pods-Mars Rover.release.xcconfig */,
+				8B504583C94DD7DA019B5973 /* Pods-Mars Rover.debug.xcconfig */,
+				51A820ED124C4E598DFCC1DE /* Pods-Mars Rover.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		5F121E04B1C6E976403C0247 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				07D90B41442A1036C1D6B9ED /* Pods_Mars_Rover.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A9219389272DD6330006CE85 = {
 			isa = PBXGroup;
 			children = (
-				A9219394272DD6330006CE85 /* Mars Rover */,
+				A9219394272DD6330006CE85 /* Mars-Rover */,
 				A9219393272DD6330006CE85 /* Products */,
 				438568ACBA07FD60B5737BD7 /* Pods */,
-				5F121E04B1C6E976403C0247 /* Frameworks */,
+				1B6B7D935581C32A34AF3938 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		A9219393272DD6330006CE85 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A9219392272DD6330006CE85 /* Mars Rover.app */,
+				A9219392272DD6330006CE85 /* Mars-Rover.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A9219394272DD6330006CE85 /* Mars Rover */ = {
+		A9219394272DD6330006CE85 /* Mars-Rover */ = {
 			isa = PBXGroup;
 			children = (
-				A9ACAB1F274ACB0F004C4DC3 /* Algorithm */,
+				A9D10FF527525399009FA566 /* Router */,
 				A9ACAB2C274C3082004C4DC3 /* DataTypes */,
 				A9ACAB1F274ACB0F004C4DC3 /* Algorithm */,
 				A9ACAB112747CBC0004C4DC3 /* Manager */,
@@ -199,9 +223,9 @@
 				A9219395272DD6330006CE85 /* AppDelegate.swift */,
 				A921939E272DD6370006CE85 /* Assets.xcassets */,
 				A92193A8272DD9180006CE85 /* GoogleService-Info.plist */,
-				A9109D49274423C100E31ED3 /* GameAssets.scnassets */,
+				A9FE55932751514C00EDB803 /* art.scnassets */,
 			);
-			path = "Mars Rover";
+			path = "Mars-Rover";
 			sourceTree = "<group>";
 		};
 		A93A9F892732E39F00376332 /* Service */ = {
@@ -232,6 +256,7 @@
 			children = (
 				A93A9F962733063A00376332 /* UIViewController+Extensions.swift */,
 				A9FA590C273FF331002109A0 /* Realm+Extensions.swift */,
+				A98AD917274E805C00A5C0CE /* SCNNode+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,10 +274,15 @@
 			isa = PBXGroup;
 			children = (
 				A9666F3E27395A2C0022AFFD /* Coordinator.swift */,
-				A9666F4027395AB60022AFFD /* MainCoordinator.swift */,
+				A9D10FF327523C18009FA566 /* BackFlow.swift */,
+				A9666F4027395AB60022AFFD /* AppCoordinator.swift */,
 				A9EE8EFB273985CD00F18D62 /* MainMenuCoordinator.swift */,
 				A9109D502746703E00E31ED3 /* MapEditorCoordinator.swift */,
-				A9ACAB1D274A788B004C4DC3 /* PlayCoordinator.swift */,
+				A9D10FF127523B96009FA566 /* MapEditorSceneCoordinator.swift */,
+				A9D10FCA27522E9A009FA566 /* GameScreenCoordinator.swift */,
+				A9D10FEF27523B7D009FA566 /* GameScreenSceneCoordinator.swift */,
+				A9D10FEB2752349B009FA566 /* SignInCoordinator.swift */,
+				A9D10FED275237C8009FA566 /* SignUpCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -261,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				A9ACAB122747CBD5004C4DC3 /* MapCreator.swift */,
+				A98AD915274E75E700A5C0CE /* RoverManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -282,8 +313,18 @@
 			children = (
 				A9ACAB2D274C30A5004C4DC3 /* MatrixPoint.swift */,
 				A9ACAB2F274CD43C004C4DC3 /* MapSize.swift */,
+				A98AD919274E8C3700A5C0CE /* SCNBlockNode.swift */,
 			);
 			path = DataTypes;
+			sourceTree = "<group>";
+		};
+		A9D10FF527525399009FA566 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A9D10FF6275253D4009FA566 /* Router.swift */,
+				A9D10FF8275254DE009FA566 /* AppRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		A9EE8EF92739832100F18D62 /* FirebaseAuth */ = {
@@ -326,6 +367,7 @@
 				A9EE8F01273BFD3100F18D62 /* MapTableViewCell.swift */,
 				A9EE8F02273BFD3100F18D62 /* MapTableViewCell.xib */,
 				A9ACAB19274A7326004C4DC3 /* GameScreenViewController.swift */,
+				A9562CC8274E60F3003E85B9 /* GameScreenSceneViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -333,10 +375,10 @@
 		A9F4540B27315A7500017E26 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				A92193A0272DD6370006CE85 /* LaunchScreen.storyboard */,
-				A921939B272DD6330006CE85 /* MainMenu.storyboard */,
-				A9F4540C2731655100017E26 /* Auth.storyboard */,
-				A9109D472744235C00E31ED3 /* GameScreens.storyboard */,
+				A94F67B327527F49005D57DB /* Auth.storyboard */,
+				A94F67B527527F70005D57DB /* MainMenu.storyboard */,
+				A94F67B927527FBD005D57DB /* GameScreens.storyboard */,
+				A94F67BB27527FCA005D57DB /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -358,6 +400,7 @@
 				A9EE8F07273C066600F18D62 /* MapEditorViewModel.swift */,
 				A9ACAB142747EFA3004C4DC3 /* MapEditorSceneViewModel.swift */,
 				A9ACAB1B274A75B3004C4DC3 /* GameScreenViewModel.swift */,
+				A9562CC6274E60B7003E85B9 /* GameScreenSceneViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -389,12 +432,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A92193A5272DD6370006CE85 /* Build configuration list for PBXNativeTarget "Mars Rover" */;
 			buildPhases = (
-				F41E98B14864FDD6DAA4626F /* [CP] Check Pods Manifest.lock */,
+				805C016D02C7626CCF12B5B1 /* [CP] Check Pods Manifest.lock */,
 				A9666F3A2739350F0022AFFD /* ShellScript */,
 				A921938E272DD6330006CE85 /* Sources */,
 				A921938F272DD6330006CE85 /* Frameworks */,
 				A9219390272DD6330006CE85 /* Resources */,
-				A56F1641478AE0A2C995AC41 /* [CP] Embed Pods Frameworks */,
+				21B74D5E3B64AE444CA5E36B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -402,7 +445,7 @@
 			);
 			name = "Mars Rover";
 			productName = "Mars Rover";
-			productReference = A9219392272DD6330006CE85 /* Mars Rover.app */;
+			productReference = A9219392272DD6330006CE85 /* Mars-Rover.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -420,7 +463,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A921938D272DD6330006CE85 /* Build configuration list for PBXProject "Mars Rover" */;
+			buildConfigurationList = A921938D272DD6330006CE85 /* Build configuration list for PBXProject "Mars-Rover" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -443,21 +486,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A92193A2272DD6370006CE85 /* LaunchScreen.storyboard in Resources */,
+				A9FE55942751514C00EDB803 /* art.scnassets in Resources */,
+				A94F67BC27527FCA005D57DB /* LaunchScreen.storyboard in Resources */,
 				A92193A9272DD9180006CE85 /* GoogleService-Info.plist in Resources */,
-				A9F4540D2731655100017E26 /* Auth.storyboard in Resources */,
+				A94F67B627527F70005D57DB /* MainMenu.storyboard in Resources */,
+				A94F67B427527F49005D57DB /* Auth.storyboard in Resources */,
+				A94F67BA27527FBD005D57DB /* GameScreens.storyboard in Resources */,
 				A921939F272DD6370006CE85 /* Assets.xcassets in Resources */,
-				A9109D482744235C00E31ED3 /* GameScreens.storyboard in Resources */,
 				A9EE8F04273BFD3100F18D62 /* MapTableViewCell.xib in Resources */,
-				A9109D4A274423C100E31ED3 /* GameAssets.scnassets in Resources */,
-				A921939D272DD6330006CE85 /* MainMenu.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A56F1641478AE0A2C995AC41 /* [CP] Embed Pods Frameworks */ = {
+		21B74D5E3B64AE444CA5E36B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -474,24 +517,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mars Rover/Pods-Mars Rover-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A9666F3A2739350F0022AFFD /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "PATH=/opt/homebrew/bin:$PATH\nif [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
-		};
-		F41E98B14864FDD6DAA4626F /* [CP] Check Pods Manifest.lock */ = {
+		805C016D02C7626CCF12B5B1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -513,6 +539,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A9666F3A2739350F0022AFFD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PATH=/opt/homebrew/bin:$PATH\nif [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -522,6 +565,7 @@
 			files = (
 				A9ACAB1C274A75B3004C4DC3 /* GameScreenViewModel.swift in Sources */,
 				A93A9F942732FBD200376332 /* FirebaseAuthService.swift in Sources */,
+				A9D10FEE275237C8009FA566 /* SignUpCoordinator.swift in Sources */,
 				A9F45415273191B500017E26 /* SignInFormViewModel.swift in Sources */,
 				A9ACAB25274ADCEE004C4DC3 /* Connection.swift in Sources */,
 				A9FA590B273FB4D9002109A0 /* FirebaseMapModel.swift in Sources */,
@@ -529,15 +573,15 @@
 				A9F4540F273165D400017E26 /* SignInFormViewController.swift in Sources */,
 				A9EE8F0F273D3F8D00F18D62 /* RealmMapModel.swift in Sources */,
 				A9EE8EF627397AC400F18D62 /* FirebaseProfileWriteService.swift in Sources */,
-				A9ACAB1E274A788B004C4DC3 /* PlayCoordinator.swift in Sources */,
 				A9ACAB152747EFA3004C4DC3 /* MapEditorSceneViewModel.swift in Sources */,
+				A9D10FF427523C18009FA566 /* BackFlow.swift in Sources */,
 				A9ACAB27274ADD19004C4DC3 /* Path.swift in Sources */,
 				A9EE8F03273BFD3100F18D62 /* MapTableViewCell.swift in Sources */,
 				A93A9F922732F3C100376332 /* FirebaseSignUpService.swift in Sources */,
 				A93A9F8B2732E3DC00376332 /* FirebaseSignInService.swift in Sources */,
-				A9ACAB132747CBD5004C4DC3 /* MapManager.swift in Sources */,
-				A9ACAB1A274A7326004C4DC3 /* GameScreenViewController.swift in Sources */,
+				A9562CC9274E60F3003E85B9 /* GameScreenSceneViewController.swift in Sources */,
 				A9ACAB132747CBD5004C4DC3 /* MapCreator.swift in Sources */,
+				A9D10FEC2752349B009FA566 /* SignInCoordinator.swift in Sources */,
 				A9ACAB1A274A7326004C4DC3 /* GameScreenViewController.swift in Sources */,
 				A9666F3C273940FA0022AFFD /* Storyboarded.swift in Sources */,
 				A9EE8EFE27398D2A00F18D62 /* MainMenuViewModel.swift in Sources */,
@@ -546,26 +590,35 @@
 				A9109D4C27452DF500E31ED3 /* MapEditorSceneViewController.swift in Sources */,
 				A9EE8EFC273985CD00F18D62 /* MainMenuCoordinator.swift in Sources */,
 				A9666F3F27395A2C0022AFFD /* Coordinator.swift in Sources */,
+				A9562CC7274E60B7003E85B9 /* GameScreenSceneViewModel.swift in Sources */,
 				A9ACAB23274ADCD0004C4DC3 /* Node.swift in Sources */,
 				A9F4541227316E5100017E26 /* AuthorizationTextField.swift in Sources */,
 				A93A9F972733063A00376332 /* UIViewController+Extensions.swift in Sources */,
 				A9ACAB21274ACBB7004C4DC3 /* FindShortestPath.swift in Sources */,
+				A9D10FF9275254DE009FA566 /* AppRouter.swift in Sources */,
 				A9EE8EF12739655F00F18D62 /* SignUpFormViewModel.swift in Sources */,
 				A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */,
 				A9EE8F06273C032000F18D62 /* RealmMapModelData.swift in Sources */,
 				A9B5A7B6274198460075C954 /* FirebaseMapsActionService.swift in Sources */,
+				A9D10FF7275253D4009FA566 /* Router.swift in Sources */,
 				A93A9F902732EFB800376332 /* ProfileModel.swift in Sources */,
 				A9EE8F08273C066600F18D62 /* MapEditorViewModel.swift in Sources */,
 				A9ACAB30274CD43C004C4DC3 /* MapSize.swift in Sources */,
 				A9FA590D273FF331002109A0 /* Realm+Extensions.swift in Sources */,
+				A98AD918274E805C00A5C0CE /* SCNNode+Extensions.swift in Sources */,
+				A9D10FF027523B7D009FA566 /* GameScreenSceneCoordinator.swift in Sources */,
+				A9D10FF227523B96009FA566 /* MapEditorSceneCoordinator.swift in Sources */,
 				A9666F392736B86D0022AFFD /* Box.swift in Sources */,
 				A9FA59102740312B002109A0 /* MapsJournalService.swift in Sources */,
+				A98AD916274E75E700A5C0CE /* RoverManager.swift in Sources */,
+				A98AD91A274E8C3700A5C0CE /* SCNBlockNode.swift in Sources */,
+				A9D10FCB27522E9A009FA566 /* GameScreenCoordinator.swift in Sources */,
 				A9219396272DD6330006CE85 /* AppDelegate.swift in Sources */,
 				A9FA5909273FB467002109A0 /* Obstacle.swift in Sources */,
 				A9FA5902273EB571002109A0 /* MapsSyncService.swift in Sources */,
 				A9EE8F0B273C0DE300F18D62 /* RealmMapsActionService.swift in Sources */,
 				A9EE8F00273BF9E800F18D62 /* MapEditorViewController.swift in Sources */,
-				A9666F4127395AB60022AFFD /* MainCoordinator.swift in Sources */,
+				A9666F4127395AB60022AFFD /* AppCoordinator.swift in Sources */,
 				A9EE8EF827397AF000F18D62 /* FirebaseProfileService.swift in Sources */,
 				A9ACAB2B274AE1FC004C4DC3 /* MatrixNode.swift in Sources */,
 				A93A9F8D2732EC0300376332 /* FirebaseProfileFetchService.swift in Sources */,
@@ -576,25 +629,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		A921939B272DD6330006CE85 /* MainMenu.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A921939C272DD6330006CE85 /* Base */,
-			);
-			name = MainMenu.storyboard;
-			sourceTree = "<group>";
-		};
-		A92193A0272DD6370006CE85 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A92193A1272DD6370006CE85 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A92193A3272DD6370006CE85 /* Debug */ = {
@@ -652,6 +686,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -706,6 +741,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -715,13 +751,14 @@
 		};
 		A92193A6272DD6370006CE85 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A1D839787D6C5C1D35524B2 /* Pods-Mars Rover.debug.xcconfig */;
+			baseConfigurationReference = 8B504583C94DD7DA019B5973 /* Pods-Mars Rover.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y743CZ57S7;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -734,8 +771,64 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseFirestore\"",
+					"-ObjC",
+					"-framework",
+					"\"FirebaseFirestoreSwift\"",
+					"-framework",
+					"\"FirebaseStorage\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"Realm\"",
+					"-framework",
+					"\"RealmSwift\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"absl\"",
+					"-framework",
+					"\"grpc\"",
+					"-framework",
+					"\"grpcpp\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl_grpc\"",
+					"-weak_framework",
+					"\"SwiftUI\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ef.Mars-Rover";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Mars-Rover";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -744,13 +837,14 @@
 		};
 		A92193A7272DD6370006CE85 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 826CDA5F6587192EF415F2A0 /* Pods-Mars Rover.release.xcconfig */;
+			baseConfigurationReference = 51A820ED124C4E598DFCC1DE /* Pods-Mars Rover.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y743CZ57S7;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -763,8 +857,64 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseFirestore\"",
+					"-ObjC",
+					"-framework",
+					"\"FirebaseFirestoreSwift\"",
+					"-framework",
+					"\"FirebaseStorage\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"Realm\"",
+					"-framework",
+					"\"RealmSwift\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"absl\"",
+					"-framework",
+					"\"grpc\"",
+					"-framework",
+					"\"grpcpp\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl_grpc\"",
+					"-weak_framework",
+					"\"SwiftUI\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ef.Mars-Rover";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Mars-Rover";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -774,7 +924,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A921938D272DD6330006CE85 /* Build configuration list for PBXProject "Mars Rover" */ = {
+		A921938D272DD6330006CE85 /* Build configuration list for PBXProject "Mars-Rover" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A92193A3272DD6370006CE85 /* Debug */,
