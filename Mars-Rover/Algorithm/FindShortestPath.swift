@@ -14,20 +14,21 @@ class FindShortestPath {
   private var startPoint: MartixNode?
   private var endPoint: MartixNode?
 
-  init?(matrix: [[Obstacle]], startPoint: MatrixPoint, endPoint: MatrixPoint) {
-    guard !matrix.isEmpty, let colomns = matrix.first, !colomns.isEmpty else { return nil }
-    self.matrixRowCount = matrix.count
-    self.matrixColomnCount = colomns.count
-    self.matrix = []
-    for (rowIndex, row) in matrix.enumerated() {
+  init?(on map: RealmMapModel) {
+    guard !map.map.isEmpty else { return nil }
+    self.matrixRowCount = map.getMapSize().getSize().rows
+    self.matrixColomnCount = map.getMapSize().getSize().colomns
+    self.matrix = ([])
+    for rowIndex in 0 ..< matrixRowCount {
       self.matrix.append([MartixNode]())
-      for (colomnIndex, colomn) in row.enumerated() {
-        let node = MartixNode(point: MatrixPoint(row: rowIndex, colomn: colomnIndex), weight: colomn)
+      for colomnIndex in 0 ..< matrixColomnCount {
+        guard let obstacle = map[rowIndex, colomnIndex] else { return nil }
+        let node = MartixNode(point: MatrixPoint(row: rowIndex, colomn: colomnIndex), weight: obstacle)
         self.matrix[rowIndex].append(node)
-        if rowIndex == startPoint.row, colomnIndex == startPoint.colomn {
+        if rowIndex == map.startGamePoint().row, colomnIndex == map.startGamePoint().colomn {
           self.startPoint = node
         }
-        if rowIndex == endPoint.row, colomnIndex == endPoint.colomn {
+        if rowIndex == map.endGamePoint().row, colomnIndex == map.endGamePoint().colomn {
           self.endPoint = node
         }
       }
@@ -35,7 +36,7 @@ class FindShortestPath {
     self.matrix.forEach { $0.forEach { self.setupConnections(node: $0) } }
   }
 
-  subscript(row: Int, colomn: Int) -> MartixNode? {
+  private subscript(row: Int, colomn: Int) -> MartixNode? {
     for (rowIndex, nodes) in matrix.enumerated() {
       for (colomnIndex, node) in nodes.enumerated() where row == rowIndex && colomn == colomnIndex {
         return node
