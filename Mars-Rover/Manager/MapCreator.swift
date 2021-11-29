@@ -15,7 +15,7 @@ enum MapType {
 enum EditMapAction {
   case clearMapNodes
   case generateRandomMap
-  case replaceMapBlock(replacingNode: SCNNode, block: Obstacle)
+  case replaceMapBlock(replacingNode: SCNBlockNode, block: Obstacle)
 }
 
 protocol MapCreatorProtocol {
@@ -23,6 +23,7 @@ protocol MapCreatorProtocol {
   var mapType: MapType { get }
   var mapNode: SCNNode { get }
   func mapModel(action: EditMapAction)
+  func node(rowIndex: Int, colomnIndex: Int) -> SCNBlockNode?
 }
 
 class MapCreator: MapCreatorProtocol {
@@ -46,10 +47,10 @@ class MapCreator: MapCreatorProtocol {
     self.createMap()
   }
 
-  func node(rowIndex: Int, colomnIndex: Int) -> SCNNode? {
+  func node(rowIndex: Int, colomnIndex: Int) -> SCNBlockNode? {
     guard let mapModelDimension = currentMap.map?.getMapSize().getSize() else { return nil }
     if rowIndex >= 0, colomnIndex >= 0, rowIndex <= mapModelDimension.rows, colomnIndex <= mapModelDimension.colomns {
-      return mapNode.childNodes[rowIndex * mapModelDimension.colomns + colomnIndex]
+      return mapNode.childNodes[rowIndex * mapModelDimension.colomns + colomnIndex] as? SCNBlockNode
     }
     return nil
   }
@@ -71,10 +72,9 @@ class MapCreator: MapCreatorProtocol {
     for row in 0 ..< mapModel.getMapSize().getSize().rows {
       for colomn in 0 ..< mapModel.getMapSize().getSize().colomns {
         guard
-          let node = node(rowIndex: row, colomnIndex: colomn)?.childNodes.first,
-          let obstacle = Obstacle.getObstacle(node: node)
+          let node = node(rowIndex: row, colomnIndex: colomn)
         else { return }
-        newMap.append(obstacle.rawValue)
+        newMap.append(node.obstacle.rawValue)
       }
     }
     currentMap.lastEdited = Date()
@@ -92,53 +92,43 @@ class MapCreator: MapCreatorProtocol {
     clearMapNodes()
     for row in 0 ..< mapModel.getMapSize().getSize().rows {
       for colomn in 0 ..< mapModel.getMapSize().getSize().colomns {
-        let block = SCNNode()
-        block.name = "\(row) \(colomn)"
-        block.position = SCNVector3(x: Float(22 * colomn), y: 14, z: Float(22 * row))
-        if let blockModel = mapModel[row, colomn]?.getBlock()?.flattenedClone() {
-          block.addChildNode(blockModel)
+        if let obstacle = mapModel[row, colomn] {
+          let block = SCNBlockNode(positionOnMap: MatrixPoint(row: row, colomn: colomn), obstacle: obstacle)
+          mapNode.addChildNode(block)
         } else {
-          guard let solidGroundBlock = Obstacle.solidGround.getBlock()?.flattenedClone() else { return }
-          block.addChildNode(solidGroundBlock)
+          let block = SCNBlockNode(positionOnMap: MatrixPoint(row: row, colomn: colomn), obstacle: Obstacle.solidGround)
+          mapNode.addChildNode(block)
         }
-        mapNode.addChildNode(block)
       }
     }
   }
 
-  private func replaceMapBlock(replacingNode: SCNNode, with block: Obstacle) {
-    guard let block = block.getBlock()?.flattenedClone() else { return }
-    mapNode.enumerateChildNodes { containerNode, _ in
+  private func replaceMapBlock(replacingNode: SCNBlockNode, with obstacle: Obstacle) {
+    mapNode.enumerateChildNodes { blockNode, _ in
       if
-        let blockInBlockContainer = containerNode.childNodes.first,
-        replacingNode == blockInBlockContainer,
-        containerNode.name != currentMap.map?.startGamePoint().toString(),
-        containerNode.name != currentMap.map?.endGamePoint().toString()
+        replacingNode == blockNode,
+        replacingNode.obstacle != obstacle,
+        replacingNode.positionOnMap != currentMap.map?.startGamePoint(),
+        replacingNode.positionOnMap != currentMap.map?.endGamePoint()
       {
-        let position = blockInBlockContainer.position
-        blockInBlockContainer.removeFromParentNode()
-        block.position = position
-        containerNode.addChildNode(block)
+        let block = SCNBlockNode(positionOnMap: replacingNode.positionOnMap, obstacle: obstacle)
+        mapNode.replaceChildNode(replacingNode, with: block)
       }
     }
     updateMapModelData()
   }
 
   private func generateRandomMap() {
-    mapNode.enumerateChildNodes { containerNode, _ in
+    mapNode.enumerateChildNodes { blockNode, _ in
       if
-        let blockInBlockContainer = containerNode.childNodes.first,
-        let block = Obstacle.init(
-          rawValue: Int.random(in: 0 ..< Obstacle.allCases.count))?
-          .getBlock()?
-          .flattenedClone(),
-        containerNode.name != currentMap.map?.startGamePoint().toString(),
-        containerNode.name != currentMap.map?.endGamePoint().toString()
+        let blockNode = blockNode as? SCNBlockNode,
+        let obstacle = Obstacle.init(
+          rawValue: Int.random(in: 0 ..< Obstacle.allCases.count)),
+        blockNode.positionOnMap != currentMap.map?.startGamePoint(),
+        blockNode.positionOnMap != currentMap.map?.endGamePoint()
       {
-        let position = blockInBlockContainer.position
-        blockInBlockContainer.removeFromParentNode()
-        block.position = position
-        containerNode.addChildNode(block)
+        let block = SCNBlockNode(positionOnMap: blockNode.positionOnMap, obstacle: obstacle)
+        mapNode.replaceChildNode(blockNode, with: block)
       }
     }
     updateMapModelData()
