@@ -33,7 +33,6 @@
 		A98AD916274E75E700A5C0CE /* RoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98AD915274E75E700A5C0CE /* RoverManager.swift */; };
 		A98AD918274E805C00A5C0CE /* SCNNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98AD917274E805C00A5C0CE /* SCNNode+Extensions.swift */; };
 		A98AD91A274E8C3700A5C0CE /* SCNBlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98AD919274E8C3700A5C0CE /* SCNBlockNode.swift */; };
-		A9ACAB132747CBD5004C4DC3 /* MapCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB122747CBD5004C4DC3 /* MapCreator.swift */; };
 		A9ACAB152747EFA3004C4DC3 /* MapEditorSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB142747EFA3004C4DC3 /* MapEditorSceneViewModel.swift */; };
 		A9ACAB1A274A7326004C4DC3 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB19274A7326004C4DC3 /* GameScreenViewController.swift */; };
 		A9ACAB1C274A75B3004C4DC3 /* GameScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACAB1B274A75B3004C4DC3 /* GameScreenViewModel.swift */; };
@@ -70,6 +69,7 @@
 		A9F4540F273165D400017E26 /* SignInFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4540E273165D400017E26 /* SignInFormViewController.swift */; };
 		A9F4541227316E5100017E26 /* AuthorizationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4541127316E5100017E26 /* AuthorizationTextField.swift */; };
 		A9F45415273191B500017E26 /* SignInFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F45414273191B500017E26 /* SignInFormViewModel.swift */; };
+		A9F9DB8C27565D26000EBA6D /* MapCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F9DB8B27565D26000EBA6D /* MapCreator.swift */; };
 		A9FA5902273EB571002109A0 /* MapsSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA5901273EB571002109A0 /* MapsSyncService.swift */; };
 		A9FA5904273EB759002109A0 /* FirebaseMapModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA5903273EB759002109A0 /* FirebaseMapModelData.swift */; };
 		A9FA5907273EF416002109A0 /* FirebaseMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA5906273EF416002109A0 /* FirebaseMapsService.swift */; };
@@ -110,7 +110,6 @@
 		A98AD915274E75E700A5C0CE /* RoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverManager.swift; sourceTree = "<group>"; };
 		A98AD917274E805C00A5C0CE /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Extensions.swift"; sourceTree = "<group>"; };
 		A98AD919274E8C3700A5C0CE /* SCNBlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNBlockNode.swift; sourceTree = "<group>"; };
-		A9ACAB122747CBD5004C4DC3 /* MapCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCreator.swift; sourceTree = "<group>"; };
 		A9ACAB142747EFA3004C4DC3 /* MapEditorSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditorSceneViewModel.swift; sourceTree = "<group>"; };
 		A9ACAB19274A7326004C4DC3 /* GameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
 		A9ACAB1B274A75B3004C4DC3 /* GameScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewModel.swift; sourceTree = "<group>"; };
@@ -147,6 +146,7 @@
 		A9F4540E273165D400017E26 /* SignInFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormViewController.swift; sourceTree = "<group>"; };
 		A9F4541127316E5100017E26 /* AuthorizationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTextField.swift; sourceTree = "<group>"; };
 		A9F45414273191B500017E26 /* SignInFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormViewModel.swift; sourceTree = "<group>"; };
+		A9F9DB8B27565D26000EBA6D /* MapCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCreator.swift; sourceTree = "<group>"; };
 		A9FA5901273EB571002109A0 /* MapsSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsSyncService.swift; sourceTree = "<group>"; };
 		A9FA5903273EB759002109A0 /* FirebaseMapModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMapModelData.swift; sourceTree = "<group>"; };
 		A9FA5906273EF416002109A0 /* FirebaseMapsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMapsService.swift; sourceTree = "<group>"; };
@@ -290,7 +290,7 @@
 		A9ACAB112747CBC0004C4DC3 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				A9ACAB122747CBD5004C4DC3 /* MapCreator.swift */,
+				A9F9DB8B27565D26000EBA6D /* MapCreator.swift */,
 				A98AD915274E75E700A5C0CE /* RoverManager.swift */,
 			);
 			path = Manager;
@@ -580,10 +580,7 @@
 				A93A9F922732F3C100376332 /* FirebaseSignUpService.swift in Sources */,
 				A93A9F8B2732E3DC00376332 /* FirebaseSignInService.swift in Sources */,
 				A9562CC9274E60F3003E85B9 /* GameScreenSceneViewController.swift in Sources */,
-				A9ACAB132747CBD5004C4DC3 /* MapCreator.swift in Sources */,
 				A9D10FEC2752349B009FA566 /* SignInCoordinator.swift in Sources */,
-				A9ACAB132747CBD5004C4DC3 /* MapCreator.swift in Sources */,
-				A9ACAB132747CBD5004C4DC3 /* MapManager.swift in Sources */,
 				A9ACAB1A274A7326004C4DC3 /* GameScreenViewController.swift in Sources */,
 				A9666F3C273940FA0022AFFD /* Storyboarded.swift in Sources */,
 				A9EE8EFE27398D2A00F18D62 /* MainMenuViewModel.swift in Sources */,
@@ -607,6 +604,7 @@
 				A9EE8F08273C066600F18D62 /* MapEditorViewModel.swift in Sources */,
 				A9ACAB30274CD43C004C4DC3 /* MapSize.swift in Sources */,
 				A9FA590D273FF331002109A0 /* Realm+Extensions.swift in Sources */,
+				A9F9DB8C27565D26000EBA6D /* MapCreator.swift in Sources */,
 				A98AD918274E805C00A5C0CE /* SCNNode+Extensions.swift in Sources */,
 				A9D10FF027523B7D009FA566 /* GameScreenSceneCoordinator.swift in Sources */,
 				A9D10FF227523B96009FA566 /* MapEditorSceneCoordinator.swift in Sources */,

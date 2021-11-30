@@ -24,7 +24,9 @@ class GameScreenViewModel {
     self.maps.value.removeAll()
     let maps = realmService.getLocalMaps()
     guard let maps = maps else { return }
-    self.maps.value = maps
+    self.maps.value = maps.sorted { map1, map2 in
+      map1.lastEdited > map2.lastEdited
+    }
     self.isUpdated.value.toggle()
   }
 

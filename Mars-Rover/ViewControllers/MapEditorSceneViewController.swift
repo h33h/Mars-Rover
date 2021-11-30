@@ -51,7 +51,6 @@ class MapEditorSceneViewController: UIViewController, Storyboarded {
     guard let scnScene = SCNScene(named: "mapScene.scn", inDirectory: "art.scnassets") else { return }
     self.scnScene = scnScene
     scnView.scene = scnScene
-    scnView.showsStatistics = true
   }
 
   private func setupMap() {
