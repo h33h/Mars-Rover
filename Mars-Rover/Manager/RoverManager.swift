@@ -93,6 +93,7 @@ class RoverManager: RoverManagerProtocol {
   }
 
   func roverCompleteMap() {
+    marsRover.childNodes.first?.removeAllActions()
     var actions: [SCNAction] = []
     SCNTransaction.animationDuration = 2.0
     var previousPoint: SCNBlockNode?
