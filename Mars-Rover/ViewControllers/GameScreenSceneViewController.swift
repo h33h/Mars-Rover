@@ -36,7 +36,6 @@ class GameScreenSceneViewController: UIViewController, Storyboarded {
   private func setupScene() {
     guard let scnScene = SCNScene(named: "mapScene.scn", inDirectory: "art.scnassets") else { return }
     scnView.scene = scnScene
-    scnView.showsStatistics = true
     self.scnScene = scnScene
   }
 
