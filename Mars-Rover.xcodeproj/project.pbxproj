@@ -582,6 +582,8 @@
 				A9562CC9274E60F3003E85B9 /* GameScreenSceneViewController.swift in Sources */,
 				A9ACAB132747CBD5004C4DC3 /* MapCreator.swift in Sources */,
 				A9D10FEC2752349B009FA566 /* SignInCoordinator.swift in Sources */,
+				A9ACAB132747CBD5004C4DC3 /* MapCreator.swift in Sources */,
+				A9ACAB132747CBD5004C4DC3 /* MapManager.swift in Sources */,
 				A9ACAB1A274A7326004C4DC3 /* GameScreenViewController.swift in Sources */,
 				A9666F3C273940FA0022AFFD /* Storyboarded.swift in Sources */,
 				A9EE8EFE27398D2A00F18D62 /* MainMenuViewModel.swift in Sources */,
