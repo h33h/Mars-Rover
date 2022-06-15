@@ -22,11 +22,11 @@ final class FirebaseMapsActionService: FirebaseMapsActionServiceProtocol {
   func mapAction(is action: FirebaseMapAction, errorHandler: @escaping FirebaseMapsServceErrorCompletion) {
     switch action {
     case .addMap(let firebaseMapModelData):
-      addMap(map: firebaseMapModelData) { return errorHandler($0) }
+      addMap(map: firebaseMapModelData) { errorHandler($0) }
     case .editMap(let firebaseMapModelData):
-      editMap(map: firebaseMapModelData) { return errorHandler($0) }
+      editMap(map: firebaseMapModelData) { errorHandler($0) }
     case .removeMap(let mapId):
-      removeMap(withId: mapId) { return errorHandler($0) }
+      removeMap(withId: mapId) { errorHandler($0) }
     }
   }
 

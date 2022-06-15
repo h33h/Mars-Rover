@@ -7,14 +7,14 @@
 
 import RealmSwift
 
-protocol RealmMapsServceProtocol {
+protocol RealmMapsServiceProtocol {
   func mapAction(is action: RealmMapAction)
   func getLocalMaps() -> [RealmMapModelData]?
   func removeAllLocalMaps()
 }
 
-final class RealmMapsServce: RealmMapsServceProtocol {
-  static var shared = RealmMapsServce(mapActionService: RealmMapsActionService())
+final class RealmMapsService: RealmMapsServiceProtocol {
+  static var shared = RealmMapsService(mapActionService: RealmMapsActionService())
   let mapActionService: RealmMapsActionServiceProtocol
   let realm: Realm?
 

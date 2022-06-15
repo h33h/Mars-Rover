@@ -18,7 +18,7 @@ struct FirebaseMapModelData: Codable {
 extension FirebaseMapModelData {
 // MARK: - FirebaseMapModelData: Methods
   func convertToRealmMapModelData() -> RealmMapModelData? {
-    guard let id = try? ObjectId.init(string: self.id)  else { return nil }
+    guard let id = try? ObjectId(string: self.id)  else { return nil }
     let realmMapModelData = RealmMapModelData()
     realmMapModelData.id = id
     realmMapModelData.mapLabel = self.mapLabel

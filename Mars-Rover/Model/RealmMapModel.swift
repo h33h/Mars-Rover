@@ -50,11 +50,11 @@ class RealmMapModel: Object {
 extension RealmMapModel {
 // MARK: - RealmMapModel: Methods
   func convertToFirebaseMapModel() -> FirebaseMapModel {
-    return FirebaseMapModel(rowCount: self.rowCount, colomnsCount: self.colomnsCount, map: Array(self.map))
+    FirebaseMapModel(rowCount: self.rowCount, colomnsCount: self.colomnsCount, map: Array(self.map))
   }
 
   func getMapSize() -> MapSize {
-    return .mapSize(rows: self.rowCount, colomns: self.colomnsCount)
+    .mapSize(rows: self.rowCount, colomns: self.colomnsCount)
   }
 
   func startGamePoint() -> MatrixPoint {

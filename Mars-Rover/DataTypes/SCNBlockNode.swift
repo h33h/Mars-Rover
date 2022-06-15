@@ -19,6 +19,7 @@ class SCNBlockNode: SCNNode {
     self.setPosition()
   }
 
+  @available(*, unavailable)
   required init?(coder: NSCoder) {
     fatalError("Error")
   }

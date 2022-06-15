@@ -8,9 +8,14 @@
 import UIKit
 
 class MapTableViewCell: UITableViewCell {
-  @IBOutlet var mapLabel: UILabel!
-  @IBOutlet var mapLastEditLabel: UILabel!
+  @IBOutlet private var mapLabel: UILabel!
+  @IBOutlet private var mapLastEditLabel: UILabel!
   override func awakeFromNib() {
     super.awakeFromNib()
+  }
+
+  func configure(mapLabel: String, mapLastEdit: String) {
+    self.mapLabel.text = mapLabel
+    self.mapLastEditLabel.text = mapLabel
   }
 }

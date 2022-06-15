@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MartixNode: Node {
+class MatrixNode: Node {
   let point: MatrixPoint
   let weight: Obstacle
   init(point: MatrixPoint, weight: Obstacle) {
@@ -17,8 +17,8 @@ class MartixNode: Node {
   }
 }
 
-extension MartixNode {
-  func addConnection(to node: MartixNode, weight: Int) {
+extension MatrixNode {
+  func addConnection(to node: MatrixNode, weight: Int) {
     self.connections.append(Connection(to: node, weight: weight))
   }
 }

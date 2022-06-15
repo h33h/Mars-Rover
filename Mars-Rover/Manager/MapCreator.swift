@@ -122,7 +122,7 @@ class MapCreator: MapCreatorProtocol {
     mapNode.enumerateChildNodes { blockNode, _ in
       if
         let blockNode = blockNode as? SCNBlockNode,
-        let obstacle = Obstacle.init(
+        let obstacle = Obstacle(
           rawValue: Int.random(in: 0 ..< Obstacle.allCases.count)),
         blockNode.positionOnMap != currentMap.map?.startGamePoint(),
         blockNode.positionOnMap != currentMap.map?.endGamePoint()

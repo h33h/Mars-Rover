@@ -11,12 +11,12 @@ class MainMenuViewModel {
   // MARK: - MainMenuViewModel: Variables
     let authService: FirebaseAuthServiceProtocol
     let profileService: FirebaseProfileServiceProtocol
-    let realmSevice: RealmMapsServceProtocol
+    let realmSevice: RealmMapsServiceProtocol
     var errorMessage: Box<String>
     var profile: Box<ProfileModel>
     var isSignedOut: Box<Bool>
 
-  init(authService: FirebaseAuthServiceProtocol, profileService: FirebaseProfileServiceProtocol, realmMapsService: RealmMapsServceProtocol) {
+  init(authService: FirebaseAuthServiceProtocol, profileService: FirebaseProfileServiceProtocol, realmMapsService: RealmMapsServiceProtocol) {
     self.authService = authService
     self.profileService = profileService
     self.realmSevice = realmMapsService

@@ -22,14 +22,14 @@ class MapEditorSceneCoordinator: Coordinator, BackFlow {
     if let map = map {
       guard let mapCreator = MapCreator(mapModelData: map) else { return }
       let viewModel = MapEditorSceneViewModel(
-        realmMapsService: RealmMapsServce.shared,
+        realmMapsService: RealmMapsService.shared,
         journalService: MapsJournalService.shared,
         mapCreator: mapCreator
       )
       mapEditorSceneVC.setViewModel(viewModel: viewModel)
     } else {
       let viewModel = MapEditorSceneViewModel(
-        realmMapsService: RealmMapsServce.shared,
+        realmMapsService: RealmMapsService.shared,
         journalService: MapsJournalService.shared,
         mapCreator: MapCreator(size: .defaultSize)
       )

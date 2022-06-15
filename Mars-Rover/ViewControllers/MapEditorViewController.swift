@@ -12,15 +12,15 @@ class MapEditorViewController: UIViewController, Storyboarded {
   var coordinator: (MapEditorFlow & BackFlow)?
   private var viewModel = MapEditorViewModel(
     journalService: MapsJournalService.shared,
-    realmMapsSevice: RealmMapsServce.shared,
+    realmMapsSevice: RealmMapsService.shared,
     syncService: MapsSyncService.shared
   )
 
   // MARK: - MapEditorViewController: IBOutlet Variables
-  @IBOutlet var addMapButton: UIButton!
-  @IBOutlet var syncMapsButton: UIButton!
-  @IBOutlet var backButton: UIButton!
-  @IBOutlet var mapsTableView: UITableView!
+  @IBOutlet private var addMapButton: UIButton!
+  @IBOutlet private var syncMapsButton: UIButton!
+  @IBOutlet private var backButton: UIButton!
+  @IBOutlet private var mapsTableView: UITableView!
 
   // MARK: - MapEditorViewController: LifeCycle Methods
   override func viewDidLoad() {
@@ -77,8 +77,10 @@ extension MapEditorViewController: UITableViewDataSource, UITableViewDelegate {
     let dateFormatter = DateFormatter()
     dateFormatter.timeStyle = .medium
     dateFormatter.dateStyle = .medium
-    cell.mapLabel.text = mapModel.mapLabel
-    cell.mapLastEditLabel.text = dateFormatter.string(from: mapModel.lastEdited)
+    cell.configure(
+      mapLabel: mapModel.mapLabel,
+      mapLastEdit: dateFormatter.string(from: mapModel.lastEdited)
+    )
     return cell
   }
 

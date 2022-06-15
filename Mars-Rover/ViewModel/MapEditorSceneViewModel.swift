@@ -10,10 +10,10 @@ import SceneKit
 class MapEditorSceneViewModel {
   // MARK: - MapEditorSceneViewModel: Variables
   let mapCreator: MapCreatorProtocol
-  let realmMapsService: RealmMapsServceProtocol
+  let realmMapsService: RealmMapsServiceProtocol
   let journalService: MapsJournalServiceProtocol
 
-  init(realmMapsService: RealmMapsServceProtocol, journalService: MapsJournalServiceProtocol, mapCreator: MapCreatorProtocol) {
+  init(realmMapsService: RealmMapsServiceProtocol, journalService: MapsJournalServiceProtocol, mapCreator: MapCreatorProtocol) {
     self.realmMapsService = realmMapsService
     self.journalService = journalService
     self.mapCreator = mapCreator

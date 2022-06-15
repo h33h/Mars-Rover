@@ -16,16 +16,16 @@ protocol MapsSyncServiceProtocol {
 
 final class MapsSyncService: MapsSyncServiceProtocol {
   static var shared = MapsSyncService(
-    realmMapService: RealmMapsServce.shared,
-    firebaseMapService: FirebaseMapsServce.shared,
+    realmMapService: RealmMapsService.shared,
+    firebaseMapService: FirebaseMapsService.shared,
     journalService: MapsJournalService.shared
   )
-  let firebaseMapService: FirebaseMapsServceProtocol
-  let realmMapService: RealmMapsServceProtocol
+  let firebaseMapService: FirebaseMapsServiceProtocol
+  let realmMapService: RealmMapsServiceProtocol
   let journalService: MapsJournalServiceProtocol
   private let queue = DispatchQueue(label: "sync")
 
-  init(realmMapService: RealmMapsServceProtocol, firebaseMapService: FirebaseMapsServceProtocol, journalService: MapsJournalServiceProtocol) {
+  init(realmMapService: RealmMapsServiceProtocol, firebaseMapService: FirebaseMapsServiceProtocol, journalService: MapsJournalServiceProtocol) {
     self.realmMapService = realmMapService
     self.firebaseMapService = firebaseMapService
     self.journalService = journalService

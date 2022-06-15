@@ -8,12 +8,12 @@
 import Foundation
 
 class GameScreenViewModel {
-  let realmService: RealmMapsServceProtocol
+  let realmService: RealmMapsServiceProtocol
   var maps: Box<[RealmMapModelData]>
   var isUpdated: Box<Bool>
   var errorMessage: Box<String?>
 
-  init(realmService: RealmMapsServceProtocol) {
+  init(realmService: RealmMapsServiceProtocol) {
     self.realmService = realmService
     self.maps = Box([RealmMapModelData]())
     self.isUpdated = Box(false)
@@ -37,7 +37,7 @@ class GameScreenViewModel {
       errorMessage.value = "Map is not passable"
       return nil
     }
-    let succession = path.array.reversed().compactMap { $0 as? MartixNode }.map { $0.point }
+    let succession = path.array.reversed().compactMap { $0 as? MatrixNode }.map { $0.point }
     return succession
   }
 }

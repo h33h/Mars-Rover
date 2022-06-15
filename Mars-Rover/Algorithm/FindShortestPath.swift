@@ -8,11 +8,11 @@
 import Foundation
 
 class FindShortestPath {
-  private var matrix: [[MartixNode]]
+  private var matrix: [[MatrixNode]]
   private var matrixRowCount: Int
   private var matrixColomnCount: Int
-  private var startPoint: MartixNode?
-  private var endPoint: MartixNode?
+  private var startPoint: MatrixNode?
+  private var endPoint: MatrixNode?
 
   init?(on map: RealmMapModel) {
     guard !map.map.isEmpty else { return nil }
@@ -20,10 +20,10 @@ class FindShortestPath {
     self.matrixColomnCount = map.getMapSize().getSize().colomns
     self.matrix = ([])
     for rowIndex in 0 ..< matrixRowCount {
-      self.matrix.append([MartixNode]())
+      self.matrix.append([MatrixNode]())
       for colomnIndex in 0 ..< matrixColomnCount {
         guard let obstacle = map[rowIndex, colomnIndex] else { return nil }
-        let node = MartixNode(point: MatrixPoint(row: rowIndex, colomn: colomnIndex), weight: obstacle)
+        let node = MatrixNode(point: MatrixPoint(row: rowIndex, colomn: colomnIndex), weight: obstacle)
         self.matrix[rowIndex].append(node)
         if rowIndex == map.startGamePoint().row, colomnIndex == map.startGamePoint().colomn {
           self.startPoint = node
@@ -36,23 +36,14 @@ class FindShortestPath {
     self.matrix.forEach { $0.forEach { self.setupConnections(node: $0) } }
   }
 
-  private subscript(row: Int, colomn: Int) -> MartixNode? {
-    for (rowIndex, nodes) in matrix.enumerated() {
-      for (colomnIndex, node) in nodes.enumerated() where row == rowIndex && colomn == colomnIndex {
-        return node
-      }
-    }
-    return nil
-  }
-
-  private func nodeAddConnections(node: MartixNode, with neighborNodes: [MartixNode?]) {
+  private func nodeAddConnections(node: MatrixNode, with neighborNodes: [MatrixNode?]) {
     for neighborNode in neighborNodes {
       guard let neighborNode = neighborNode else { return }
       node.addConnection(to: neighborNode, weight: neighborNode.weight.rawValue)
     }
   }
 
-  private func setupConnections(node: MartixNode) {
+  private func setupConnections(node: MatrixNode) {
     let currentNodeRow = node.point.row
     let currentNodeColomn = node.point.colomn
 
@@ -60,7 +51,6 @@ class FindShortestPath {
     let rightNode = self[currentNodeRow, currentNodeColomn + 1]
     let upNode = self[currentNodeRow - 1, currentNodeColomn]
     let downNode = self[currentNodeRow + 1, currentNodeColomn]
-
 
     if currentNodeRow == 0, currentNodeColomn == 0 {
       nodeAddConnections(node: node, with: [rightNode, downNode])
@@ -112,7 +102,7 @@ class FindShortestPath {
 
     var frontier: [Path] = [] {
       // the frontier has to be always ordered
-      didSet { frontier.sort { return $0.cumulativeWeight < $1.cumulativeWeight } }
+      didSet { frontier.sort { $0.cumulativeWeight < $1.cumulativeWeight } }
     }
 
     frontier.append(Path(to: startPoint)) // the frontier is made by a path that starts nowhere and ends in the source
@@ -134,5 +124,14 @@ class FindShortestPath {
       }
     } // end while
     return nil // we didn't find a path 
+  }
+
+  private subscript(row: Int, colomn: Int) -> MatrixNode? {
+    for (rowIndex, nodes) in matrix.enumerated() {
+      for (colomnIndex, node) in nodes.enumerated() where row == rowIndex && colomn == colomnIndex {
+        return node
+      }
+    }
+    return nil
   }
 }

@@ -11,12 +11,12 @@ class MapEditorViewModel {
   // MARK: - MapEditorViewModel: Variables
   let syncService: MapsSyncServiceProtocol
   let journalService: MapsJournalServiceProtocol
-  let realmService: RealmMapsServceProtocol
+  let realmService: RealmMapsServiceProtocol
   var maps: Box<[RealmMapModelData]>
   var isUpdated: Box<Bool>
 
   // MARK: - MapEditorViewModel: Init
-  init(journalService: MapsJournalServiceProtocol, realmMapsSevice: RealmMapsServceProtocol, syncService: MapsSyncServiceProtocol) {
+  init(journalService: MapsJournalServiceProtocol, realmMapsSevice: RealmMapsServiceProtocol, syncService: MapsSyncServiceProtocol) {
     self.journalService = journalService
     self.realmService = realmMapsSevice
     self.syncService = syncService

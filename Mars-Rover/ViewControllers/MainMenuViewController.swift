@@ -12,7 +12,7 @@ class MainMenuViewController: UIViewController, Storyboarded {
     private var viewModel = MainMenuViewModel(
       authService: FirebaseAuthService.shared,
       profileService: FirebaseProfileService.shared,
-      realmMapsService: RealmMapsServce.shared
+      realmMapsService: RealmMapsService.shared
     )
     var coordinator: (MainMenuFlow & BackFlow)?
 

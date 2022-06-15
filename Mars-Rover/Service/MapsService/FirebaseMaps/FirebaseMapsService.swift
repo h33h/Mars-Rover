@@ -1,5 +1,5 @@
 //
-//  FirebaseMapService.swift
+//  FirebaseMapsService.swift
 //  Mars Rover
 //
 //  Created by XXX on 12.11.21.
@@ -18,13 +18,13 @@ enum FirebaseMapsServceError: Error {
 typealias FirebaseMapModelCompletion = ([FirebaseMapModelData]?, FirebaseMapsServceError?) -> Void
 typealias FirebaseMapsServceErrorCompletion = (FirebaseMapsServceError?) -> Void
 
-protocol FirebaseMapsServceProtocol {
+protocol FirebaseMapsServiceProtocol {
   func getMaps(completion: @escaping FirebaseMapModelCompletion)
   func mapAction(is action: FirebaseMapAction, errorHandler: @escaping FirebaseMapsServceErrorCompletion)
 }
 
-final class FirebaseMapsServce: FirebaseMapsServceProtocol {
-  static var shared = FirebaseMapsServce(mapActionService: FirebaseMapsActionService())
+final class FirebaseMapsService: FirebaseMapsServiceProtocol {
+  static var shared = FirebaseMapsService(mapActionService: FirebaseMapsActionService())
   private let mapActionService: FirebaseMapsActionServiceProtocol
 
   init(mapActionService: FirebaseMapsActionServiceProtocol) {

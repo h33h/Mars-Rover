@@ -9,7 +9,7 @@ import UIKit
 
 class GameScreenViewController: UIViewController, Storyboarded {
   var coordinator: (GameScreenFlow & BackFlow)?
-  private var viewModel = GameScreenViewModel(realmService: RealmMapsServce.shared)
+  private var viewModel = GameScreenViewModel(realmService: RealmMapsService.shared)
 
   @IBOutlet private var tableView: UITableView!
   override func viewDidLoad() {
@@ -72,8 +72,10 @@ extension GameScreenViewController: UITableViewDataSource, UITableViewDelegate {
     let dateFormatter = DateFormatter()
     dateFormatter.timeStyle = .medium
     dateFormatter.dateStyle = .medium
-    cell.mapLabel.text = mapModel.mapLabel
-    cell.mapLastEditLabel.text = dateFormatter.string(from: mapModel.lastEdited)
+    cell.configure(
+      mapLabel: mapModel.mapLabel,
+      mapLastEdit: dateFormatter.string(from: mapModel.lastEdited)
+    )
     return cell
   }
 }

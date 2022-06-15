@@ -1,3 +1,15 @@
+platform :ios, '15.0'
+inhibit_all_warnings!
+use_frameworks!
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+    end
+  end
+end
+
 target 'Mars Rover' do
 
   use_frameworks!
@@ -20,7 +32,13 @@ pod 'SwiftLint'
 # Local database Realm
 pod 'RealmSwift'
 
-# Disable all warnings from Pods
-inhibit_all_warnings!
+# Assets 
+pod 'SwiftGen'
+
+# Dependency injection
+pod 'Swinject'
+
+# Constraints
+pod 'SnapKit'
 
 end

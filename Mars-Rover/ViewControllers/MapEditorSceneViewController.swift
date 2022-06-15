@@ -86,7 +86,8 @@ class MapEditorSceneViewController: UIViewController, Storyboarded {
   }
 
   // MARK: - MapEditorSceneViewController: HandleTap Methods
-  @objc private func longPressAction(sender: UILongPressGestureRecognizer) {
+  @objc
+  private func longPressAction(sender: UILongPressGestureRecognizer) {
     let location = sender.location(in: scnView)
     let hitResults = scnView.hitTest(location, options: nil)
     for hit in hitResults {
@@ -99,7 +100,8 @@ class MapEditorSceneViewController: UIViewController, Storyboarded {
     }
   }
 
-  @objc private func sceneTapped(sender: UITapGestureRecognizer) {
+  @objc
+  private func sceneTapped(sender: UITapGestureRecognizer) {
     let location = sender.location(in: scnView)
     let hitResults = scnView.hitTest(location, options: nil)
     if !hitResults.isEmpty {
@@ -113,7 +115,8 @@ class MapEditorSceneViewController: UIViewController, Storyboarded {
   }
 
   // MARK: - MapEditorSceneViewController: BlockSelectionTap Method
-  @objc private func blockButtonAction(sender: UIButton) {
+  @objc
+  private func blockButtonAction(sender: UIButton) {
     guard let title = sender.titleLabel?.text else { return }
     bottomStackView.arrangedSubviews.forEach { button in
       guard let button = button as? UIButton else { return }
