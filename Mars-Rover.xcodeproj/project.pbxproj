@@ -207,25 +207,65 @@
 		A9219394272DD6330006CE85 /* Mars-Rover */ = {
 			isa = PBXGroup;
 			children = (
-				A9D10FF527525399009FA566 /* Router */,
-				A9ACAB2C274C3082004C4DC3 /* DataTypes */,
-				A9ACAB1F274ACB0F004C4DC3 /* Algorithm */,
-				A9ACAB112747CBC0004C4DC3 /* Manager */,
-				A9666F3D273959640022AFFD /* Coordinators */,
-				A9666F372736AE930022AFFD /* Utility */,
-				A93A9F95273305D000376332 /* Extensions */,
-				A93A9F8E2732EFA800376332 /* Model */,
-				A93A9F892732E39F00376332 /* Service */,
-				A9F454132731918800017E26 /* ViewModel */,
-				A9F4540B27315A7500017E26 /* Storyboards */,
-				A9F4540A27315A6A00017E26 /* ViewControllers */,
-				A9F4541027316DFB00017E26 /* Views */,
-				A9219395272DD6330006CE85 /* AppDelegate.swift */,
+				A938EA722859FB4000CEFFA9 /* Drawable */,
+				A938EA712859FAD400CEFFA9 /* Application */,
+				A938EA702859F1D100CEFFA9 /* User Interface */,
+				A938EA6F2859F10600CEFFA9 /* Business Logic */,
+				A938EA6E2859F0ED00CEFFA9 /* Data Access */,
 				A921939E272DD6370006CE85 /* Assets.xcassets */,
-				A92193A8272DD9180006CE85 /* GoogleService-Info.plist */,
 				A9FE55932751514C00EDB803 /* art.scnassets */,
 			);
 			path = "Mars-Rover";
+			sourceTree = "<group>";
+		};
+		A938EA6E2859F0ED00CEFFA9 /* Data Access */ = {
+			isa = PBXGroup;
+			children = (
+				A93A9F892732E39F00376332 /* Service */,
+			);
+			path = "Data Access";
+			sourceTree = "<group>";
+		};
+		A938EA6F2859F10600CEFFA9 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				A9F454132731918800017E26 /* ViewModel */,
+				A93A9F8E2732EFA800376332 /* Model */,
+				A93A9F95273305D000376332 /* Extensions */,
+				A9666F372736AE930022AFFD /* Utility */,
+				A9ACAB2C274C3082004C4DC3 /* DataTypes */,
+				A9D10FF527525399009FA566 /* Router */,
+				A9ACAB1F274ACB0F004C4DC3 /* Algorithm */,
+				A9666F3D273959640022AFFD /* Coordinators */,
+				A9ACAB112747CBC0004C4DC3 /* Manager */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		A938EA702859F1D100CEFFA9 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				A9F4540B27315A7500017E26 /* Storyboards */,
+				A9F4540A27315A6A00017E26 /* ViewControllers */,
+				A9F4541027316DFB00017E26 /* Custom Views */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		A938EA712859FAD400CEFFA9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A92193A8272DD9180006CE85 /* GoogleService-Info.plist */,
+				A9219395272DD6330006CE85 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A938EA722859FB4000CEFFA9 /* Drawable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Drawable;
 			sourceTree = "<group>";
 		};
 		A93A9F892732E39F00376332 /* Service */ = {
@@ -383,12 +423,12 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		A9F4541027316DFB00017E26 /* Views */ = {
+		A9F4541027316DFB00017E26 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
 				A9F4541127316E5100017E26 /* AuthorizationTextField.swift */,
 			);
-			path = Views;
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		A9F454132731918800017E26 /* ViewModel */ = {
