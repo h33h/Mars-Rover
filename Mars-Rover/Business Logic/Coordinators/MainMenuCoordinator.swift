@@ -20,7 +20,7 @@ class MainMenuCoordinator: Coordinator, MainMenuFlow, BackFlow {
   }
 
   func start() {
-    guard let mainMenuVC = MainMenuViewController.instantiate(from: "MainMenu") else { return }
+    let mainMenuVC = StoryboardScene.MainMenu.mainMenuViewController.instantiate()
     mainMenuVC.coordinator = self
     router.push(mainMenuVC, isAnimated: true)
   }

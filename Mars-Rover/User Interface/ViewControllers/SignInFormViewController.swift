@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInFormViewController: UIViewController, Storyboarded {
+class SignInFormViewController: UIViewController {
   // MARK: - SignInFormViewController: Variables
     private var viewModel = SignInFormViewModel(authService: FirebaseAuthService.shared)
     var coordinator: SignInFlow?

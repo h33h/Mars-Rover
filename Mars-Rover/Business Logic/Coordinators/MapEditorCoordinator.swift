@@ -19,7 +19,7 @@ class MapEditorCoordinator: Coordinator, MapEditorFlow, BackFlow {
   }
 
   func start() {
-    guard let mapEditorVC = MapEditorViewController.instantiate(from: "MainMenu") else { return }
+    let mapEditorVC = StoryboardScene.MainMenu.mapEditorViewController.instantiate()
     mapEditorVC.coordinator = self
     router.push(mapEditorVC, isAnimated: true)
   }

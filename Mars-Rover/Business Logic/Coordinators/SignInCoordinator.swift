@@ -20,7 +20,7 @@ class SignInCoordinator: Coordinator, SignInFlow {
   }
 
   func start() {
-    guard let signInVC = SignInFormViewController.instantiate(from: "Auth") else { return }
+    let signInVC = StoryboardScene.Auth.signInFormViewController.instantiate()
     signInVC.coordinator = self
     router.push(signInVC, isAnimated: true)
   }

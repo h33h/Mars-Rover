@@ -19,7 +19,7 @@ class GameScreenCoordinator: Coordinator, GameScreenFlow, BackFlow {
   }
 
   func start() {
-    guard let gameScreenVC = GameScreenViewController.instantiate(from: "MainMenu") else { return }
+    let gameScreenVC = StoryboardScene.MainMenu.gameScreenViewController.instantiate()
     gameScreenVC.coordinator = self
     router.push(gameScreenVC, isAnimated: true)
   }

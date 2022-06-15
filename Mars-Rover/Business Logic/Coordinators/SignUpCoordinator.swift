@@ -15,7 +15,7 @@ class SignUpCoordinator: Coordinator, BackFlow {
   }
 
   func start() {
-    guard let signUpVC = SignUpFormViewController.instantiate(from: "Auth") else { return }
+    let signUpVC = StoryboardScene.Auth.signUpFormViewController.instantiate()
     signUpVC.coordinator = self
     router.push(signUpVC, isAnimated: true)
   }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainMenuViewController: UIViewController, Storyboarded {
+class MainMenuViewController: UIViewController {
   // MARK: - MainMenuViewController: Variables
     private var viewModel = MainMenuViewModel(
       authService: FirebaseAuthService.shared,

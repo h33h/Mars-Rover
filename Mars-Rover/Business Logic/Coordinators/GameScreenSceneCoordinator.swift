@@ -19,7 +19,7 @@ class GameScreenSceneCoordinator: Coordinator, BackFlow {
   }
 
   func start() {
-    guard let gameScreenSceneVC = GameScreenSceneViewController.instantiate(from: "GameScreens") else { return }
+    let gameScreenSceneVC = StoryboardScene.GameScreens.gameScreenSceneViewController .instantiate()
     gameScreenSceneVC.coordinator = self
     guard let mapCreator = MapCreator(mapModelData: map) else { return }
     var mapNodesPath: [SCNBlockNode] = []

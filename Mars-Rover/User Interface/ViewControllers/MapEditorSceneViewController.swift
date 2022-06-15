@@ -7,7 +7,7 @@
 
 import SceneKit
 
-class MapEditorSceneViewController: UIViewController, Storyboarded {
+class MapEditorSceneViewController: UIViewController {
   // MARK: - MapEditorSceneViewController: Variables
   var coordinator: BackFlow?
   private var viewModel: MapEditorSceneViewModel?

@@ -7,7 +7,7 @@
 
 import SceneKit
 
-class GameScreenSceneViewController: UIViewController, Storyboarded {
+class GameScreenSceneViewController: UIViewController {
   var coordinator: BackFlow?
   private var viewModel: GameScreenSceneViewModel?
   private var scnScene: SCNScene?

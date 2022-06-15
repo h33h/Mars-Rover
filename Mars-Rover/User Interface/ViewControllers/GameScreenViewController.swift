@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameScreenViewController: UIViewController, Storyboarded {
+class GameScreenViewController: UIViewController {
   var coordinator: (GameScreenFlow & BackFlow)?
   private var viewModel = GameScreenViewModel(realmService: RealmMapsService.shared)
 

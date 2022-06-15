@@ -17,7 +17,7 @@ class MapEditorSceneCoordinator: Coordinator, BackFlow {
   }
 
   func start() {
-    guard let mapEditorSceneVC = MapEditorSceneViewController.instantiate(from: "GameScreens") else { return }
+    let mapEditorSceneVC = StoryboardScene.GameScreens.mapEditorSceneViewController.instantiate()
     mapEditorSceneVC.coordinator = self
     if let map = map {
       guard let mapCreator = MapCreator(mapModelData: map) else { return }

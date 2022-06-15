@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MapEditorViewController: UIViewController, Storyboarded {
+class MapEditorViewController: UIViewController {
   // MARK: - MapEditorViewController: Variables
   var coordinator: (MapEditorFlow & BackFlow)?
   private var viewModel = MapEditorViewModel(

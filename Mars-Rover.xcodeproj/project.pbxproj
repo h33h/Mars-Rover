@@ -14,6 +14,10 @@
 		A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9219399272DD6330006CE85 /* MainMenuViewController.swift */; };
 		A921939F272DD6370006CE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A921939E272DD6370006CE85 /* Assets.xcassets */; };
 		A92193A9272DD9180006CE85 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A92193A8272DD9180006CE85 /* GoogleService-Info.plist */; };
+		A938EA752859FE0C00CEFFA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A938EA742859FE0C00CEFFA9 /* Localizable.strings */; };
+		A938EA7A285A000800CEFFA9 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A938EA77285A000800CEFFA9 /* Storyboards.swift */; };
+		A938EA7B285A000800CEFFA9 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A938EA78285A000800CEFFA9 /* Assets.swift */; };
+		A938EA7C285A000800CEFFA9 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A938EA79285A000800CEFFA9 /* Strings.swift */; };
 		A93A9F8B2732E3DC00376332 /* FirebaseSignInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F8A2732E3DC00376332 /* FirebaseSignInService.swift */; };
 		A93A9F8D2732EC0300376332 /* FirebaseProfileFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F8C2732EC0300376332 /* FirebaseProfileFetchService.swift */; };
 		A93A9F902732EFB800376332 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A9F8F2732EFB800376332 /* ProfileModel.swift */; };
@@ -27,7 +31,6 @@
 		A9562CC7274E60B7003E85B9 /* GameScreenSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9562CC6274E60B7003E85B9 /* GameScreenSceneViewModel.swift */; };
 		A9562CC9274E60F3003E85B9 /* GameScreenSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9562CC8274E60F3003E85B9 /* GameScreenSceneViewController.swift */; };
 		A9666F392736B86D0022AFFD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F382736B86D0022AFFD /* Box.swift */; };
-		A9666F3C273940FA0022AFFD /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F3B273940FA0022AFFD /* Storyboarded.swift */; };
 		A9666F3F27395A2C0022AFFD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F3E27395A2C0022AFFD /* Coordinator.swift */; };
 		A9666F4127395AB60022AFFD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F4027395AB60022AFFD /* AppCoordinator.swift */; };
 		A98AD916274E75E700A5C0CE /* RoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98AD915274E75E700A5C0CE /* RoverManager.swift */; };
@@ -91,6 +94,10 @@
 		A9219399272DD6330006CE85 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		A921939E272DD6370006CE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92193A8272DD9180006CE85 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A938EA742859FE0C00CEFFA9 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		A938EA77285A000800CEFFA9 /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		A938EA78285A000800CEFFA9 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		A938EA79285A000800CEFFA9 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A93A9F8A2732E3DC00376332 /* FirebaseSignInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignInService.swift; sourceTree = "<group>"; };
 		A93A9F8C2732EC0300376332 /* FirebaseProfileFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProfileFetchService.swift; sourceTree = "<group>"; };
 		A93A9F8F2732EFB800376332 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
@@ -104,7 +111,6 @@
 		A9562CC6274E60B7003E85B9 /* GameScreenSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenSceneViewModel.swift; sourceTree = "<group>"; };
 		A9562CC8274E60F3003E85B9 /* GameScreenSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenSceneViewController.swift; sourceTree = "<group>"; };
 		A9666F382736B86D0022AFFD /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		A9666F3B273940FA0022AFFD /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		A9666F3E27395A2C0022AFFD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A9666F4027395AB60022AFFD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A98AD915274E75E700A5C0CE /* RoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverManager.swift; sourceTree = "<group>"; };
@@ -207,13 +213,11 @@
 		A9219394272DD6330006CE85 /* Mars-Rover */ = {
 			isa = PBXGroup;
 			children = (
-				A938EA722859FB4000CEFFA9 /* Drawable */,
+				A938EA722859FB4000CEFFA9 /* Assets */,
 				A938EA712859FAD400CEFFA9 /* Application */,
 				A938EA702859F1D100CEFFA9 /* User Interface */,
 				A938EA6F2859F10600CEFFA9 /* Business Logic */,
 				A938EA6E2859F0ED00CEFFA9 /* Data Access */,
-				A921939E272DD6370006CE85 /* Assets.xcassets */,
-				A9FE55932751514C00EDB803 /* art.scnassets */,
 			);
 			path = "Mars-Rover";
 			sourceTree = "<group>";
@@ -245,7 +249,6 @@
 		A938EA702859F1D100CEFFA9 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-				A9F4540B27315A7500017E26 /* Storyboards */,
 				A9F4540A27315A6A00017E26 /* ViewControllers */,
 				A9F4541027316DFB00017E26 /* Custom Views */,
 			);
@@ -261,11 +264,26 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		A938EA722859FB4000CEFFA9 /* Drawable */ = {
+		A938EA722859FB4000CEFFA9 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A938EA762859FE6900CEFFA9 /* Generated */,
+				A9F4540B27315A7500017E26 /* Storyboards */,
+				A9FE55932751514C00EDB803 /* art.scnassets */,
+				A921939E272DD6370006CE85 /* Assets.xcassets */,
+				A938EA742859FE0C00CEFFA9 /* Localizable.strings */,
 			);
-			path = Drawable;
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		A938EA762859FE6900CEFFA9 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				A938EA78285A000800CEFFA9 /* Assets.swift */,
+				A938EA77285A000800CEFFA9 /* Storyboards.swift */,
+				A938EA79285A000800CEFFA9 /* Strings.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		A93A9F892732E39F00376332 /* Service */ = {
@@ -305,7 +323,6 @@
 			isa = PBXGroup;
 			children = (
 				A9666F382736B86D0022AFFD /* Box.swift */,
-				A9666F3B273940FA0022AFFD /* Storyboarded.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -473,8 +490,9 @@
 			buildConfigurationList = A92193A5272DD6370006CE85 /* Build configuration list for PBXNativeTarget "Mars Rover" */;
 			buildPhases = (
 				805C016D02C7626CCF12B5B1 /* [CP] Check Pods Manifest.lock */,
-				A921938E272DD6330006CE85 /* Sources */,
+				A938EA732859FD1900CEFFA9 /* SwiftGen */,
 				A9666F3A2739350F0022AFFD /* SwiftLint */,
+				A921938E272DD6330006CE85 /* Sources */,
 				A921938F272DD6330006CE85 /* Frameworks */,
 				A9219390272DD6330006CE85 /* Resources */,
 				21B74D5E3B64AE444CA5E36B /* [CP] Embed Pods Frameworks */,
@@ -530,6 +548,7 @@
 				A94F67BC27527FCA005D57DB /* LaunchScreen.storyboard in Resources */,
 				A92193A9272DD9180006CE85 /* GoogleService-Info.plist in Resources */,
 				A94F67B627527F70005D57DB /* MainMenu.storyboard in Resources */,
+				A938EA752859FE0C00CEFFA9 /* Localizable.strings in Resources */,
 				A94F67B427527F49005D57DB /* Auth.storyboard in Resources */,
 				A94F67BA27527FBD005D57DB /* GameScreens.storyboard in Resources */,
 				A921939F272DD6370006CE85 /* Assets.xcassets in Resources */,
@@ -579,6 +598,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A938EA732859FD1900CEFFA9 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT\"/SwiftGen/bin/swiftgen\n";
+		};
 		A9666F3A2739350F0022AFFD /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -610,6 +647,8 @@
 				A9F45415273191B500017E26 /* SignInFormViewModel.swift in Sources */,
 				A9ACAB25274ADCEE004C4DC3 /* Connection.swift in Sources */,
 				A9FA590B273FB4D9002109A0 /* FirebaseMapModel.swift in Sources */,
+				A938EA7A285A000800CEFFA9 /* Storyboards.swift in Sources */,
+				A938EA7C285A000800CEFFA9 /* Strings.swift in Sources */,
 				A9EE8EEF273964BB00F18D62 /* SignUpFormViewController.swift in Sources */,
 				A9F4540F273165D400017E26 /* SignInFormViewController.swift in Sources */,
 				A9EE8F0F273D3F8D00F18D62 /* RealmMapModel.swift in Sources */,
@@ -623,12 +662,12 @@
 				A9562CC9274E60F3003E85B9 /* GameScreenSceneViewController.swift in Sources */,
 				A9D10FEC2752349B009FA566 /* SignInCoordinator.swift in Sources */,
 				A9ACAB1A274A7326004C4DC3 /* GameScreenViewController.swift in Sources */,
-				A9666F3C273940FA0022AFFD /* Storyboarded.swift in Sources */,
 				A9EE8EFE27398D2A00F18D62 /* MainMenuViewModel.swift in Sources */,
 				A9109D512746703E00E31ED3 /* MapEditorCoordinator.swift in Sources */,
 				A9ACAB2E274C30A5004C4DC3 /* MatrixPoint.swift in Sources */,
 				A9109D4C27452DF500E31ED3 /* MapEditorSceneViewController.swift in Sources */,
 				A9EE8EFC273985CD00F18D62 /* MainMenuCoordinator.swift in Sources */,
+				A938EA7B285A000800CEFFA9 /* Assets.swift in Sources */,
 				A9666F3F27395A2C0022AFFD /* Coordinator.swift in Sources */,
 				A9562CC7274E60B7003E85B9 /* GameScreenSceneViewModel.swift in Sources */,
 				A9ACAB23274ADCD0004C4DC3 /* Node.swift in Sources */,
