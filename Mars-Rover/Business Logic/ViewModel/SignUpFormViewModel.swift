@@ -27,8 +27,6 @@ class SignUpFormViewModel {
           switch error {
           case .error(error: let error):
             this.signUpError.value = error
-          case .unknownError:
-            this.signUpError.value = "Unknown error"
           case .absentOfUser:
             this.signUpError.value = "No user found"
           }

@@ -19,7 +19,7 @@ enum EditMapAction {
 }
 
 protocol MapCreatorProtocol {
-  var currentMap: RealmMapModelData { get }
+  var currentMap: RealmMap { get }
   var mapType: MapType { get }
   var mapNode: SCNNode { get }
   func mapModel(action: EditMapAction)
@@ -27,28 +27,28 @@ protocol MapCreatorProtocol {
 }
 
 class MapCreator: MapCreatorProtocol {
-  private(set) var currentMap: RealmMapModelData
+  private(set) var currentMap: RealmMap
   private(set) var mapType: MapType
   private(set) var mapNode: SCNNode
 
   init(size: MapSize) {
     self.mapNode = SCNNode()
-    self.currentMap = RealmMapModelData()
-    let mapModel = RealmMapModel(size: size)
-    self.currentMap.map = mapModel
+    self.currentMap = RealmMap()
+    let mapModel = RealmMapContent(size: size)
+    self.currentMap.mapContent = mapModel
     self.mapType = .new
     self.createMap()
   }
 
-  init?(mapModelData: RealmMapModelData) {
+  init?(mapModelData: RealmMap) {
     self.mapNode = SCNNode()
-    self.currentMap = RealmMapModelData(value: mapModelData)
+    self.currentMap = RealmMap(value: mapModelData)
     self.mapType = .existed
     self.createMap()
   }
 
   func node(rowIndex: Int, colomnIndex: Int) -> SCNBlockNode? {
-    guard let mapModelDimension = currentMap.map?.getMapSize().getSize() else { return nil }
+    guard let mapModelDimension = currentMap.mapContent?.getMapSize().getSize() else { return nil }
     if rowIndex >= 0, colomnIndex >= 0, rowIndex <= mapModelDimension.rows, colomnIndex <= mapModelDimension.colomns {
       return mapNode.childNodes[rowIndex * mapModelDimension.colomns + colomnIndex] as? SCNBlockNode
     }
@@ -67,7 +67,7 @@ class MapCreator: MapCreatorProtocol {
   }
 
   private func updateMapModelData() {
-    guard let mapModel = currentMap.map else { return }
+    guard let mapModel = currentMap.mapContent else { return }
     var newMap: [Int] = []
     for row in 0 ..< mapModel.getMapSize().getSize().rows {
       for colomn in 0 ..< mapModel.getMapSize().getSize().colomns {
@@ -78,7 +78,7 @@ class MapCreator: MapCreatorProtocol {
       }
     }
     currentMap.lastEdited = Date()
-    currentMap.map = RealmMapModel(size: mapModel.getMapSize(), map: newMap)
+    currentMap.mapContent = RealmMapContent(size: mapModel.getMapSize(), map: newMap)
   }
 
   private func clearMapNodes() {
@@ -88,7 +88,7 @@ class MapCreator: MapCreatorProtocol {
   }
 
   private func createMap() {
-    guard let mapModel = currentMap.map else { return }
+    guard let mapModel = currentMap.mapContent else { return }
     clearMapNodes()
     for row in 0 ..< mapModel.getMapSize().getSize().rows {
       for colomn in 0 ..< mapModel.getMapSize().getSize().colomns {
@@ -108,8 +108,8 @@ class MapCreator: MapCreatorProtocol {
       if
         replacingNode == blockNode,
         replacingNode.obstacle != obstacle,
-        replacingNode.positionOnMap != currentMap.map?.startGamePoint(),
-        replacingNode.positionOnMap != currentMap.map?.endGamePoint()
+        replacingNode.positionOnMap != currentMap.mapContent?.startGamePoint(),
+        replacingNode.positionOnMap != currentMap.mapContent?.endGamePoint()
       {
         let block = SCNBlockNode(positionOnMap: replacingNode.positionOnMap, obstacle: obstacle)
         mapNode.replaceChildNode(replacingNode, with: block)
@@ -124,8 +124,8 @@ class MapCreator: MapCreatorProtocol {
         let blockNode = blockNode as? SCNBlockNode,
         let obstacle = Obstacle(
           rawValue: Int.random(in: 0 ..< Obstacle.allCases.count)),
-        blockNode.positionOnMap != currentMap.map?.startGamePoint(),
-        blockNode.positionOnMap != currentMap.map?.endGamePoint()
+        blockNode.positionOnMap != currentMap.mapContent?.startGamePoint(),
+        blockNode.positionOnMap != currentMap.mapContent?.endGamePoint()
       {
         let block = SCNBlockNode(positionOnMap: blockNode.positionOnMap, obstacle: obstacle)
         mapNode.replaceChildNode(blockNode, with: block)

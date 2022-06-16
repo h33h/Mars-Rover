@@ -14,7 +14,7 @@ class FindShortestPath {
   private var startPoint: MatrixNode?
   private var endPoint: MatrixNode?
 
-  init?(on map: RealmMapModel) {
+  init?(on map: RealmMapContent) {
     guard !map.map.isEmpty else { return nil }
     self.matrixRowCount = map.getMapSize().getSize().rows
     self.matrixColomnCount = map.getMapSize().getSize().colomns

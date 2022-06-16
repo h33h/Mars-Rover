@@ -92,7 +92,7 @@ extension MapEditorViewController: UITableViewDataSource, UITableViewDelegate {
     let delete = UIContextualAction(style: .destructive, title: "") { [weak self] _, _, completion in
       guard let this = self else { return completion(false) }
       tableView.beginUpdates()
-      this.viewModel.mapAction(action: .removeMap(this.viewModel.maps.value[indexPath.row].id))
+      this.viewModel.mapAction(action: .remove(map: this.viewModel.maps.value[indexPath.row]))
       tableView.deleteRows(at: [indexPath], with: .fade)
       tableView.endUpdates()
       completion(true)

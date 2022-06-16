@@ -7,34 +7,29 @@
 
 import RealmSwift
 
-protocol RealmMapsServiceProtocol {
-  func mapAction(is action: RealmMapAction)
-  func getLocalMaps() -> [RealmMapModelData]?
-  func removeAllLocalMaps()
-}
-
 final class RealmMapsService: RealmMapsServiceProtocol {
   static var shared = RealmMapsService(mapActionService: RealmMapsActionService())
   let mapActionService: RealmMapsActionServiceProtocol
-  let realm: Realm?
+  private let realm: Realm? = Realm.safeInit()
 
   init(mapActionService: RealmMapsActionServiceProtocol) {
     self.mapActionService = mapActionService
-    self.realm = Realm.safeInit()
   }
 
   func mapAction(is action: RealmMapAction) {
     mapActionService.mapAction(is: action)
   }
 
-  func getLocalMaps() -> [RealmMapModelData]? {
+  func getLocalMaps() -> [RealmMap]? {
     guard let realm = realm else { return nil }
-    let maps = realm.objects(RealmMapModelData.self)
+
+    let maps = realm.objects(RealmMap.self)
     return Array(maps)
   }
 
   func removeAllLocalMaps() {
     guard let realm = realm else { return }
+
     realm.safeWrite {
       realm.deleteAll()
     }

@@ -12,7 +12,7 @@ class MapEditorViewModel {
   let syncService: MapsSyncServiceProtocol
   let journalService: MapsJournalServiceProtocol
   let realmService: RealmMapsServiceProtocol
-  var maps: Box<[RealmMapModelData]>
+  var maps: Box<[RealmMap]>
   var isUpdated: Box<Bool>
 
   // MARK: - MapEditorViewModel: Init
@@ -20,7 +20,7 @@ class MapEditorViewModel {
     self.journalService = journalService
     self.realmService = realmMapsSevice
     self.syncService = syncService
-    self.maps = Box([RealmMapModelData]())
+    self.maps = Box([RealmMap]())
     self.isUpdated = Box(false)
   }
 

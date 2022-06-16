@@ -55,7 +55,7 @@ extension GameScreenViewController: UITableViewDataSource, UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard
-      let path = viewModel.findPath(mapModelData: viewModel.maps.value[indexPath.row])
+      let path = viewModel.findPath(map: viewModel.maps.value[indexPath.row])
     else { return }
     coordinator?.coordinateToGameScreenScene(map: viewModel.maps.value[indexPath.row], path: path)
   }

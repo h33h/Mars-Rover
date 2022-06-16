@@ -39,15 +39,15 @@ class MapEditorSceneViewModel {
       let mapAddAction = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
         guard let this = self, let mapName = mapNameAlert.textFields?.first?.text else { return }
         this.mapCreator.currentMap.mapLabel = mapName
-        this.realmMapsService.mapAction(is: .addMap(this.mapCreator.currentMap))
-        this.journalService.journal(action: .addMap(this.mapCreator.currentMap))
+        this.realmMapsService.mapAction(is: .add(map: this.mapCreator.currentMap))
+        this.journalService.journal(action: .add(map: this.mapCreator.currentMap))
       }
       mapNameAlert.addAction(mapAddAction)
       mapNameAlert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
       controller.present(mapNameAlert, animated: true, completion: nil)
     case .existed:
-      self.realmMapsService.mapAction(is: .editMap(mapCreator.currentMap))
-      self.journalService.journal(action: .editMap(mapCreator.currentMap))
+      self.realmMapsService.mapAction(is: .edit(map: mapCreator.currentMap))
+      self.journalService.journal(action: .edit(map: mapCreator.currentMap))
     }
   }
 }

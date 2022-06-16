@@ -1,5 +1,5 @@
 //
-//  MapModel.swift
+//  RealmMap.swift
 //  Mars Rover
 //
 //  Created by XXX on 10.11.21.
@@ -7,31 +7,31 @@
 
 import RealmSwift
 
-class RealmMapModelData: Object {
-// MARK: - RealmMapModelData: Variables
+class RealmMap: Object {
+// MARK: - RealmMap: Variables
   @Persisted(primaryKey: true) var id: ObjectId
   @Persisted var mapLabel: String
   @Persisted var lastEdited: Date
-  @Persisted var map: RealmMapModel?
+  @Persisted var mapContent: RealmMapContent?
 
-// MARK: - RealmMapModelData: Init Methods
-  convenience init(mapLabel: String, lastEdited: Date, map: RealmMapModel) {
+// MARK: - RealmMap: Init Methods
+  convenience init(mapLabel: String, lastEdited: Date, mapContent: RealmMapContent) {
     self.init()
     self.mapLabel = mapLabel
     self.lastEdited = lastEdited
-    self.map = map
+    self.mapContent = mapContent
   }
 }
 
-extension RealmMapModelData {
-// MARK: - RealmMapModelData: Methods
-  func convertToFirebaseMapModelData() -> FirebaseMapModelData? {
-    guard let map = self.map else { return nil }
-    return FirebaseMapModelData(
+extension RealmMap {
+// MARK: - RealmMap: Methods
+  func convertToFirebaseMap() -> FirebaseMap? {
+    guard let map = self.mapContent else { return nil }
+    return FirebaseMap(
       id: self.id.stringValue,
       mapLabel: self.mapLabel,
       lastEdited: self.lastEdited,
-      map: map.convertToFirebaseMapModel()
+      mapContent: map.convertToFirebaseMapContent()
     )
   }
 }

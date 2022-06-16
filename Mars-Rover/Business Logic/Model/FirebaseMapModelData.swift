@@ -1,5 +1,5 @@
 //
-//  FirebaseMapModel.swift
+//  FirebaseMap.swift
 //  Mars Rover
 //
 //  Created by XXX on 12.11.21.
@@ -7,23 +7,23 @@
 
 import RealmSwift
 
-struct FirebaseMapModelData: Codable {
-// MARK: - FirebaseMapModelData: Variables
+struct FirebaseMap: Codable {
+// MARK: - FirebaseMap: Variables
   var id: String
   var mapLabel: String
   var lastEdited: Date
-  var map: FirebaseMapModel
+  var mapContent: FirebaseMapContent
 }
 
-extension FirebaseMapModelData {
-// MARK: - FirebaseMapModelData: Methods
-  func convertToRealmMapModelData() -> RealmMapModelData? {
+extension FirebaseMap {
+// MARK: - FirebaseMap: Methods
+  func convertToRealmMap() -> RealmMap? {
     guard let id = try? ObjectId(string: self.id)  else { return nil }
-    let realmMapModelData = RealmMapModelData()
-    realmMapModelData.id = id
-    realmMapModelData.mapLabel = self.mapLabel
-    realmMapModelData.lastEdited = self.lastEdited
-    realmMapModelData.map = self.map.convertToRealmMapModel()
-    return realmMapModelData
+    let realmMap = RealmMap()
+    realmMap.id = id
+    realmMap.mapLabel = self.mapLabel
+    realmMap.lastEdited = self.lastEdited
+    realmMap.mapContent = self.mapContent.convertToRealmMapContent()
+    return realmMap
   }
 }

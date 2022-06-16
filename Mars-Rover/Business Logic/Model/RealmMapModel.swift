@@ -7,13 +7,13 @@
 
 import RealmSwift
 
-class RealmMapModel: Object {
-// MARK: - RealmMapModel: Variables
+class RealmMapContent: Object {
+// MARK: - RealmMapContent: Variables
   @Persisted private var rowCount: Int
   @Persisted private var colomnsCount: Int
   @Persisted var map: List<Int>
 
-// MARK: - RealmMapModel: Init Methods
+// MARK: - RealmMapContent: Init Methods
   convenience init(size: MapSize) {
     self.init()
     self.rowCount = size.getSize().rows
@@ -30,7 +30,7 @@ class RealmMapModel: Object {
     map.forEach { self.map.append($0) }
   }
 
-// MARK: - RealmMapModel: Subscript
+// MARK: - RealmMapContent: Subscript
   subscript(rowIndex: Int, colomnIndex: Int) -> Obstacle? {
     get {
       if rowIndex >= 0, colomnIndex >= 0, rowIndex <= rowCount, colomnIndex <= colomnsCount {
@@ -47,10 +47,10 @@ class RealmMapModel: Object {
   }
 }
 
-extension RealmMapModel {
-// MARK: - RealmMapModel: Methods
-  func convertToFirebaseMapModel() -> FirebaseMapModel {
-    FirebaseMapModel(rowCount: self.rowCount, colomnsCount: self.colomnsCount, map: Array(self.map))
+extension RealmMapContent {
+// MARK: - RealmMapContent: Methods
+  func convertToFirebaseMapContent() -> FirebaseMapContent {
+    FirebaseMapContent(rowCount: self.rowCount, colomnsCount: self.colomnsCount, map: Array(self.map))
   }
 
   func getMapSize() -> MapSize {

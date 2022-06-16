@@ -8,7 +8,7 @@
 import UIKit
 
 protocol GameScreenFlow: AnyObject {
-  func coordinateToGameScreenScene(map: RealmMapModelData, path: [MatrixPoint])
+  func coordinateToGameScreenScene(map: RealmMap, path: [MatrixPoint])
 }
 
 class GameScreenCoordinator: Coordinator, GameScreenFlow, BackFlow {
@@ -24,7 +24,7 @@ class GameScreenCoordinator: Coordinator, GameScreenFlow, BackFlow {
     router.push(gameScreenVC, isAnimated: true)
   }
 
-  func coordinateToGameScreenScene(map: RealmMapModelData, path: [MatrixPoint]) {
+  func coordinateToGameScreenScene(map: RealmMap, path: [MatrixPoint]) {
     let gameScreenSceneCoordinator = GameScreenSceneCoordinator(router: router, map: map, path: path)
     coordinate(to: gameScreenSceneCoordinator)
   }

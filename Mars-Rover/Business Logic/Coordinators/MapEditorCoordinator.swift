@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MapEditorFlow: AnyObject {
-  func coordinateToMapEditorScene(map: RealmMapModelData?)
+  func coordinateToMapEditorScene(map: RealmMap?)
 }
 
 class MapEditorCoordinator: Coordinator, MapEditorFlow, BackFlow {
@@ -24,7 +24,7 @@ class MapEditorCoordinator: Coordinator, MapEditorFlow, BackFlow {
     router.push(mapEditorVC, isAnimated: true)
   }
 
-  func coordinateToMapEditorScene(map: RealmMapModelData? = nil) {
+  func coordinateToMapEditorScene(map: RealmMap? = nil) {
     let mapEditorSceneCoordinator = MapEditorSceneCoordinator(router: router, map: map)
     coordinate(to: mapEditorSceneCoordinator)
   }

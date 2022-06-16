@@ -9,10 +9,10 @@ import UIKit
 
 class GameScreenSceneCoordinator: Coordinator, BackFlow {
   let router: Router
-  let map: RealmMapModelData
+  let map: RealmMap
   let path: [MatrixPoint]
 
-  init(router: Router, map: RealmMapModelData, path: [MatrixPoint]) {
+  init(router: Router, map: RealmMap, path: [MatrixPoint]) {
     self.router = router
     self.map = map
     self.path = path

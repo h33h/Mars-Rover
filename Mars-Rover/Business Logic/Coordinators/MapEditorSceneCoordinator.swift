@@ -9,9 +9,9 @@ import UIKit
 
 class MapEditorSceneCoordinator: Coordinator, BackFlow {
   let router: Router
-  let map: RealmMapModelData?
+  let map: RealmMap?
 
-  init(router: Router, map: RealmMapModelData?) {
+  init(router: Router, map: RealmMap?) {
     self.router = router
     self.map = map
   }

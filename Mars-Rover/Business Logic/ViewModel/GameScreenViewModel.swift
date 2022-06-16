@@ -9,13 +9,13 @@ import Foundation
 
 class GameScreenViewModel {
   let realmService: RealmMapsServiceProtocol
-  var maps: Box<[RealmMapModelData]>
+  var maps: Box<[RealmMap]>
   var isUpdated: Box<Bool>
   var errorMessage: Box<String?>
 
   init(realmService: RealmMapsServiceProtocol) {
     self.realmService = realmService
-    self.maps = Box([RealmMapModelData]())
+    self.maps = Box([RealmMap]())
     self.isUpdated = Box(false)
     self.errorMessage = Box(nil)
   }
@@ -30,8 +30,8 @@ class GameScreenViewModel {
     self.isUpdated.value.toggle()
   }
 
-  func findPath(mapModelData: RealmMapModelData) -> [MatrixPoint]? {
-    guard let map = mapModelData.map else { return nil }
+  func findPath(map: RealmMap) -> [MatrixPoint]? {
+    guard let map = map.mapContent else { return nil }
     guard let pathFinder = FindShortestPath(on: map) else { return nil }
     guard let path = pathFinder.shortestPath() else {
       errorMessage.value = "Map is not passable"

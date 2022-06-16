@@ -32,8 +32,6 @@ class SignInFormViewModel {
               this.signInError.value = "No user found"
             case .notVerifiedEmail:
               this.signInError.value = "Your's email is not verified"
-            case .unknownError:
-              this.signInError.value = "Unknown error"
             case .notSignedIn:
               this.signInError.value = String()
             }
