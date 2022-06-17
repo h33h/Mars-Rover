@@ -60,7 +60,7 @@ class SignUpViewController: UIViewController {
           title: L10n.ViewControllers.SignUp.Error.title,
           description: error.localizedDescription
         )
-      } else { self?.viewModel?.coordinator?.goBack() }
+      }
       self?.setElementsDisabled(value: false)
     }
 
@@ -70,7 +70,7 @@ class SignUpViewController: UIViewController {
           title: L10n.ViewControllers.SignUp.Error.title,
           description: error.localizedDescription
         )
-      } else { self?.viewModel?.coordinator?.goBack() }
+      }
       self?.setElementsDisabled(value: false)
     }
   }
