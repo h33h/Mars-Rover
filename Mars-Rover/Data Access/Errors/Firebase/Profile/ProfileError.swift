@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum ProfileError: LocalizedError {
+enum ProfileError: LocalizedError {
   case error(String)
   case profileNotExist
   case notSignedIn
