@@ -15,12 +15,15 @@ enum FirebaseMapsServiceError: LocalizedError {
 }
 
 extension FirebaseMapsServiceError {
-  var localizedDescription: String {
+  var errorDescription: String? {
     switch self {
-    case .notSignedIn: return L10n.Network.Error.Firebase.Maps.notSignedIn
-    case .fetchFirebaseError: return L10n.Network.Error.Firebase.Maps.fetchFirebaseError
-    case .mapNotExist: return L10n.Network.Error.Firebase.Maps.mapNotExist
-    case .error(let error): return error
+    case .notSignedIn:
+      return L10n.Network.Error.Firebase.Maps.notSignedIn.localized
+    case .fetchFirebaseError:
+      return L10n.Network.Error.Firebase.Maps.fetchFirebaseError.localized
+    case .mapNotExist:
+      return L10n.Network.Error.Firebase.Maps.mapNotExist.localized
+    case .error(let error): return error.localized
     }
   }
 }

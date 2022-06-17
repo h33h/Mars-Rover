@@ -15,12 +15,15 @@ enum SignInError: LocalizedError {
 }
 
 extension SignInError {
-  var localizedDescription: String {
+  var errorDescription: String? {
     switch self {
-    case .error(let error): return error
-    case .absentOfUser: return L10n.Network.Error.Firebase.SignIn.absentOfUser
-    case .notVerifiedEmail: return L10n.Network.Error.Firebase.SignIn.notVerifiedEmail
-    case .notSignedIn: return L10n.Network.Error.Firebase.SignIn.notSignedIn
+    case .error(let error): return error.localized
+    case .absentOfUser:
+      return L10n.Network.Error.Firebase.SignIn.absentOfUser.localized
+    case .notVerifiedEmail:
+      return L10n.Network.Error.Firebase.SignIn.notVerifiedEmail.localized
+    case .notSignedIn:
+      return L10n.Network.Error.Firebase.SignIn.notSignedIn.localized
     }
   }
 }

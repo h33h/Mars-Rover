@@ -14,11 +14,11 @@ public enum ProfileError: LocalizedError {
 }
 
 extension ProfileError {
-  var localizedDescription: String {
+  var errorDescription: String? {
     switch self {
-    case .error(let error): return error
-    case .profileNotExist: return L10n.Network.Error.Firebase.Profile.profileNotExist
-    case .notSignedIn: return L10n.Network.Error.Firebase.Profile.notSignedIn
+    case .error(let error): return error.localized
+    case .profileNotExist: return L10n.Network.Error.Firebase.Profile.profileNotExist.localized
+    case .notSignedIn: return L10n.Network.Error.Firebase.Profile.notSignedIn.localized
     }
   }
 }

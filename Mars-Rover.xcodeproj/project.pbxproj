@@ -10,6 +10,7 @@
 		7AED09778533C001B268CE5F /* Pods_Mars_Rover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA03981D5533E78B7F631EA /* Pods_Mars_Rover.framework */; };
 		A9109D4C27452DF500E31ED3 /* MapEditorSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9109D4B27452DF500E31ED3 /* MapEditorSceneViewController.swift */; };
 		A9109D512746703E00E31ED3 /* MapEditorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9109D502746703E00E31ED3 /* MapEditorCoordinator.swift */; };
+		A913B6E1285CE3CB00E5FDC1 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A913B6E0285CE3CB00E5FDC1 /* String+Extensions.swift */; };
 		A9219396272DD6330006CE85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9219395272DD6330006CE85 /* AppDelegate.swift */; };
 		A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9219399272DD6330006CE85 /* MainMenuViewController.swift */; };
 		A921939F272DD6370006CE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A921939E272DD6370006CE85 /* Assets.xcassets */; };
@@ -112,6 +113,7 @@
 		8B504583C94DD7DA019B5973 /* Pods-Mars Rover.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mars Rover.debug.xcconfig"; path = "Target Support Files/Pods-Mars Rover/Pods-Mars Rover.debug.xcconfig"; sourceTree = "<group>"; };
 		A9109D4B27452DF500E31ED3 /* MapEditorSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditorSceneViewController.swift; sourceTree = "<group>"; };
 		A9109D502746703E00E31ED3 /* MapEditorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditorCoordinator.swift; sourceTree = "<group>"; };
+		A913B6E0285CE3CB00E5FDC1 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		A9219392272DD6330006CE85 /* Mars-Rover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mars-Rover.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9219395272DD6330006CE85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9219399272DD6330006CE85 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 				A93A9F962733063A00376332 /* UIViewController+Extensions.swift */,
 				A9FA590C273FF331002109A0 /* Realm+Extensions.swift */,
 				A98AD917274E805C00A5C0CE /* SCNNode+Extensions.swift */,
+				A913B6E0285CE3CB00E5FDC1 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -881,6 +884,7 @@
 				A9ACAB2B274AE1FC004C4DC3 /* MatrixNode.swift in Sources */,
 				A9219CD2285A19C000C06D1D /* FirebaseProfileServiceProtocol.swift in Sources */,
 				A93A9F8D2732EC0300376332 /* FirebaseProfileService.swift in Sources */,
+				A913B6E1285CE3CB00E5FDC1 /* String+Extensions.swift in Sources */,
 				A9FA5907273EF416002109A0 /* FirebaseMapsService.swift in Sources */,
 				A9219CBF285A0F0900C06D1D /* SignInError.swift in Sources */,
 				A9EE8F0D273C312A00F18D62 /* RealmMapsService.swift in Sources */,

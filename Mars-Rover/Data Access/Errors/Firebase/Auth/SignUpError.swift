@@ -13,10 +13,11 @@ enum SignUpError: LocalizedError {
 }
 
 extension SignUpError {
-  var localizedDescription: String {
+  var errorDescription: String? {
     switch self {
-    case .error(let error): return error
-    case .absentOfUser: return L10n.Network.Error.Firebase.SignUp.absentOfUser
+    case .error(let error): return error.localized
+    case .absentOfUser:
+      return L10n.Network.Error.Firebase.SignUp.absentOfUser.localized
     }
   }
 }

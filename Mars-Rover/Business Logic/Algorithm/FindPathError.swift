@@ -12,9 +12,9 @@ enum FindPathError: LocalizedError {
 }
 
 extension FindPathError {
-  var localizedDescription: String {
+  var errorDescription: String? {
     switch self {
-    case .impassable: return L10n.Algorithm.FindPathError.impassable
+    case .impassable: return L10n.Algorithm.FindPathError.impassable.localized
     }
   }
 }
