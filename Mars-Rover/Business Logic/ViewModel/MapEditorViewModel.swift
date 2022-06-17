@@ -5,30 +5,17 @@
 //  Created by XXX on 10.11.21.
 //
 
-import Foundation
-
 class MapEditorViewModel {
-  // MARK: - MapEditorViewModel: Variables
-  let syncService: MapsSyncServiceProtocol
-  let journalService: MapsJournalServiceProtocol
-  let realmService: RealmMapsServiceProtocol
-  var maps: Box<[RealmMap]>
-  var isUpdated: Box<Bool>
-
-  // MARK: - MapEditorViewModel: Init
-  init(journalService: MapsJournalServiceProtocol, realmMapsSevice: RealmMapsServiceProtocol, syncService: MapsSyncServiceProtocol) {
-    self.journalService = journalService
-    self.realmService = realmMapsSevice
-    self.syncService = syncService
-    self.maps = Box([RealmMap]())
-    self.isUpdated = Box(false)
-  }
-
-  // MARK: - MapEditorViewModel: Methods
+  weak var coordinator: MapEditorFlow?
+  var syncService: MapsSyncServiceProtocol?
+  var journalService: MapsJournalServiceProtocol?
+  var realmService: RealmMapsServiceProtocol?
+  private(set) lazy var maps: Box<[RealmMap]> = Box([RealmMap]())
+  private(set) lazy var mapsError: Box<Error?> = Box(nil)
 
   func getLocalMaps() {
     self.maps.value.removeAll()
-    let maps = realmService.getLocalMaps()
+    let maps = realmService?.getLocalMaps()
     guard let maps = maps else { return }
     self.maps.value = maps.sorted { map1, map2 in
       map1.lastEdited > map2.lastEdited
@@ -36,18 +23,15 @@ class MapEditorViewModel {
   }
 
   func mapAction(action: RealmMapAction) {
-    realmService.mapAction(is: action)
-    journalService.journal(action: action)
-    getLocalMaps()
+    journalService?.journal(action: action)
+    realmService?.mapAction(is: action)
   }
 
   func syncMaps() {
     maps.value.removeAll()
-    syncService.sync { error in
-      if let error = error {
-        return print(error)
-      }
-      self.isUpdated.value = true
+    syncService?.sync { [weak self] error in
+      self?.mapsError.value = error
+      self?.getLocalMaps()
     }
   }
 }

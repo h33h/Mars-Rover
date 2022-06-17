@@ -8,31 +8,22 @@
 import UIKit
 
 protocol SignInFlow: AnyObject {
-  func coordinateToMainMenu()
   func coordinateToSignUp()
 }
 
-class SignInCoordinator: Coordinator, SignInFlow {
-  let router: Router
-
-  init(router: Router) {
-    self.router = router
-  }
-
-  func start() {
-    let signInVC = StoryboardScene.Auth.signInFormViewController.instantiate()
-    signInVC.coordinator = self
-    router.push(signInVC, isAnimated: true)
-  }
-
-  // MARK: - Flow Methods
-  func coordinateToMainMenu() {
-    let mainMenuCoordinator = MainMenuCoordinator(router: router)
-    coordinate(to: mainMenuCoordinator)
+class SignInCoordinator: BaseCoordinator, SignInFlow {
+  override func start() {
+    let signInVC: SignInViewController = DIContainer.shared.resolve()
+    let signInViewModel: SignInViewModel = DIContainer.shared.resolve()
+    signInViewModel.coordinator = self
+    signInVC.viewModel = signInViewModel
+    navigationController.pushViewController(signInVC, animated: true)
   }
 
   func coordinateToSignUp() {
-    let signUpCoordinator = SignUpCoordinator(router: router)
+    DIContainer.shared.assembler.apply(assembly: SignUpAssembly())
+    let signUpCoordinator: SignUpCoordinator = DIContainer.shared.resolve()
+    signUpCoordinator.navigationController = navigationController
     coordinate(to: signUpCoordinator)
   }
 }

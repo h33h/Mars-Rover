@@ -15,9 +15,9 @@ internal enum StoryboardScene {
   internal enum Auth: StoryboardType {
     internal static let storyboardName = "Auth"
 
-    internal static let signInFormViewController = SceneType<Mars_Rover.SignInFormViewController>(storyboard: Auth.self, identifier: "SignInFormViewController")
+    internal static let signInViewController = SceneType<Mars_Rover.SignInViewController>(storyboard: Auth.self, identifier: "SignInViewController")
 
-    internal static let signUpFormViewController = SceneType<Mars_Rover.SignUpFormViewController>(storyboard: Auth.self, identifier: "SignUpFormViewController")
+    internal static let signUpViewController = SceneType<Mars_Rover.SignUpViewController>(storyboard: Auth.self, identifier: "SignUpViewController")
   }
   internal enum GameScreens: StoryboardType {
     internal static let storyboardName = "GameScreens"
@@ -39,6 +39,11 @@ internal enum StoryboardScene {
     internal static let mainMenuViewController = SceneType<Mars_Rover.MainMenuViewController>(storyboard: MainMenu.self, identifier: "MainMenuViewController")
 
     internal static let mapEditorViewController = SceneType<Mars_Rover.MapEditorViewController>(storyboard: MainMenu.self, identifier: "MapEditorViewController")
+  }
+  internal enum SplashScreen: StoryboardType {
+    internal static let storyboardName = "SplashScreen"
+
+    internal static let splashScreen = SceneType<UIKit.UIViewController>(storyboard: SplashScreen.self, identifier: "SplashScreen")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

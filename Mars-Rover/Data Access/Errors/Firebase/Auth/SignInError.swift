@@ -18,9 +18,9 @@ extension SignInError {
   var localizedDescription: String {
     switch self {
     case .error(let error): return error
-    case .absentOfUser: return "Empty user data"
-    case .notVerifiedEmail: return "Email is not verified"
-    case .notSignedIn: return "User not signed in"
+    case .absentOfUser: return L10n.Network.Error.Firebase.SignIn.absentOfUser
+    case .notVerifiedEmail: return L10n.Network.Error.Firebase.SignIn.notVerifiedEmail
+    case .notSignedIn: return L10n.Network.Error.Firebase.SignIn.notSignedIn
     }
   }
 }

@@ -20,7 +20,6 @@ extension Realm {
 
   func safeWrite(_ block: () -> Void) {
     do {
-      // Async safety, to prevent "Realm already in a write transaction" Exceptions
       if !isInWriteTransaction {
         try write(block)
       }

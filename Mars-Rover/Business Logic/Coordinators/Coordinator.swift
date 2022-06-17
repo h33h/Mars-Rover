@@ -8,12 +8,11 @@
 import UIKit
 
 protocol Coordinator: AnyObject {
+  var navigationController: UINavigationController { get set }
+  var parentCoordinator: Coordinator? { get set }
+
   func start()
   func coordinate(to coordinator: Coordinator)
-}
-
-extension Coordinator {
-  func coordinate(to coordinator: Coordinator) {
-    coordinator.start()
-  }
+  func didFinish(coordinator: Coordinator)
+  func removeChildCoordinators()
 }

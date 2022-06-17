@@ -10,12 +10,12 @@ import UIKit
 class MapTableViewCell: UITableViewCell {
   @IBOutlet private var mapLabel: UILabel!
   @IBOutlet private var mapLastEditLabel: UILabel!
-  override func awakeFromNib() {
-    super.awakeFromNib()
-  }
 
-  func configure(mapLabel: String, mapLastEdit: String) {
+  func configure(mapLabel: String, mapLastEdit: Date) {
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeStyle = .medium
+    dateFormatter.dateStyle = .medium
     self.mapLabel.text = mapLabel
-    self.mapLastEditLabel.text = mapLabel
+    self.mapLastEditLabel.text = dateFormatter.string(from: mapLastEdit)
   }
 }

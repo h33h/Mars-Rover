@@ -31,9 +31,9 @@ final class FirebaseMapsActionService: FirebaseMapsActionServiceProtocol {
     do {
       try Firestore
         .firestore()
-        .collection("users")
+        .collection(L10n.Network.FirebaseMap.users)
         .document(user.uid)
-        .collection("maps")
+        .collection(L10n.Network.FirebaseMap.maps)
         .document(map.id)
         .setData(from: map)
     } catch {
@@ -51,19 +51,21 @@ final class FirebaseMapsActionService: FirebaseMapsActionServiceProtocol {
 
     let mapRef = Firestore
       .firestore()
-      .collection("users")
+      .collection(L10n.Network.FirebaseMap.users)
       .document(user.uid)
-      .collection("maps")
+      .collection(L10n.Network.FirebaseMap.maps)
       .document(map.id)
 
     mapRef.updateData(
       [
-        "mapLabel": map.mapLabel,
-        "lastEdited": map.lastEdited,
-        "mapContent": [
-          "colomnsCount": map.mapContent.colomnsCount,
-          "rowCount": map.mapContent.rowCount,
-          "map": map.mapContent.map
+        L10n.Network.FirebaseMap.label: map.label,
+        L10n.Network.FirebaseMap.lastEdited: map.lastEdited,
+        L10n.Network.FirebaseMap.mapContent: [
+          L10n.Network.FirebaseMap.size: [
+            L10n.Network.FirebaseMap.rows: map.mapContent.size.rows,
+            L10n.Network.FirebaseMap.colomns: map.mapContent.size.colomns
+          ],
+          L10n.Network.FirebaseMap.map: map.mapContent.map
         ]
       ]
     ) { error in
@@ -83,9 +85,9 @@ final class FirebaseMapsActionService: FirebaseMapsActionServiceProtocol {
 
     Firestore
       .firestore()
-      .collection("users")
+      .collection(L10n.Network.FirebaseMap.users)
       .document(user.uid)
-      .collection("maps")
+      .collection(L10n.Network.FirebaseMap.maps)
       .document(map.id)
       .delete { error in
         if let error = error {

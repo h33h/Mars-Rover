@@ -21,7 +21,7 @@ class SCNBlockNode: SCNNode {
 
   @available(*, unavailable)
   required init?(coder: NSCoder) {
-    fatalError("Error")
+    fatalError()
   }
 
   private func setPosition() {
@@ -36,16 +36,20 @@ class SCNBlockNode: SCNNode {
     switch obstacle {
     case .solidGround:
       geometry = SCNScene(
-        named: "art.scnassets/solidBlock.scn")?.rootNode.childNodes.first?.childNodes.first?.geometry
+        named: L10n.Entities.SCNBlockNode.SolidGround.path
+      )?.rootNode.childNodes.first?.childNodes.first?.geometry
     case .sand:
       geometry = SCNScene(
-        named: "art.scnassets/sandBlock.scn")?.rootNode.childNodes.first?.childNodes.first?.geometry
+        named: L10n.Entities.SCNBlockNode.Sand.path
+      )?.rootNode.childNodes.first?.childNodes.first?.geometry
     case .pit:
       geometry = SCNScene(
-        named: "art.scnassets/blockWithHole.scn")?.rootNode.childNodes.first?.childNodes.first?.geometry
+        named: L10n.Entities.SCNBlockNode.Pit.path
+      )?.rootNode.childNodes.first?.childNodes.first?.geometry
     case .hill:
       geometry = SCNScene(
-        named: "art.scnassets/blockWithHill.scn")?.rootNode.childNodes.first?.childNodes.first?.geometry
+        named: L10n.Entities.SCNBlockNode.Hill.path
+      )?.rootNode.childNodes.first?.childNodes.first?.geometry
     }
   }
 }

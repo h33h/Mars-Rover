@@ -6,22 +6,49 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class AppCoordinator: Coordinator {
+protocol AppFlow: AnyObject {
+  func coordinateToMainMenu()
+  func coordinateToSignIn()
+}
+
+class AppCoordinator: BaseCoordinator, AppFlow {
   let window: UIWindow
-  let rootNavigationVC: UINavigationController
+  var stateListener: AuthStateDidChangeListenerHandle?
 
   init(window: UIWindow) {
     self.window = window
-    self.rootNavigationVC = UINavigationController()
   }
 
-  func start() {
-    rootNavigationVC.navigationBar.isHidden = true
-    window.rootViewController = rootNavigationVC
+  override func start() {
+    navigationController.navigationBar.isHidden = true
+    navigationController.pushViewController(StoryboardScene.SplashScreen.splashScreen.instantiate(), animated: true)
+    window.rootViewController = navigationController
     window.makeKeyAndVisible()
-    let router = AppRouter(navigationController: rootNavigationVC)
-    let signInCoordinator = SignInCoordinator(router: router)
+    stateListener = Auth.auth().addStateDidChangeListener { [weak self] _, user in
+      self?.navigationController.popToRootViewController(animated: true)
+      self?.removeChildCoordinators()
+      if user != nil {
+        self?.coordinateToMainMenu()
+        return
+      }
+      self?.coordinateToSignIn()
+    }
+    DIContainer.shared.assembler.apply(assembly: AuthServicesAssembly())
+  }
+
+  func coordinateToSignIn() {
+    DIContainer.shared.assembler.apply(assembly: SignInAssembly())
+    let signInCoordinator: SignInCoordinator = DIContainer.shared.resolve()
+    signInCoordinator.navigationController = navigationController
     coordinate(to: signInCoordinator)
+  }
+
+  func coordinateToMainMenu() {
+    DIContainer.shared.assembler.apply(assembly: MenuAssembly())
+    let mainMenuCoordinator: MainMenuCoordinator = DIContainer.shared.resolve()
+    mainMenuCoordinator.navigationController = navigationController
+    coordinate(to: mainMenuCoordinator)
   }
 }

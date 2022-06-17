@@ -6,39 +6,25 @@
 //
 
 import UIKit
+import RealmSwift
 
-class MapEditorSceneCoordinator: Coordinator, BackFlow {
-  let router: Router
+class MapEditorSceneCoordinator: BaseCoordinator, BackFlow {
   let map: RealmMap?
 
-  init(router: Router, map: RealmMap?) {
-    self.router = router
+  init(map: RealmMap?) {
     self.map = map
   }
 
-  func start() {
-    let mapEditorSceneVC = StoryboardScene.GameScreens.mapEditorSceneViewController.instantiate()
-    mapEditorSceneVC.coordinator = self
-    if let map = map {
-      guard let mapCreator = MapCreator(mapModelData: map) else { return }
-      let viewModel = MapEditorSceneViewModel(
-        realmMapsService: RealmMapsService.shared,
-        journalService: MapsJournalService.shared,
-        mapCreator: mapCreator
-      )
-      mapEditorSceneVC.setViewModel(viewModel: viewModel)
-    } else {
-      let viewModel = MapEditorSceneViewModel(
-        realmMapsService: RealmMapsService.shared,
-        journalService: MapsJournalService.shared,
-        mapCreator: MapCreator(size: .defaultSize)
-      )
-      mapEditorSceneVC.setViewModel(viewModel: viewModel)
-    }
-    router.push(mapEditorSceneVC, isAnimated: true)
+  override func start() {
+    let mapEditorSceneVC: MapEditorSceneViewController = DIContainer.shared.resolve()
+    let mapEditorSceneViewModel: MapEditorSceneViewModel = DIContainer.shared.resolve(argument: map)
+    mapEditorSceneViewModel.coordinator = self
+    mapEditorSceneVC.viewModel = mapEditorSceneViewModel
+    navigationController.pushViewController(mapEditorSceneVC, animated: true)
   }
 
   func goBack() {
-    router.pop(isAnimated: true)
+    navigationController.popViewController(animated: true)
+    parentCoordinator?.didFinish(coordinator: self)
   }
 }

@@ -7,29 +7,28 @@
 
 import UIKit
 
-protocol GameScreenFlow: AnyObject {
+protocol GameScreenFlow: BackFlow {
   func coordinateToGameScreenScene(map: RealmMap, path: [MatrixPoint])
 }
 
-class GameScreenCoordinator: Coordinator, GameScreenFlow, BackFlow {
-  let router: Router
-
-  init(router: Router) {
-    self.router = router
-  }
-
-  func start() {
-    let gameScreenVC = StoryboardScene.MainMenu.gameScreenViewController.instantiate()
-    gameScreenVC.coordinator = self
-    router.push(gameScreenVC, isAnimated: true)
+class GameScreenCoordinator: BaseCoordinator, GameScreenFlow {
+  override func start() {
+    let gameScreenVC: GameScreenViewController = DIContainer.shared.resolve()
+    let gameScreenViewModel: GameScreenViewModel = DIContainer.shared.resolve()
+    gameScreenViewModel.coordinator = self
+    gameScreenVC.viewModel = gameScreenViewModel
+    navigationController.pushViewController(gameScreenVC, animated: true)
   }
 
   func coordinateToGameScreenScene(map: RealmMap, path: [MatrixPoint]) {
-    let gameScreenSceneCoordinator = GameScreenSceneCoordinator(router: router, map: map, path: path)
+    DIContainer.shared.assembler.apply(assembly: GameScreenSceneAssembly())
+    let gameScreenSceneCoordinator: GameScreenSceneCoordinator = DIContainer.shared.resolve(arguments: map, path)
+    gameScreenSceneCoordinator.navigationController = navigationController
     coordinate(to: gameScreenSceneCoordinator)
   }
 
   func goBack() {
-    router.pop(isAnimated: true)
+    navigationController.popViewController(animated: true)
+    parentCoordinator?.didFinish(coordinator: self)
   }
 }

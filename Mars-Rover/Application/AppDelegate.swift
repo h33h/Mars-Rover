@@ -10,31 +10,25 @@ import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-  // MARK: - Application: Variables
-    var window: UIWindow?
-    var coordinator: AppCoordinator?
-    // Set application oreintation to landscape mode
-    var deviceOrientation = UIInterfaceOrientationMask.landscape
+  lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+  var coordinator: AppCoordinator?
 
-  // MARK: - Application Delegate
-    func application(
-      _ application: UIApplication,
-      supportedInterfaceOrientationsFor window: UIWindow?
-    ) -> UIInterfaceOrientationMask {
-      deviceOrientation
-    }
+  func application(
+    _ application: UIApplication,
+    supportedInterfaceOrientationsFor window: UIWindow?
+  ) -> UIInterfaceOrientationMask {
+    UIInterfaceOrientationMask.landscape
+  }
 
-  // MARK: - Application Life Cycle Methods
-    func application(
-      _ application: UIApplication,
-      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-    ) -> Bool {
-      // Use Firebase library to configure APIs
-      FirebaseApp.configure()
-      window = UIWindow(frame: UIScreen.main.bounds)
-      guard let window = window else { return false }
-      coordinator = AppCoordinator(window: window)
-      coordinator?.start()
-      return true
-    }
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    FirebaseApp.configure()
+    guard let window = window else { return false }
+    DIContainer.shared.assembler.apply(assembly: ApplicationAssembly())
+    coordinator = DIContainer.shared.resolve(argument: window)
+    coordinator?.start()
+    return true
+  }
 }

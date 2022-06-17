@@ -8,16 +8,10 @@
 import FirebaseAuth
 
 final class FirebaseSignInService: FirebaseSignInServiceProtocol {
-  // MARK: - FirebaseSignInService: Variables
-  private var authListener: AuthStateDidChangeListenerHandle?
-
-  // MARK: - FirebaseSignInService: SignIn Methods
   func signIn(with type: SignInType, completion: @escaping SignInCompletion) {
     switch type {
     case let .emailAndPassword(email, password):
       signInWithPassword(email: email, password: password, completion: completion)
-    case .checkSignIn:
-      checkSignIn(completion: completion)
     }
   }
 
@@ -36,28 +30,6 @@ final class FirebaseSignInService: FirebaseSignInServiceProtocol {
         }
       }
       return completion(nil)
-    }
-  }
-
-  private func checkSignIn(completion: @escaping SignInCompletion) {
-    authListener = Auth.auth().addStateDidChangeListener { _, user in
-      guard let user = user else { return completion(.notSignedIn) }
-      guard user.isEmailVerified else {
-        do {
-          try Auth.auth().signOut()
-          return completion(.notVerifiedEmail)
-        } catch {
-          return completion(.error(error.localizedDescription))
-        }
-      }
-      return completion(nil)
-    }
-  }
-
-  // MARK: - FirebaseSignInService: Deinit
-  deinit {
-    if let listener = authListener {
-      Auth.auth().removeStateDidChangeListener(listener)
     }
   }
 }

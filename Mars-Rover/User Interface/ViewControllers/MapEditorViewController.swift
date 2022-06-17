@@ -8,79 +8,77 @@
 import UIKit
 
 class MapEditorViewController: UIViewController {
-  // MARK: - MapEditorViewController: Variables
-  var coordinator: (MapEditorFlow & BackFlow)?
-  private var viewModel = MapEditorViewModel(
-    journalService: MapsJournalService.shared,
-    realmMapsSevice: RealmMapsService.shared,
-    syncService: MapsSyncService.shared
-  )
+  var viewModel: MapEditorViewModel?
 
-  // MARK: - MapEditorViewController: IBOutlet Variables
   @IBOutlet private var addMapButton: UIButton!
   @IBOutlet private var syncMapsButton: UIButton!
   @IBOutlet private var backButton: UIButton!
   @IBOutlet private var mapsTableView: UITableView!
 
-  // MARK: - MapEditorViewController: LifeCycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupTableView()
+    bindViewModel()
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    viewModel?.syncMaps()
+  }
+
+  @IBAction private func addMapButton(_ sender: Any) {
+    viewModel?.coordinator?.coordinateToMapEditorScene(map: nil)
+  }
+  @IBAction private func syncMapsButton(_ sender: Any) {
+    viewModel?.syncMaps()
+  }
+  @IBAction private func goBackButton(_ sender: Any) {
+    viewModel?.coordinator?.goBack()
+  }
+
+  private func setupTableView() {
     mapsTableView.delegate = self
     mapsTableView.dataSource = self
     mapsTableView.register(
-      UINib(nibName: "MapTableViewCell", bundle: nil),
-      forCellReuseIdentifier: "MapTableViewCell"
+      UINib(
+        nibName: L10n.ViewControllers.MapTableViewCell.id,
+        bundle: nil),
+      forCellReuseIdentifier: L10n.ViewControllers.MapTableViewCell.id
     )
-    viewModel.isUpdated.bind { isUpdated in
-      if isUpdated {
-        self.viewModel.getLocalMaps()
-        DispatchQueue.main.async {
-          self.mapsTableView.reloadData()
-        }
-        self.viewModel.isUpdated.value.toggle()
+  }
+
+  private func bindViewModel() {
+    viewModel?.maps.bind { [weak self] _ in
+      DispatchQueue.main.async {
+        self?.mapsTableView.reloadData()
       }
     }
-  }
-
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    viewModel.syncMaps()
-  }
-
-  // MARK: - MapEditorViewController: IBAction Methods
-  @IBAction private func addMapButton(_ sender: Any) {
-    coordinator?.coordinateToMapEditorScene(map: nil)
-  }
-  @IBAction private func syncMapsButton(_ sender: Any) {
-    viewModel.syncMaps()
-  }
-  @IBAction private func goBackButton(_ sender: Any) {
-    navigationController?.popViewController(animated: true)
+    viewModel?.mapsError.bind { [weak self] error in
+      if let error = error {
+        self?.showSimpleNotificationAlert(
+          title: L10n.ViewControllers.MapEditor.Error.title,
+          description: error.localizedDescription
+        )
+      }
+    }
   }
 }
 
 extension MapEditorViewController: UITableViewDataSource, UITableViewDelegate {
-  // MARK: - MapEditorViewController: TableView Delegate & DataSource Methods
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    viewModel.maps.value.count
+    viewModel?.maps.value.count ?? .zero
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard
       let cell = tableView.dequeueReusableCell(
-      withIdentifier: "MapTableViewCell",
-      for: indexPath
-      ) as? MapTableViewCell
+        withIdentifier: L10n.ViewControllers.MapTableViewCell.id,
+        for: indexPath
+      ) as? MapTableViewCell,
+      let map = viewModel?.maps.value[indexPath.row]
     else { return UITableViewCell() }
     cell.selectionStyle = .none
-    let mapModel = viewModel.maps.value[indexPath.row]
-    let dateFormatter = DateFormatter()
-    dateFormatter.timeStyle = .medium
-    dateFormatter.dateStyle = .medium
-    cell.configure(
-      mapLabel: mapModel.mapLabel,
-      mapLastEdit: dateFormatter.string(from: mapModel.lastEdited)
-    )
+    cell.configure(mapLabel: map.label, mapLastEdit: map.lastEdited)
     return cell
   }
 
@@ -89,22 +87,29 @@ extension MapEditorViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    let delete = UIContextualAction(style: .destructive, title: "") { [weak self] _, _, completion in
-      guard let this = self else { return completion(false) }
+    let delete = UIContextualAction(style: .destructive, title: .none) { [weak self] _, _, completion in
+      guard
+        let self = self,
+        let map = self.viewModel?.maps.value[indexPath.row]
+      else { return completion(false) }
       tableView.beginUpdates()
-      this.viewModel.mapAction(action: .remove(map: this.viewModel.maps.value[indexPath.row]))
+      self.viewModel?.mapAction(action: .remove(map: map))
+      self.viewModel?.maps.value.removeAll { $0 == map }
       tableView.deleteRows(at: [indexPath], with: .fade)
       tableView.endUpdates()
       completion(true)
     }
-    delete.image = UIImage(systemName: "trash")
-
-    let edit = UIContextualAction(style: .normal, title: "") { [weak self] _, _, completion in
+    delete.image = UIImage(
+      systemName: L10n.ViewControllers.MapEditor.Images.delete
+    )
+    let edit = UIContextualAction(style: .normal, title: .none) { [weak self] _, _, completion in
       guard let this = self else { return completion(false) }
-      this.coordinator?.coordinateToMapEditorScene(map: this.viewModel.maps.value[indexPath.row])
+      this.viewModel?.coordinator?.coordinateToMapEditorScene(map: this.viewModel?.maps.value[indexPath.row].copy() as? RealmMap)
       completion(true)
     }
-    edit.image = UIImage(systemName: "pencil")
+    edit.image = UIImage(
+      systemName: L10n.ViewControllers.MapEditor.Images.edit
+    )
     edit.backgroundColor =  .blue
 
     let config = UISwipeActionsConfiguration(actions: [delete, edit])

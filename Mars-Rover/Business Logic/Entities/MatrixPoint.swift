@@ -5,8 +5,6 @@
 //  Created by XXX on 22.11.21.
 //
 
-import Foundation
-
 struct MatrixPoint: Equatable {
   let row: Int
   let colomn: Int

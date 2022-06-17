@@ -7,29 +7,28 @@
 
 import UIKit
 
-protocol MapEditorFlow: AnyObject {
+protocol MapEditorFlow: BackFlow {
   func coordinateToMapEditorScene(map: RealmMap?)
 }
 
-class MapEditorCoordinator: Coordinator, MapEditorFlow, BackFlow {
-  let router: Router
-
-  init(router: Router) {
-    self.router = router
-  }
-
-  func start() {
-    let mapEditorVC = StoryboardScene.MainMenu.mapEditorViewController.instantiate()
-    mapEditorVC.coordinator = self
-    router.push(mapEditorVC, isAnimated: true)
+class MapEditorCoordinator: BaseCoordinator, MapEditorFlow {
+  override func start() {
+    let mapEditorVC: MapEditorViewController = DIContainer.shared.resolve()
+    let mapEditorViewModel: MapEditorViewModel = DIContainer.shared.resolve()
+    mapEditorViewModel.coordinator = self
+    mapEditorVC.viewModel = mapEditorViewModel
+    navigationController.pushViewController(mapEditorVC, animated: true)
   }
 
   func coordinateToMapEditorScene(map: RealmMap? = nil) {
-    let mapEditorSceneCoordinator = MapEditorSceneCoordinator(router: router, map: map)
+    DIContainer.shared.assembler.apply(assembly: MapEditorSceneAssembly())
+    let mapEditorSceneCoordinator: MapEditorSceneCoordinator = DIContainer.shared.resolve(argument: map)
+    mapEditorSceneCoordinator.navigationController = navigationController
     coordinate(to: mapEditorSceneCoordinator)
   }
 
   func goBack() {
-    router.pop(isAnimated: true)
+    navigationController.popViewController(animated: true)
+    parentCoordinator?.didFinish(coordinator: self)
   }
 }

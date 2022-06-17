@@ -17,8 +17,8 @@ extension ProfileError {
   var localizedDescription: String {
     switch self {
     case .error(let error): return error
-    case .profileNotExist: return "Profile does not exist"
-    case .notSignedIn: return "User not signed in"
+    case .profileNotExist: return L10n.Network.Error.Firebase.Profile.profileNotExist
+    case .notSignedIn: return L10n.Network.Error.Firebase.Profile.notSignedIn
     }
   }
 }

@@ -5,8 +5,6 @@
 //  Created by XXX on 21.11.21.
 //
 
-import Foundation
-
 class FindShortestPath {
   private var matrix: [[MatrixNode]]
   private var matrixRowCount: Int
@@ -16,19 +14,20 @@ class FindShortestPath {
 
   init?(on map: RealmMapContent) {
     guard !map.map.isEmpty else { return nil }
-    self.matrixRowCount = map.getMapSize().getSize().rows
-    self.matrixColomnCount = map.getMapSize().getSize().colomns
+    self.matrixRowCount = map.size.rows
+    self.matrixColomnCount = map.size.colomns
     self.matrix = ([])
-    for rowIndex in 0 ..< matrixRowCount {
+    for row in .zero ..< matrixRowCount {
       self.matrix.append([MatrixNode]())
-      for colomnIndex in 0 ..< matrixColomnCount {
-        guard let obstacle = map[rowIndex, colomnIndex] else { return nil }
-        let node = MatrixNode(point: MatrixPoint(row: rowIndex, colomn: colomnIndex), weight: obstacle)
-        self.matrix[rowIndex].append(node)
-        if rowIndex == map.startGamePoint().row, colomnIndex == map.startGamePoint().colomn {
+      for colomn in .zero ..< matrixColomnCount {
+        let point = MatrixPoint(row: row, colomn: colomn)
+        guard let obstacle = map[point] else { return nil }
+        let node = MatrixNode(point: point, weight: obstacle)
+        self.matrix[row].append(node)
+        if point == map.size.startPoint {
           self.startPoint = node
         }
-        if rowIndex == map.endGamePoint().row, colomnIndex == map.endGamePoint().colomn {
+        if point == map.size.endPoint {
           self.endPoint = node
         }
       }
@@ -52,17 +51,17 @@ class FindShortestPath {
     let upNode = self[currentNodeRow - 1, currentNodeColomn]
     let downNode = self[currentNodeRow + 1, currentNodeColomn]
 
-    if currentNodeRow == 0, currentNodeColomn == 0 {
+    if currentNodeRow == .zero, currentNodeColomn == .zero {
       nodeAddConnections(node: node, with: [rightNode, downNode])
       return
     }
 
-    if currentNodeRow == 0, currentNodeColomn == matrixColomnCount - 1 {
+    if currentNodeRow == .zero, currentNodeColomn == matrixColomnCount - 1 {
       nodeAddConnections(node: node, with: [leftNode, downNode])
       return
     }
 
-    if currentNodeRow == matrixRowCount - 1, currentNodeColomn == 0 {
+    if currentNodeRow == matrixRowCount - 1, currentNodeColomn == .zero {
       nodeAddConnections(node: node, with: [rightNode, upNode])
       return
     }
@@ -72,7 +71,7 @@ class FindShortestPath {
       return
     }
 
-    if currentNodeRow == 0 {
+    if currentNodeRow == .zero {
       nodeAddConnections(node: node, with: [leftNode, rightNode, downNode])
       return
     }
@@ -82,7 +81,7 @@ class FindShortestPath {
       return
     }
 
-    if currentNodeColomn == 0 {
+    if currentNodeColomn == .zero {
       nodeAddConnections(node: node, with: [rightNode, upNode, downNode])
       return
     }
@@ -123,7 +122,7 @@ class FindShortestPath {
         frontier.append(Path(to: connection.toNode, via: connection, previousPath: cheapestPathInFrontier))
       }
     } // end while
-    return nil // we didn't find a path 
+    return nil // we didn't find a path
   }
 
   private subscript(row: Int, colomn: Int) -> MatrixNode? {

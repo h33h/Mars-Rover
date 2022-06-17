@@ -5,8 +5,6 @@
 //  Created by XXX on 21.11.21.
 //
 
-import Foundation
-
 class Path {
   public let cumulativeWeight: Int
   public let node: Node
@@ -18,7 +16,7 @@ class Path {
       let viaConnection = connection {
       self.cumulativeWeight = viaConnection.weight + previousPath.cumulativeWeight
     } else {
-      self.cumulativeWeight = 0
+      self.cumulativeWeight = .zero
     }
 
     self.node = node

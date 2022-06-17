@@ -16,7 +16,7 @@ extension SignUpError {
   var localizedDescription: String {
     switch self {
     case .error(let error): return error
-    case .absentOfUser: return "Empty user data"
+    case .absentOfUser: return L10n.Network.Error.Firebase.SignUp.absentOfUser
     }
   }
 }

@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sign In Form View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="cy9-HL-P6r">
             <objects>
-                <viewController storyboardIdentifier="SignInFormViewController" id="BcW-Mk-zxe" customClass="SignInFormViewController" customModule="Mars_Rover" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="BcW-Mk-zxe" customClass="SignInViewController" customModule="Mars_Rover" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nQH-3h-0B0">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,10 +137,10 @@
             </objects>
             <point key="canvasLocation" x="-265.17857142857144" y="-100.00000000000001"/>
         </scene>
-        <!--Sign Up Form View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="2L0-X3-db7">
             <objects>
-                <viewController storyboardIdentifier="SignUpFormViewController" id="zpY-DD-qKm" customClass="SignUpFormViewController" customModule="Mars_Rover" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="zpY-DD-qKm" customClass="SignUpViewController" customModule="Mars_Rover" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rlz-ay-Jlj">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,7 +232,7 @@
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKZ-Bh-gfa">
-                                <rect key="frame" x="839" y="32" width="25" height="24"/>
+                                <rect key="frame" x="838" y="32" width="26" height="26"/>
                                 <color key="tintColor" red="0.9598128131" green="0.57136141200000001" blue="0.042860243460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal">
@@ -289,19 +288,19 @@
     </scenes>
     <designables>
         <designable name="UE7-JS-vDy">
-            <size key="intrinsicContentSize" width="102.5" height="34"/>
+            <size key="intrinsicContentSize" width="62.5" height="34"/>
         </designable>
         <designable name="Uf1-XS-o9k">
-            <size key="intrinsicContentSize" width="102.5" height="34"/>
+            <size key="intrinsicContentSize" width="62.5" height="34"/>
         </designable>
         <designable name="iux-kS-ZYO">
-            <size key="intrinsicContentSize" width="130.5" height="34"/>
+            <size key="intrinsicContentSize" width="90.5" height="34"/>
         </designable>
         <designable name="jsy-hD-GHH">
-            <size key="intrinsicContentSize" width="191" height="34"/>
+            <size key="intrinsicContentSize" width="151" height="34"/>
         </designable>
         <designable name="pX4-Tf-F7P">
-            <size key="intrinsicContentSize" width="130.5" height="34"/>
+            <size key="intrinsicContentSize" width="90.5" height="34"/>
         </designable>
     </designables>
     <resources>

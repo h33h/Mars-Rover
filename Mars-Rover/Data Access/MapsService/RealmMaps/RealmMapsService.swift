@@ -8,16 +8,11 @@
 import RealmSwift
 
 final class RealmMapsService: RealmMapsServiceProtocol {
-  static var shared = RealmMapsService(mapActionService: RealmMapsActionService())
-  let mapActionService: RealmMapsActionServiceProtocol
+  var mapActionService: RealmMapsActionServiceProtocol?
   private let realm: Realm? = Realm.safeInit()
 
-  init(mapActionService: RealmMapsActionServiceProtocol) {
-    self.mapActionService = mapActionService
-  }
-
   func mapAction(is action: RealmMapAction) {
-    mapActionService.mapAction(is: action)
+    mapActionService?.mapAction(is: action)
   }
 
   func getLocalMaps() -> [RealmMap]? {
@@ -30,8 +25,6 @@ final class RealmMapsService: RealmMapsServiceProtocol {
   func removeAllLocalMaps() {
     guard let realm = realm else { return }
 
-    realm.safeWrite {
-      realm.deleteAll()
-    }
+    realm.safeWrite { realm.deleteAll() }
   }
 }

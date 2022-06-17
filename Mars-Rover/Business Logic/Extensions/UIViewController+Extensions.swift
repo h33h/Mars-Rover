@@ -18,13 +18,20 @@ extension UIViewController {
     errorAlert.message = description
     if let buttonAction = buttonAction {
       errorAlert.addAction(
-        UIAlertAction(title: "Ok", style: .default) { _ in
+        UIAlertAction(
+          title: L10n.Extensions.UIViewController.Notification.ok,
+          style: .default
+        ) { _ in
           buttonAction()
         }
       )
     } else {
       errorAlert.addAction(
-        UIAlertAction(title: "Ok", style: .default, handler: nil)
+        UIAlertAction(
+          title: L10n.Extensions.UIViewController.Notification.ok,
+          style: .default,
+          handler: nil
+        )
       )
     }
     present(errorAlert, animated: true, completion: nil)

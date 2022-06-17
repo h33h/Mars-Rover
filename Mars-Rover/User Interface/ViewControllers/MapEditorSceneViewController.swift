@@ -8,29 +8,24 @@
 import SceneKit
 
 class MapEditorSceneViewController: UIViewController {
-  // MARK: - MapEditorSceneViewController: Variables
-  var coordinator: BackFlow?
-  private var viewModel: MapEditorSceneViewModel?
+  var viewModel: MapEditorSceneViewModel?
   private var scnScene: SCNScene?
   private var selectedBlock: Obstacle?
 
-  // MARK: - MapEditorSceneViewController: IBOutlet Variables
   @IBOutlet private var scnView: SCNView!
   @IBOutlet private var topStackView: UIStackView!
   @IBOutlet private var bottomStackView: UIStackView!
 
-  // MARK: - MapEditorSceneViewController: LifeCycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
-      setupScene()
-      addTapRecognizers()
-      setupMap()
-      setupButtons()
+    setupScene()
+    addTapRecognizers()
+    setupMap()
+    setupButtons()
   }
 
-  // MARK: - MapEditorSceneViewController: IBAction Methods
   @IBAction private func randomMapAction(_ sender: Any) {
-    viewModel?.mapAction(type: .generateRandomMap)
+    viewModel?.mapManager(action: .generateRandomMap)
   }
 
   @IBAction private func saveAction(_ sender: Any) {
@@ -38,17 +33,16 @@ class MapEditorSceneViewController: UIViewController {
   }
 
   @IBAction private func exitAction(_ sender: Any) {
-    coordinator?.goBack()
+    viewModel?.coordinator?.goBack()
   }
 
-  // MARK: - MapEditorSceneViewController: Methods
-  func setViewModel(viewModel: MapEditorSceneViewModel) {
-    self.viewModel = viewModel
-  }
-
-  // MARK: - MapEditorSceneViewController: ViewDidLoad Methods
   private func setupScene() {
-    guard let scnScene = SCNScene(named: "mapScene.scn", inDirectory: "art.scnassets") else { return }
+    guard
+      let scnScene = SCNScene(
+        named: L10n.ViewControllers.MapEditorScene.path,
+        inDirectory: L10n.ViewControllers.MapEditorScene.assetsPath
+      )
+    else { return }
     self.scnScene = scnScene
     scnView.scene = scnScene
   }
@@ -56,9 +50,12 @@ class MapEditorSceneViewController: UIViewController {
   private func setupMap() {
     guard
       let scnScene = scnScene,
-      let mapNode = scnScene.rootNode.childNode(withName: "board", recursively: true)
+      let mapNode = scnScene.rootNode.childNode(
+        withName: L10n.ViewControllers.MapEditorScene.boardName,
+        recursively: true
+      )
     else { return }
-    if let mapManagerNode = viewModel?.mapCreator.mapNode {
+    if let mapManagerNode = viewModel?.mapManager?.mapNode {
       clearMap()
       mapNode.addChildNode(mapManagerNode)
     }
@@ -70,7 +67,7 @@ class MapEditorSceneViewController: UIViewController {
     tapRecognizer.numberOfTouchesRequired = 1
     tapRecognizer.addTarget(self, action: #selector(sceneTapped))
     let longPress = UILongPressGestureRecognizer()
-    longPress.minimumPressDuration = 0
+    longPress.minimumPressDuration = .zero
     longPress.addTarget(self, action: #selector(longPressAction))
     scnView.gestureRecognizers = [tapRecognizer, longPress]
   }
@@ -78,14 +75,13 @@ class MapEditorSceneViewController: UIViewController {
   private func setupButtons() {
     for obstacle in Obstacle.allCases {
       let button = UIButton()
-      button.setTitle(obstacle.toString(), for: .normal)
+      button.setTitle(obstacle.title, for: .normal)
       button.setTitleColor(.white, for: .normal)
       button.addTarget(self, action: #selector(blockButtonAction), for: .touchUpInside)
       bottomStackView.addArrangedSubview(button)
     }
   }
 
-  // MARK: - MapEditorSceneViewController: HandleTap Methods
   @objc
   private func longPressAction(sender: UILongPressGestureRecognizer) {
     let location = sender.location(in: scnView)
@@ -96,7 +92,7 @@ class MapEditorSceneViewController: UIViewController {
         let selectedBlock = selectedBlock,
         let replacingNode = resultNode as? SCNBlockNode
       else { return }
-      viewModel?.mapAction(type: .replaceMapBlock(replacingNode: replacingNode, block: selectedBlock))
+      viewModel?.mapManager(action: .replaceBlock(replacingNode: replacingNode, block: selectedBlock))
     }
   }
 
@@ -110,11 +106,10 @@ class MapEditorSceneViewController: UIViewController {
         let selectedBlock = selectedBlock,
         let replacingNode = resultNode as? SCNBlockNode
       else { return }
-        viewModel?.mapAction(type: .replaceMapBlock(replacingNode: replacingNode, block: selectedBlock))
+      viewModel?.mapManager(action: .replaceBlock(replacingNode: replacingNode, block: selectedBlock))
     }
   }
 
-  // MARK: - MapEditorSceneViewController: BlockSelectionTap Method
   @objc
   private func blockButtonAction(sender: UIButton) {
     guard let title = sender.titleLabel?.text else { return }
@@ -124,24 +119,26 @@ class MapEditorSceneViewController: UIViewController {
     }
     sender.setTitleColor(.yellow, for: .normal)
     switch title {
-    case "Solid Ground":
+    case L10n.Entities.Obstacle.solidGround:
       selectedBlock = .solidGround
-    case "Sand":
+    case L10n.Entities.Obstacle.sand:
       selectedBlock = .sand
-    case "Hole":
+    case L10n.Entities.Obstacle.pit:
       selectedBlock = .pit
-    case "Hill":
+    case L10n.Entities.Obstacle.hill:
       selectedBlock = .hill
     default:
       selectedBlock = nil
     }
   }
 
-  // MARK: - MapEditorSceneViewController: ClearMap Method
   private func clearMap() {
     guard
       let scnScene = scnScene,
-      let mapNode = scnScene.rootNode.childNode(withName: "board", recursively: true)
+      let mapNode = scnScene.rootNode.childNode(
+        withName: L10n.ViewControllers.MapEditorScene.boardName,
+        recursively: true
+      )
     else { return }
     mapNode.enumerateChildNodes { node, _ in
       node.removeFromParentNode()

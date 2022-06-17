@@ -7,7 +7,6 @@
 
 enum SignInType {
   case emailAndPassword(email: String, password: String)
-  case checkSignIn
 }
 
 typealias SignInCompletion = (SignInError?) -> Void

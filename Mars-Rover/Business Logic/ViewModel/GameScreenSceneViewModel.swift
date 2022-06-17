@@ -5,17 +5,12 @@
 //  Created by XXX on 24.11.21.
 //
 
-import Foundation
-
 class GameScreenSceneViewModel {
-  let mapCreator: MapCreatorProtocol
-  let roverManager: RoverManagerProtocol
-  init(mapCreator: MapCreatorProtocol, roverManager: RoverManagerProtocol) {
-    self.mapCreator = mapCreator
-    self.roverManager = roverManager
-  }
+  weak var coordinator: BackFlow?
+  var mapManager: MapManagerProtocol?
+  var roverManager: RoverManagerProtocol?
 
   func completeMap() {
-    roverManager.roverCompleteMap()
+    roverManager?.roverCompleteMap()
   }
 }

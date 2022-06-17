@@ -6,3 +6,83 @@
   
 */
 
+"viewControllers.signIn.error.title" = "Sign In Failure";
+"viewControllers.signIn.error.textFieldMessage" = "Don't leave textfields empty";
+
+"viewControllers.signUp.error.title" = "Sign Up Failure";
+"viewControllers.signUp.error.textFieldMessage" = "Fill textfields in proper way";
+"viewControllers.signUp.error.passwordMismatch" = "Password Mismatch";
+
+"viewControllers.MainMenu.error.profileError" = "Profile Failure";
+"viewControllers.MainMenu.error.signOutError" = "Sign Out Failure";
+
+"viewControllers.MapTableViewCell.id" = "MapTableViewCell";
+
+"viewControllers.MapEditor.error.title" = "Maps Failure";
+"viewControllers.MapEditor.images.delete" = "trash";
+"viewControllers.MapEditor.images.edit" = "pencil";
+
+"viewControllers.MapEditorScene.path" = "mapScene.scn";
+"viewControllers.MapEditorScene.assetsPath" = "art.scnassets";
+"viewControllers.MapEditorScene.boardName" = "board";
+
+"viewControllers.GameScreen.error.title" = "Maps Failure";
+
+"viewControllers.GameScreenScene.path" = "mapScene.scn";
+"viewControllers.GameScreenScene.assetsPath" = "art.scnassets";
+"viewControllers.GameScreenScene.boardName" = "board";
+"viewControllers.GameScreenScene.roverName" = "rover";
+
+"viewModels.mapEditor.saveMap.title" = "Save Map";
+"viewModels.mapEditor.saveMap.description" = "Save Map";
+"viewModels.mapEditor.saveMap.ok" = "Ok";
+"viewModels.mapEditor.saveMap.cancel" = "Cancel";
+
+
+"Entities.Obstacle.solidGround" = "Solid Ground";
+"Entities.Obstacle.sand" = "Sand";
+"Entities.Obstacle.pit" = "Hole";
+"Entities.Obstacle.hill" = "Hill";
+
+"Entities.SCNBlockNode.solidGround.path" = "art.scnassets/solidBlock.scn";
+"Entities.SCNBlockNode.sand.path" = "art.scnassets/sandBlock.scn";
+"Entities.SCNBlockNode.pit.path" = "art.scnassets/blockWithHole.scn";
+"Entities.SCNBlockNode.hill.path" = "art.scnassets/blockWithHill.scn";
+
+"Extensions.UIViewController.notification.ok" = "Ok";
+
+"Algorithm.FindPathError.impassable" = "The map is impassable";
+
+"Manager.RoverManager.path" = "art.scnassets/marsRover.scn";
+
+"Network.Error.Firebase.Maps.notSignedIn" = "User not signed in";
+"Network.Error.Firebase.Maps.fetchFirebaseError" = "Map list getting error";
+"Network.Error.Firebase.Maps.mapNotExist" = "Map does not exist";
+
+"Network.Error.Firebase.Profile.profileNotExist" = "Profile does not exist";
+"Network.Error.Firebase.Profile.notSignedIn" = "User not signed in";
+
+"Network.Error.Firebase.SignIn.absentOfUser" = "Empty user data";
+"Network.Error.Firebase.SignIn.notVerifiedEmail" = "Email is not verified";
+"Network.Error.Firebase.SignIn.notSignedIn" = "User not signed in";
+
+"Network.Error.Firebase.SignUp.absentOfUser" = "Empty user data";
+
+"Network.FirebaseProfile.users" = "users";
+"Network.FirebaseProfile.username" = "username";
+
+"Network.MapSync.sync" = "sync";
+
+"Network.FirebaseMap.users" = "users";
+"Network.FirebaseMap.maps" = "maps";
+"Network.FirebaseMap.label" = "label";
+"Network.FirebaseMap.lastEdited" = "lastEdited";
+"Network.FirebaseMap.mapContent" = "mapContent";
+"Network.FirebaseMap.size" = "size";
+"Network.FirebaseMap.rows" = "rows";
+"Network.FirebaseMap.colomns" = "colomns";
+"Network.FirebaseMap.map" = "map";
+
+"Network.RealmMap.filter" = "id = %@";
+
+

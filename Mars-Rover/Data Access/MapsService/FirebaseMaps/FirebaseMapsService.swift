@@ -9,18 +9,13 @@ import FirebaseAuth
 import FirebaseFirestore
 
 final class FirebaseMapsService: FirebaseMapsServiceProtocol {
-  static var shared = FirebaseMapsService(mapActionService: FirebaseMapsActionService())
-  private let mapActionService: FirebaseMapsActionServiceProtocol
-
-  init(mapActionService: FirebaseMapsActionServiceProtocol) {
-    self.mapActionService = mapActionService
-  }
+  var mapActionService: FirebaseMapsActionServiceProtocol?
 
   func mapAction(
     is action: FirebaseMapAction,
     errorHandler: @escaping FirebaseMapActionCompletion
   ) {
-    mapActionService.mapAction(is: action, errorHandler: errorHandler)
+    mapActionService?.mapAction(is: action, errorHandler: errorHandler)
   }
 
   func getMaps(completion: @escaping FirebaseMapModelCompletion) {
@@ -30,9 +25,9 @@ final class FirebaseMapsService: FirebaseMapsServiceProtocol {
 
     let mapsRef = Firestore
       .firestore()
-      .collection("users")
+      .collection(L10n.Network.FirebaseMap.users)
       .document(user.uid)
-      .collection("maps")
+      .collection(L10n.Network.FirebaseMap.maps)
 
     mapsRef.getDocuments { documents, error in
       if let error = error {

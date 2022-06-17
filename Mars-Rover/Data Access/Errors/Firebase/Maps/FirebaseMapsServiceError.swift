@@ -17,9 +17,9 @@ enum FirebaseMapsServiceError: LocalizedError {
 extension FirebaseMapsServiceError {
   var localizedDescription: String {
     switch self {
-    case .notSignedIn: return "User not signed in"
-    case .fetchFirebaseError: return "Map list getting error"
-    case .mapNotExist: return "Map does not exist"
+    case .notSignedIn: return L10n.Network.Error.Firebase.Maps.notSignedIn
+    case .fetchFirebaseError: return L10n.Network.Error.Firebase.Maps.fetchFirebaseError
+    case .mapNotExist: return L10n.Network.Error.Firebase.Maps.mapNotExist
     case .error(let error): return error
     }
   }

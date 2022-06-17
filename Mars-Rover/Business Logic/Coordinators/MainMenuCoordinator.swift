@@ -12,30 +12,27 @@ protocol MainMenuFlow: AnyObject {
   func coordinateToGameScreen()
 }
 
-class MainMenuCoordinator: Coordinator, MainMenuFlow, BackFlow {
-  let router: Router
-
-  init(router: Router) {
-    self.router = router
-  }
-
-  func start() {
-    let mainMenuVC = StoryboardScene.MainMenu.mainMenuViewController.instantiate()
-    mainMenuVC.coordinator = self
-    router.push(mainMenuVC, isAnimated: true)
+class MainMenuCoordinator: BaseCoordinator, MainMenuFlow {
+  override func start() {
+    DIContainer.shared.assembler.apply(assemblies: [MapServicesAssembly(), ManagerAssembly()])
+    let mainMenuVC: MainMenuViewController = DIContainer.shared.resolve()
+    let mainMenuViewModel: MainMenuViewModel = DIContainer.shared.resolve()
+    mainMenuViewModel.coordinator = self
+    mainMenuVC.viewModel = mainMenuViewModel
+    navigationController.pushViewController(mainMenuVC, animated: true)
   }
 
   func coordinateToMapEditor() {
-    let mapEditorCoordinator = MapEditorCoordinator(router: router)
+    DIContainer.shared.assembler.apply(assembly: MapEditorAssembly())
+    let mapEditorCoordinator: MapEditorCoordinator = DIContainer.shared.resolve()
+    mapEditorCoordinator.navigationController = navigationController
     coordinate(to: mapEditorCoordinator)
   }
 
   func coordinateToGameScreen() {
-    let gameScreenCoordinator = GameScreenCoordinator(router: router)
+    DIContainer.shared.assembler.apply(assembly: GameScreenAssembly())
+    let gameScreenCoordinator: GameScreenCoordinator = DIContainer.shared.resolve()
+    gameScreenCoordinator.navigationController = navigationController
     coordinate(to: gameScreenCoordinator)
-  }
-
-  func goBack() {
-    router.pop(isAnimated: true)
   }
 }

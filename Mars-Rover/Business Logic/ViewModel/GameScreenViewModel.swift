@@ -5,39 +5,28 @@
 //  Created by XXX on 21.11.21.
 //
 
-import Foundation
-
 class GameScreenViewModel {
-  let realmService: RealmMapsServiceProtocol
-  var maps: Box<[RealmMap]>
-  var isUpdated: Box<Bool>
-  var errorMessage: Box<String?>
-
-  init(realmService: RealmMapsServiceProtocol) {
-    self.realmService = realmService
-    self.maps = Box([RealmMap]())
-    self.isUpdated = Box(false)
-    self.errorMessage = Box(nil)
-  }
+  weak var coordinator: GameScreenFlow?
+  var realmService: RealmMapsServiceProtocol?
+  private(set) lazy var maps: Box<[RealmMap]> = Box([RealmMap]())
+  private(set) lazy var mapsError: Box<Error?> = Box(nil)
 
   func getLocalMaps() {
     self.maps.value.removeAll()
-    let maps = realmService.getLocalMaps()
+    let maps = realmService?.getLocalMaps()
     guard let maps = maps else { return }
     self.maps.value = maps.sorted { map1, map2 in
       map1.lastEdited > map2.lastEdited
     }
-    self.isUpdated.value.toggle()
   }
 
   func findPath(map: RealmMap) -> [MatrixPoint]? {
-    guard let map = map.mapContent else { return nil }
-    guard let pathFinder = FindShortestPath(on: map) else { return nil }
+    guard let pathFinder = FindShortestPath(on: map.mapContent) else { return nil }
     guard let path = pathFinder.shortestPath() else {
-      errorMessage.value = "Map is not passable"
+      mapsError.value = FindPathError.impassable
       return nil
     }
-    let succession = path.array.reversed().compactMap { $0 as? MatrixNode }.map { $0.point }
-    return succession
+    let success = path.array.reversed().compactMap { $0 as? MatrixNode }.map { $0.point }
+    return success
   }
 }

@@ -7,21 +7,17 @@
 
 import UIKit
 
-class SignUpCoordinator: Coordinator, BackFlow {
-  let router: Router
-
-  init(router: Router) {
-    self.router = router
+class SignUpCoordinator: BaseCoordinator, BackFlow {
+  override func start() {
+    let signUpVC: SignUpViewController = DIContainer.shared.resolve()
+    let signUpViewModel: SignUpViewModel = DIContainer.shared.resolve()
+    signUpViewModel.coordinator = self
+    signUpVC.viewModel = signUpViewModel
+    navigationController.pushViewController(signUpVC, animated: true)
   }
 
-  func start() {
-    let signUpVC = StoryboardScene.Auth.signUpFormViewController.instantiate()
-    signUpVC.coordinator = self
-    router.push(signUpVC, isAnimated: true)
-  }
-
-  // MARK: - Flow Methods
   func goBack() {
-    router.pop(isAnimated: true)
+    navigationController.popViewController(animated: true)
+    parentCoordinator?.didFinish(coordinator: self)
   }
 }

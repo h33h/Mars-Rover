@@ -12,13 +12,15 @@ enum MarsRoverDirection {
   case right
   case forward
   case backward
+}
 
+extension MarsRoverDirection {
   var angle: Float {
     switch self {
     case .left:
       return Float.pi
     case .right:
-      return 0
+      return .zero
     case .forward:
       return Float.pi / 2
     case .backward:
@@ -44,7 +46,9 @@ class RoverManager: RoverManagerProtocol {
 
   private func setupRover() {
     guard
-      let roverModel = SCNScene(named: "art.scnassets/marsRover.scn")?.rootNode.childNodes.first,
+      let roverModel = SCNScene(
+        named: L10n.Manager.RoverManager.path
+      )?.rootNode.childNodes.first,
       let firstPoint = path.first
     else { return }
     roverModel.position = SCNVector3(
@@ -52,13 +56,13 @@ class RoverManager: RoverManagerProtocol {
       y: firstPoint.position.y + firstPoint.getBlockSize().y / 2,
       z: firstPoint.position.z
     )
-    roverModel.eulerAngles = SCNVector3(x: 0, y: MarsRoverDirection.forward.angle, z: 0)
+    roverModel.eulerAngles = SCNVector3(x: .zero, y: MarsRoverDirection.forward.angle, z: .zero)
     path.forEach { print($0.positionOnMap) }
     marsRover.addChildNode(roverModel)
   }
 
   private func turnModelTo(direction: MarsRoverDirection) -> SCNAction {
-    let rotateAction = SCNAction.rotate(toAxisAngle: SCNVector4(x: 0, y: 1, z: 0, w: direction.angle), duration: 0.5)
+    let rotateAction = SCNAction.rotate(toAxisAngle: SCNVector4(x: .zero, y: 1, z: .zero, w: direction.angle), duration: 0.5)
     return rotateAction
   }
 

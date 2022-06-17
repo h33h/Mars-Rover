@@ -5,21 +5,18 @@
 //  Created by XXX on 13.11.21.
 //
 
-import Foundation
-
 protocol MapsJournalServiceProtocol {
-  var mapsToAdd: [RealmMap] { get }
-  var mapsToEdit: [RealmMap] { get }
-  var mapsToRemove: [RealmMap] { get }
+  var mapsToAdd: [RealmMap?] { get }
+  var mapsToEdit: [RealmMap?] { get }
+  var mapsToRemove: [RealmMap?] { get }
   func journal(action: RealmMapAction)
   func clearJournal()
 }
 
 final class MapsJournalService: MapsJournalServiceProtocol {
-  static var shared = MapsJournalService()
-  private(set) var mapsToAdd: [RealmMap] = []
-  private(set) var mapsToEdit: [RealmMap] = []
-  private(set) var mapsToRemove: [RealmMap] = []
+  private(set) var mapsToAdd: [RealmMap?] = []
+  private(set) var mapsToEdit: [RealmMap?] = []
+  private(set) var mapsToRemove: [RealmMap?] = []
 
   func journal(action: RealmMapAction) {
     switch action {
@@ -30,17 +27,17 @@ final class MapsJournalService: MapsJournalServiceProtocol {
   }
 
   private func added(map: RealmMap) {
-    mapsToAdd.append(map)
+    mapsToAdd.append(map.copy() as? RealmMap)
   }
 
   private func edited(map: RealmMap) {
-    mapsToEdit.append(map)
+    mapsToEdit.append(map.copy() as? RealmMap)
   }
 
   private func removed(map: RealmMap) {
-    mapsToAdd.removeAll { $0 == map }
-    mapsToEdit.removeAll { $0 == map }
-    mapsToRemove.append(map)
+    mapsToAdd.removeAll { $0?.id == map.id }
+    mapsToEdit.removeAll { $0?.id == map.id }
+    mapsToRemove.append(map.copy() as? RealmMap)
   }
 
   func clearJournal() {

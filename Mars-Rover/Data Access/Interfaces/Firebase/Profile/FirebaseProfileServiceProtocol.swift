@@ -9,7 +9,7 @@ public enum ProfileActionType {
   case setupNewProfile
 }
 
-typealias FetchProfileCompletion = (ProfileModel?, ProfileError?) -> Void
+typealias FetchProfileCompletion = (Profile?, ProfileError?) -> Void
 typealias WriteProfileCompletion = (ProfileError?) -> Void
 
 protocol FirebaseProfileServiceProtocol {

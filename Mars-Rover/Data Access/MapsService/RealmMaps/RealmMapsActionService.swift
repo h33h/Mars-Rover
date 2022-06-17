@@ -31,15 +31,15 @@ final class RealmMapsActionService: RealmMapsActionServiceProtocol {
 
   private func edit(map: RealmMap) {
     guard let realm = realm else { return }
-
+    // swiftlint:disable first_where
     let object = realm
       .objects(RealmMap.self)
-      .filter("id = %@", map.id)
+      .filter(L10n.Network.RealmMap.filter(map.id))
       .first
 
     realm.safeWrite {
       if let object = object {
-        object.mapLabel = map.mapLabel
+        object.label = map.label
         object.lastEdited = Date()
         object.mapContent = map.mapContent
       }
@@ -50,15 +50,15 @@ final class RealmMapsActionService: RealmMapsActionServiceProtocol {
     guard let realm = realm else { return }
 
     guard
+      // swiftlint:disable first_where
       let object = realm
         .objects(RealmMap.self)
-        .filter("id = %@", map.id)
-        .first,
-      let map = object.mapContent
+        .filter(L10n.Network.RealmMap.filter(map.id))
+        .first
     else { return }
 
     realm.safeWrite {
-      realm.delete(map)
+      realm.delete(map.mapContent)
       realm.delete(object)
     }
   }

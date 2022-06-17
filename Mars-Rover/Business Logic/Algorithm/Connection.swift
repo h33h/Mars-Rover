@@ -5,8 +5,6 @@
 //  Created by XXX on 21.11.21.
 //
 
-import Foundation
-
 class Connection {
   public let toNode: Node
   public let weight: Int

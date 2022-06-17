@@ -8,7 +8,6 @@
 import FirebaseAuth
 
 final class FirebaseSignUpService: FirebaseSignUpServiceProtocol {
-  // MARK: - FirebaseSignUpService: SignUp Methods
   func signUp(with type: SignUpType, completion: @escaping SignUpCompletion) {
     switch type {
     case let .emailAndPassword(email, password):

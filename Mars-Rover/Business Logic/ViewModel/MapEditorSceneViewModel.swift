@@ -8,46 +8,68 @@
 import SceneKit
 
 class MapEditorSceneViewModel {
-  // MARK: - MapEditorSceneViewModel: Variables
-  let mapCreator: MapCreatorProtocol
-  let realmMapsService: RealmMapsServiceProtocol
-  let journalService: MapsJournalServiceProtocol
+  weak var coordinator: BackFlow?
+  var mapManager: MapManagerProtocol?
+  var realmMapsService: RealmMapsServiceProtocol?
+  var journalService: MapsJournalServiceProtocol?
+  private(set) var map: RealmMap
+  private(set) var mapType: MapType
 
-  init(realmMapsService: RealmMapsServiceProtocol, journalService: MapsJournalServiceProtocol, mapCreator: MapCreatorProtocol) {
-    self.realmMapsService = realmMapsService
-    self.journalService = journalService
-    self.mapCreator = mapCreator
+  init(map: RealmMap, mapType: MapType) {
+    self.map = map
+    self.mapType = mapType
   }
 
-  // MARK: - MapEditorSceneViewModel: Methods
-  func mapAction(type: EditMapAction) {
-    switch type {
-    case .clearMapNodes:
-      mapCreator.mapModel(action: .clearMapNodes)
-    case let .replaceMapBlock(replacingNode, block):
-      mapCreator.mapModel(action: .replaceMapBlock(replacingNode: replacingNode, block: block))
+  func mapManager(action: MapManagerAction) {
+    switch action {
+    case .clear:
+      mapManager?.manager(action: .clear)
+    case let .replaceBlock(replacingNode, block):
+      mapManager?.manager(action: .replaceBlock(replacingNode: replacingNode, block: block))
     case .generateRandomMap:
-      mapCreator.mapModel(action: .generateRandomMap)
+      mapManager?.manager(action: .generateRandomMap)
     }
   }
 
   func saveMap(controller: UIViewController) {
-    switch mapCreator.mapType {
+    switch mapType {
     case .new:
-      let mapNameAlert = UIAlertController(title: "Save Map", message: "Enter new map title", preferredStyle: .alert)
+      let mapNameAlert = UIAlertController(
+        title: L10n.ViewModels.MapEditor.SaveMap.title,
+        message: L10n.ViewModels.MapEditor.SaveMap.description,
+        preferredStyle: .alert)
       mapNameAlert.addTextField()
-      let mapAddAction = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
-        guard let this = self, let mapName = mapNameAlert.textFields?.first?.text else { return }
-        this.mapCreator.currentMap.mapLabel = mapName
-        this.realmMapsService.mapAction(is: .add(map: this.mapCreator.currentMap))
-        this.journalService.journal(action: .add(map: this.mapCreator.currentMap))
+      let mapAddAction = UIAlertAction(
+        title: L10n.ViewModels.MapEditor.SaveMap.ok,
+        style: .default
+      ) { [weak self] _ in
+        guard
+          let self = self,
+          let mapName = mapNameAlert.textFields?.first?.text,
+          let mapContent = self.mapManager?.mapContent
+        else { return }
+        let map = RealmMap(
+          id: .generate(),
+          label: mapName,
+          lastEdited: Date(),
+          mapContent: mapContent)
+        self.journalService?.journal(action: .add(map: map))
+        self.realmMapsService?.mapAction(is: .add(map: map))
       }
       mapNameAlert.addAction(mapAddAction)
-      mapNameAlert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+      mapNameAlert.addAction(UIAlertAction(
+        title: L10n.ViewModels.MapEditor.SaveMap.cancel,
+        style: .destructive,
+        handler: nil)
+      )
       controller.present(mapNameAlert, animated: true, completion: nil)
     case .existed:
-      self.realmMapsService.mapAction(is: .edit(map: mapCreator.currentMap))
-      self.journalService.journal(action: .edit(map: mapCreator.currentMap))
+      guard
+        let mapContent = mapManager?.mapContent
+      else { return }
+      map.mapContent = mapContent
+      self.journalService?.journal(action: .edit(map: map))
+      self.realmMapsService?.mapAction(is: .edit(map: map))
     }
   }
 }

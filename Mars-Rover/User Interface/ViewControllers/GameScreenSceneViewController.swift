@@ -8,9 +8,9 @@
 import SceneKit
 
 class GameScreenSceneViewController: UIViewController {
-  var coordinator: BackFlow?
-  private var viewModel: GameScreenSceneViewModel?
+  var viewModel: GameScreenSceneViewModel?
   private var scnScene: SCNScene?
+
   @IBOutlet private var scnView: SCNView!
 
   override func viewDidLoad() {
@@ -26,15 +26,14 @@ class GameScreenSceneViewController: UIViewController {
   }
 
   @IBAction private func exitAction(_ sender: Any) {
-    coordinator?.goBack()
-  }
-
-  func setViewModel(viewModel: GameScreenSceneViewModel) {
-    self.viewModel = viewModel
+    viewModel?.coordinator?.goBack()
   }
 
   private func setupScene() {
-    guard let scnScene = SCNScene(named: "mapScene.scn", inDirectory: "art.scnassets") else { return }
+    guard let scnScene = SCNScene(
+      named: L10n.ViewControllers.GameScreenScene.path,
+      inDirectory: L10n.ViewControllers.GameScreenScene.assetsPath)
+    else { return }
     scnView.scene = scnScene
     self.scnScene = scnScene
   }
@@ -42,9 +41,12 @@ class GameScreenSceneViewController: UIViewController {
   private func setupMap() {
     guard
       let scnScene = scnScene,
-      let mapNode = scnScene.rootNode.childNode(withName: "board", recursively: true)
+      let mapNode = scnScene.rootNode.childNode(
+        withName: L10n.ViewControllers.GameScreenScene.boardName,
+        recursively: true
+      )
     else { return }
-    if let mapManagerNode = viewModel?.mapCreator.mapNode {
+    if let mapManagerNode = viewModel?.mapManager?.mapNode {
       mapNode.addChildNode(mapManagerNode)
     }
   }
@@ -52,9 +54,12 @@ class GameScreenSceneViewController: UIViewController {
   private func setupMarsRover() {
     guard
       let scnScene = scnScene,
-      let roverNode = scnScene.rootNode.childNode(withName: "rover", recursively: true)
+      let roverNode = scnScene.rootNode.childNode(
+        withName: L10n.ViewControllers.GameScreenScene.roverName,
+        recursively: true
+      )
     else { return }
-    if let roverManagerNode = viewModel?.roverManager.marsRover {
+    if let roverManagerNode = viewModel?.roverManager?.marsRover {
       roverNode.addChildNode(roverManagerNode)
     }
   }
@@ -62,8 +67,14 @@ class GameScreenSceneViewController: UIViewController {
   private func clearNodes() {
     guard
       let scnScene = scnScene,
-      let mapNode = scnScene.rootNode.childNode(withName: "board", recursively: true),
-      let roverNode = scnScene.rootNode.childNode(withName: "rover", recursively: true)
+      let mapNode = scnScene.rootNode.childNode(
+        withName: L10n.ViewControllers.GameScreenScene.boardName,
+        recursively: true
+      ),
+      let roverNode = scnScene.rootNode.childNode(
+        withName: L10n.ViewControllers.GameScreenScene.roverName,
+        recursively: true
+      )
     else { return }
     mapNode.enumerateChildNodes { node, _ in
       node.removeFromParentNode()

@@ -5,8 +5,6 @@
 //  Created by XXX on 6.11.21.
 //
 
-import Foundation
-
 final class Box<T> {
   typealias Listener = (T) -> Void
   var listener: Listener?
