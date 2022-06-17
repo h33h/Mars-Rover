@@ -21,7 +21,6 @@ class SignInViewController: UIViewController {
     bindViewModel()
     emailTextField.delegate = self
     passwordTextField.delegate = self
-    setElementsDisabled(value: true)
   }
 
   @IBAction private func signInButtonAction(_ sender: Any) {
