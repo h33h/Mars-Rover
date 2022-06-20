@@ -8,6 +8,8 @@
 import FirebaseAuth
 
 final class FirebaseSignUpService: FirebaseSignUpServiceProtocol {
+  var profileService: FirebaseProfileServiceProtocol?
+
   func signUp(with type: SignUpType, completion: @escaping SignUpCompletion) {
     switch type {
     case let .emailAndPassword(email, password):
@@ -22,16 +24,22 @@ final class FirebaseSignUpService: FirebaseSignUpServiceProtocol {
         return
       }
       guard let user = data?.user else { return completion(.absentOfUser) }
-      user.sendEmailVerification { error in
+      user.sendEmailVerification { [weak self] error in
         if let error = error {
           completion(.error(error.localizedDescription))
           return
         }
-        do {
-          try Auth.auth().signOut()
-          return completion(nil)
-        } catch {
-          return completion(.error(error.localizedDescription))
+        self?.profileService?.profileAction(action: .setupNewProfile) { error in
+          if let error = error {
+            completion(.error(error.localizedDescription))
+            return
+          }
+          do {
+            try Auth.auth().signOut()
+            return completion(nil)
+          } catch {
+            return completion(.error(error.localizedDescription))
+          }
         }
       }
     }

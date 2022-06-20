@@ -15,7 +15,7 @@ protocol AppFlow: AnyObject {
 
 class AppCoordinator: BaseCoordinator, AppFlow {
   let window: UIWindow
-  var stateListener: AuthStateDidChangeListenerHandle?
+  private var stateListener: AuthStateDidChangeListenerHandle?
 
   init(window: UIWindow) {
     self.window = window
@@ -27,12 +27,16 @@ class AppCoordinator: BaseCoordinator, AppFlow {
     window.rootViewController = navigationController
     window.makeKeyAndVisible()
     stateListener = Auth.auth().addStateDidChangeListener { [weak self] _, user in
-      self?.navigationController.popToRootViewController(animated: true)
-      self?.removeChildCoordinators()
-      if user != nil {
+      if let user = user, user.isEmailVerified {
+        self?.navigationController.popToRootViewController(animated: true)
+        self?.removeChildCoordinators()
         self?.coordinateToMainMenu()
         return
+      } else if let user = user, !user.isEmailVerified {
+        return
       }
+      self?.navigationController.popToRootViewController(animated: true)
+      self?.removeChildCoordinators()
       self?.coordinateToSignIn()
     }
     DIContainer.shared.assembler.apply(assembly: AuthServicesAssembly())

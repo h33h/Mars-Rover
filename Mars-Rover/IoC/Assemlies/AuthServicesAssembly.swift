@@ -14,8 +14,15 @@ class AuthServicesAssembly: Assembly {
     }
     .inObjectScope(.container)
 
-    container.register(FirebaseSignUpService.self) { _ in
-      FirebaseSignUpService()
+    container.register(FirebaseProfileService.self) { _ in
+      FirebaseProfileService()
+    }
+    .inObjectScope(.container)
+
+    container.register(FirebaseSignUpService.self) { resolver in
+      let service = FirebaseSignUpService()
+      service.profileService = resolver.resolve(FirebaseProfileService.self)
+      return service
     }
     .inObjectScope(.container)
 
@@ -24,11 +31,6 @@ class AuthServicesAssembly: Assembly {
       service.signInService = resolver.resolve(FirebaseSignInService.self)
       service.signUpService = resolver.resolve(FirebaseSignUpService.self)
       return service
-    }
-    .inObjectScope(.container)
-
-    container.register(FirebaseProfileService.self) { _ in
-      FirebaseProfileService()
     }
     .inObjectScope(.container)
   }

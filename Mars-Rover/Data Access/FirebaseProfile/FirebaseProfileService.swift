@@ -9,7 +9,6 @@ import FirebaseAuth
 import FirebaseFirestore
 
 final class FirebaseProfileService: FirebaseProfileServiceProtocol {
-  // MARK: - FirebaseProfileFetchService: Methods
     func fetch(completion: @escaping FetchProfileCompletion) {
       guard let user = Auth.auth().currentUser else { return completion(nil, .notSignedIn) }
       let userRef = Firestore.firestore().collection(L10n.Network.FirebaseProfile.users).document(user.uid)

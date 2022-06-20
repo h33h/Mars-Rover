@@ -63,16 +63,6 @@ class SignUpViewController: UIViewController {
       }
       self?.setElementsDisabled(value: false)
     }
-
-    viewModel?.profileWriteError.bind { [weak self] error in
-      if let error = error {
-        self?.showSimpleNotificationAlert(
-          title: L10n.ViewControllers.SignUp.Error.title,
-          description: error.localizedDescription
-        )
-      }
-      self?.setElementsDisabled(value: false)
-    }
   }
 
   private func setElementsDisabled(value: Bool) {
