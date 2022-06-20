@@ -1,0 +1,16 @@
+strings:
+  inputs: Mars-Rover/Assets/
+  outputs:
+    - templateName: structured-swift5
+      output: Mars-Rover/Assets/Generated/Strings.swift
+xcassets:
+  inputs:
+    - Mars-Rover/Assets/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: Mars-Rover/Assets/Generated/Assets.swift
+ib:
+  inputs: Mars-Rover/Assets/Storyboards
+  outputs:
+    - templateName: scenes-swift5
+      output: Mars-Rover/Assets/Generated/Storyboards.swift
