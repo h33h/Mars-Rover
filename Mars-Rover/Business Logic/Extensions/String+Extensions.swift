@@ -9,6 +9,7 @@ import Foundation
 
 extension String {
   var localized: String {
+    // swiftlint: disable nslocalizedstring_key
     NSLocalizedString(self, comment: "")
   }
 }
