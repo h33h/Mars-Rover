@@ -43,11 +43,9 @@ class GameScreenViewController: UIViewController {
       }
     }
     viewModel?.mapsError.bind { [weak self] error in
-      guard let error = error else { return }
       self?.showSimpleNotificationAlert(
         title: L10n.ViewControllers.GameScreen.Error.title,
-        description: error.localizedDescription,
-        buttonAction: nil
+        error: error
       )
     }
   }

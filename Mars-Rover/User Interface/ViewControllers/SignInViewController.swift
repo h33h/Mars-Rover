@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, InteractionControllable {
   var viewModel: SignInViewModel?
 
   @IBOutlet private var emailTextField: AuthorizationTextField!
@@ -19,8 +19,7 @@ class SignInViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     bindViewModel()
-    emailTextField.delegate = self
-    passwordTextField.delegate = self
+    setupDelegates()
   }
 
   @IBAction private func signInButtonAction(_ sender: Any) {
@@ -36,30 +35,25 @@ class SignInViewController: UIViewController {
       return
     }
     viewModel?.signIn(signInType: .emailAndPassword(email: email, password: password))
-    setElementsDisabled(value: true)
+    interaction(is: .off)
   }
 
   @IBAction private func createAccountButtonAction(_ sender: Any) {
     viewModel?.coordinator?.coordinateToSignUp()
   }
 
-  private func setElementsDisabled(value: Bool) {
-    emailTextField.isEnabled = !value
-    passwordTextField.isEnabled = !value
-    signInButton.isEnabled = !value
-    createAccountButton.isEnabled = !value
-    value ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+  private func setupDelegates() {
+    emailTextField.delegate = self
+    passwordTextField.delegate = self
   }
 
   private func bindViewModel() {
     viewModel?.signInError.bind { [weak self] error in
-      if let error = error {
-        self?.showSimpleNotificationAlert(
-          title: L10n.ViewControllers.SignIn.Error.title,
-          description: error.localizedDescription
-        )
-      }
-      self?.setElementsDisabled(value: false)
+      self?.showSimpleNotificationAlert(
+        title: L10n.ViewControllers.SignIn.Error.title,
+        error: error
+      )
+      self?.interaction(is: .on)
     }
   }
 }

@@ -92,7 +92,12 @@ class MapEditorSceneViewController: UIViewController {
         let selectedBlock = selectedBlock,
         let replacingNode = resultNode as? SCNBlockNode
       else { return }
-      viewModel?.mapManager(action: .replaceBlock(replacingNode: replacingNode, block: selectedBlock))
+      viewModel?.mapManager(
+        action: .replaceBlock(
+          replacingNode: replacingNode,
+          block: selectedBlock
+        )
+      )
     }
   }
 
@@ -106,7 +111,12 @@ class MapEditorSceneViewController: UIViewController {
         let selectedBlock = selectedBlock,
         let replacingNode = resultNode as? SCNBlockNode
       else { return }
-      viewModel?.mapManager(action: .replaceBlock(replacingNode: replacingNode, block: selectedBlock))
+      viewModel?.mapManager(
+        action: .replaceBlock(
+          replacingNode: replacingNode,
+          block: selectedBlock
+        )
+      )
     }
   }
 

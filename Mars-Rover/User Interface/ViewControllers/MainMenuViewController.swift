@@ -32,22 +32,20 @@ class MainMenuViewController: UIViewController {
 
   private func bindViewModel() {
     viewModel?.profileResponse.bind { [weak self] profile, error in
-      if let error = error {
-        self?.showSimpleNotificationAlert(
-          title: L10n.ViewControllers.MainMenu.Error.profileError,
-          description: error.localizedDescription)
-      }
+      self?.showSimpleNotificationAlert(
+        title: L10n.ViewControllers.MainMenu.Error.profileError,
+        error: error
+      )
       if let profile = profile {
         self?.usernameLabel.text = profile.username
       }
     }
 
     viewModel?.signOutError.bind { [weak self] error in
-      if let error = error {
-        self?.showSimpleNotificationAlert(
-          title: L10n.ViewControllers.MainMenu.Error.signOutError,
-          description: error.localizedDescription)
-      }
+      self?.showSimpleNotificationAlert(
+        title: L10n.ViewControllers.MainMenu.Error.signOutError,
+        error: error
+      )
     }
   }
 }

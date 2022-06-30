@@ -61,6 +61,7 @@
 		A9666F392736B86D0022AFFD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F382736B86D0022AFFD /* Box.swift */; };
 		A9666F3F27395A2C0022AFFD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F3E27395A2C0022AFFD /* Coordinator.swift */; };
 		A9666F4127395AB60022AFFD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9666F4027395AB60022AFFD /* AppCoordinator.swift */; };
+		A971634E286DA19F00459DB0 /* InteractionControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A971634D286DA19F00459DB0 /* InteractionControllable.swift */; };
 		A98AD916274E75E700A5C0CE /* RoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98AD915274E75E700A5C0CE /* RoverManager.swift */; };
 		A98AD918274E805C00A5C0CE /* SCNNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98AD917274E805C00A5C0CE /* SCNNode+Extensions.swift */; };
 		A98AD91A274E8C3700A5C0CE /* SCNBlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98AD919274E8C3700A5C0CE /* SCNBlockNode.swift */; };
@@ -165,6 +166,7 @@
 		A9666F382736B86D0022AFFD /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		A9666F3E27395A2C0022AFFD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A9666F4027395AB60022AFFD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		A971634D286DA19F00459DB0 /* InteractionControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionControllable.swift; sourceTree = "<group>"; };
 		A98AD915274E75E700A5C0CE /* RoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverManager.swift; sourceTree = "<group>"; };
 		A98AD917274E805C00A5C0CE /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Extensions.swift"; sourceTree = "<group>"; };
 		A98AD919274E8C3700A5C0CE /* SCNBlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNBlockNode.swift; sourceTree = "<group>"; };
@@ -433,6 +435,8 @@
 		A938EA702859F1D100CEFFA9 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				A971634F286DA44900459DB0 /* Extensions */,
+				A97B831B286D9E1F00CF45F4 /* Interfaces */,
 				A9F4540A27315A6A00017E26 /* ViewControllers */,
 				A9F4541027316DFB00017E26 /* Custom Views */,
 			);
@@ -489,7 +493,6 @@
 		A93A9F95273305D000376332 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A93A9F962733063A00376332 /* UIViewController+Extensions.swift */,
 				A9FA590C273FF331002109A0 /* Realm+Extensions.swift */,
 				A98AD917274E805C00A5C0CE /* SCNNode+Extensions.swift */,
 				A913B6E0285CE3CB00E5FDC1 /* String+Extensions.swift */,
@@ -521,6 +524,22 @@
 				A9D10FED275237C8009FA566 /* SignUpCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		A971634F286DA44900459DB0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A93A9F962733063A00376332 /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A97B831B286D9E1F00CF45F4 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				A971634D286DA19F00459DB0 /* InteractionControllable.swift */,
+			);
+			path = Interfaces;
 			sourceTree = "<group>";
 		};
 		A9ACAB112747CBC0004C4DC3 /* Manager */ = {
@@ -851,6 +870,7 @@
 				A921939A272DD6330006CE85 /* MainMenuViewController.swift in Sources */,
 				A9EE8F06273C032000F18D62 /* RealmMap.swift in Sources */,
 				A9B5A7B6274198460075C954 /* FirebaseMapsActionService.swift in Sources */,
+				A971634E286DA19F00459DB0 /* InteractionControllable.swift in Sources */,
 				A93A9F902732EFB800376332 /* Profile.swift in Sources */,
 				A9219CDC285B114D00C06D1D /* FirebaseMapsServiceProtocol.swift in Sources */,
 				A9EE8F08273C066600F18D62 /* MapEditorViewModel.swift in Sources */,

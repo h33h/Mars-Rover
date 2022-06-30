@@ -57,10 +57,11 @@ class MapEditorSceneViewModel {
         self.realmMapsService?.mapAction(is: .add(map: map))
       }
       mapNameAlert.addAction(mapAddAction)
-      mapNameAlert.addAction(UIAlertAction(
-        title: L10n.ViewModels.MapEditor.SaveMap.cancel,
-        style: .destructive,
-        handler: nil)
+      mapNameAlert.addAction(
+        UIAlertAction(
+          title: L10n.ViewModels.MapEditor.SaveMap.cancel,
+          style: .destructive
+        )
       )
       controller.present(mapNameAlert, animated: true, completion: nil)
     case .existed:

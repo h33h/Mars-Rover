@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, InteractionControllable {
   var viewModel: SignUpViewModel?
 
   @IBOutlet private var emailTextField: AuthorizationTextField!
@@ -20,9 +20,7 @@ class SignUpViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     bindViewModel()
-    emailTextField.delegate = self
-    passwordTextField.delegate = self
-    reEnterPasswordTextField.delegate = self
+    setupDelegates()
   }
 
   @IBAction private func signUpButtonAction(_ sender: Any) {
@@ -46,32 +44,27 @@ class SignUpViewController: UIViewController {
       return
     }
     viewModel?.createAccount(signUpType: .emailAndPassword(email: email, password: password))
-    setElementsDisabled(value: true)
+    interaction(is: .off)
   }
 
   @IBAction private func backButtonAction(_ sender: Any) {
     viewModel?.coordinator?.goBack()
   }
 
-  private func bindViewModel() {
-    viewModel?.signUpError.bind { [weak self] error in
-      if let error = error {
-        self?.showSimpleNotificationAlert(
-          title: L10n.ViewControllers.SignUp.Error.title,
-          description: error.localizedDescription
-        )
-      }
-      self?.setElementsDisabled(value: false)
-    }
+  private func setupDelegates() {
+    emailTextField.delegate = self
+    passwordTextField.delegate = self
+    reEnterPasswordTextField.delegate = self
   }
 
-  private func setElementsDisabled(value: Bool) {
-    emailTextField.isEnabled = !value
-    passwordTextField.isEnabled = !value
-    reEnterPasswordTextField.isEnabled = !value
-    signUpButton.isEnabled = !value
-    backButton.isEnabled = !value
-    value ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+  private func bindViewModel() {
+    viewModel?.signUpError.bind { [weak self] error in
+      self?.showSimpleNotificationAlert(
+        title: L10n.ViewControllers.SignUp.Error.title,
+        error: error
+      )
+      self?.interaction(is: .on)
+    }
   }
 }
 

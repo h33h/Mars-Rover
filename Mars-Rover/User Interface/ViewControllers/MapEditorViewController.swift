@@ -54,12 +54,10 @@ class MapEditorViewController: UIViewController {
       }
     }
     viewModel?.mapsError.bind { [weak self] error in
-      if let error = error {
-        self?.showSimpleNotificationAlert(
-          title: L10n.ViewControllers.MapEditor.Error.title,
-          description: error.localizedDescription
-        )
-      }
+      self?.showSimpleNotificationAlert(
+        title: L10n.ViewControllers.MapEditor.Error.title,
+        error: error
+      )
     }
   }
 }
@@ -102,15 +100,18 @@ extension MapEditorViewController: UITableViewDataSource, UITableViewDelegate {
     delete.image = UIImage(
       systemName: L10n.ViewControllers.MapEditor.Images.delete
     )
+
     let edit = UIContextualAction(style: .normal, title: .none) { [weak self] _, _, completion in
       guard let this = self else { return completion(false) }
-      this.viewModel?.coordinator?.coordinateToMapEditorScene(map: this.viewModel?.maps.value[indexPath.row].copy() as? RealmMap)
+      this.viewModel?.coordinator?.coordinateToMapEditorScene(
+        map: this.viewModel?.maps.value[indexPath.row].copy() as? RealmMap
+      )
       completion(true)
     }
     edit.image = UIImage(
       systemName: L10n.ViewControllers.MapEditor.Images.edit
     )
-    edit.backgroundColor =  .blue
+    edit.backgroundColor = .blue
 
     let config = UISwipeActionsConfiguration(actions: [delete, edit])
     config.performsFirstActionWithFullSwipe = false
