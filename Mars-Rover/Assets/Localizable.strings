@@ -85,4 +85,6 @@
 
 "Network.RealmMap.filter" = "id = %@";
 
+"IoC.DIContainer.Error.description" = "Object not found";
+
 

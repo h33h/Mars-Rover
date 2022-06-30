@@ -380,13 +380,13 @@
 		A9219CE5285B766A00C06D1D /* IoC */ = {
 			isa = PBXGroup;
 			children = (
-				A9219CE8285B76AE00C06D1D /* Assemlies */,
+				A9219CE8285B76AE00C06D1D /* Assemblies */,
 				A9219CE6285B768400C06D1D /* DIContainer.swift */,
 			);
 			path = IoC;
 			sourceTree = "<group>";
 		};
-		A9219CE8285B76AE00C06D1D /* Assemlies */ = {
+		A9219CE8285B76AE00C06D1D /* Assemblies */ = {
 			isa = PBXGroup;
 			children = (
 				A9219CE9285B771700C06D1D /* ApplicationAssembly.swift */,
@@ -401,7 +401,7 @@
 				A9219CF9285B95AC00C06D1D /* GameScreenSceneAssembly.swift */,
 				A9219CFB285B967200C06D1D /* ManagerAssembly.swift */,
 			);
-			path = Assemlies;
+			path = Assemblies;
 			sourceTree = "<group>";
 		};
 		A938EA6E2859F0ED00CEFFA9 /* Data Access */ = {

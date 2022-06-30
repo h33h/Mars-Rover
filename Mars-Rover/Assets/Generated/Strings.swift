@@ -58,6 +58,15 @@ internal enum L10n {
     }
   }
 
+  internal enum IoC {
+    internal enum DIContainer {
+      internal enum Error {
+        /// Object not found
+        internal static let description = L10n.tr("Localizable", "IoC.DIContainer.Error.description")
+      }
+    }
+  }
+
   internal enum Manager {
     internal enum RoverManager {
       /// art.scnassets/marsRover.scn
